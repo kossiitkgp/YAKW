@@ -3,6 +3,7 @@ module.exports = {
   extends: [
     // ...
     "plugin:astro/all",
+    "prettier"
   ],
   // ...
   overrides: [

@@ -16,6 +16,7 @@
   "devDependencies": {
     "@typescript-eslint/parser": "^5.60.0",
     "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-astro": "^0.27.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
