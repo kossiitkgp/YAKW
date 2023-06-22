@@ -11,7 +11,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "astro": "^2.6.4"
+    "@astrojs/vercel": "^3.5.0",
+    "astro": "^2.6.0"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^5.60.0",
