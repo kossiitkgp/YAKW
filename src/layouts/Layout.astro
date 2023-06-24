@@ -5,7 +5,9 @@ export interface Props {
 }
 
 const { title, description } = Astro.props;
-const defaultDescription = "This is the best description to exist";
+const defaultDescription =
+  "KOSS organizes various technical workshops and seminars in the campus in order to continue the healthy culture of Technology and Open Source.";
+const socialImageURL = new URL("/open_graph.png", Astro.url);
 ---
 
 <!DOCTYPE html>
@@ -26,14 +28,16 @@ const defaultDescription = "This is the best description to exist";
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description ? description : defaultDescription} />
-    <meta property="og:image" content="/open_graph.png" />
-
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:alt" content="" />
+    <meta property="og:locale" content="en" />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description ? description : defaultDescription} />
-    <meta property="twitter:image" content="/open_graph.png" />
+    <meta property="twitter:image" content={socialImageURL} />
+    <meta property="twitter:image:alt" content="" />
   </head>
   <body>
     <slot />
