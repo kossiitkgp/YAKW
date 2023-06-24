@@ -26,7 +26,7 @@
     "typescript": "5.0.3"
   },
   "lint-staged": {
-    "*.{astro,md}": [
+    "*.{astro,js}": [
       "prettier --write",
       "eslint --ext .js,.astro --fix"
     ]
