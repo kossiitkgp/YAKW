@@ -1,0 +1,53 @@
+---
+export interface Props {
+	title: string;
+	description: string;
+	image_src: string;
+	image_alt: string;
+}
+
+const { title, description, image_src, image_alt } = Astro.props;
+---
+
+<section id="about">
+	<div class="section-wrapper">
+		<img class="section-img" src={image_src} alt={image_alt} />
+		<div class="section-content">
+			<h1 class="section-title">{title}</h1>
+			<p class="section-description">{description}</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	section {
+		height: 100dvh;
+
+		display: flex;
+		align-items: center;
+	}
+
+	.section-wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-items: center;
+
+		gap: 3rem;
+		height: 30%;
+		padding: 0 15%;
+	}
+
+	.section-title {
+		font-size: 3rem;
+		color: var(--accent-color-red);
+		text-align: left;
+
+		margin-bottom: 2rem;
+	}
+
+	.section-description {
+		padding-right: 10%;
+		font-size: 1.3rem;
+		color: var(--text-secondary);
+	}
+</style>
