@@ -42,6 +42,8 @@ All commands are run from the root of the project, from a terminal:
 | `yarn astro ...` | Run CLI commands like `astro add`, `astro check` |
 | `yarn astro -- --help` | Get help using the Astro CLI |
 
+## Project Structure
+
 ### File Structure
 
 ```
