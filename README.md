@@ -4,7 +4,7 @@ This is the repository for development of (yet another) new and improved KOSS we
 This website is created using [Astro](https://astro.build).
 
 ## Table of Contents
-- [Development]
+- [Development](#development)
 	- [Setting Up Locally](#setting-up-locally)
 	- [Yarn Commands](#yarn-commands)
 - [Project Structure](#project-structure)
@@ -13,7 +13,7 @@ This website is created using [Astro](https://astro.build).
 
 ## Development
 ### Setting Up Locally
-- Install the latest verison of [NodeJS](https://nodejs.org/en).
+- Install the latest version of [NodeJS](https://nodejs.org/en).
 - Install [Yarn](https://yarnpkg.com/) the package manager used in this project instead of `npm`. See the [Yarn docs](https://yarnpkg.com/getting-started/install) for installation instructions.
 - Clone this repository.
 - Run `yarn install` in a terminal to install all the dependencies.
