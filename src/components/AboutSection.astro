@@ -1,23 +1,16 @@
 ---
-export interface Props {
-	title: string;
-	description: string;
-	image_src: string;
-	image_alt: string;
-}
-
-const { title, description, image_src, image_alt } = Astro.props;
+import KOSSLogoLight from "../assets/koss-logo-light-gradient.svg";
 ---
 
 <section id="about" class="section-container">
 	<div class="section-wrapper">
-		<img class="section-img" src={image_src} alt={image_alt} />
+		<img class="section-img" src={KOSSLogoLight} alt="KOSS Logo" />
 		<div class="section-content">
 			<div class="section-title">
-				<img class="section-title-img" src={image_src} alt={image_alt} />
-				<h1>{title}</h1>
+				<img class="section-title-img" src={KOSSLogoLight} alt="KOSS Logo" />
+				<h1>Kharagpur Open Source Society</h1>
 			</div>
-			<p class="section-description">{description}</p>
+			<p class="section-description">We are a group of Open Source Enthusiasts who focus on something more preliminary and relevant, 'A Love for Coding'. Every year KOSS plans to hold events for familiarizing students with UNIX tools, Linux environment, Git Development Workflow, practice Algorithms and Data Structures, besides conducting workshops on GUI programming, Web development, Android application Development and Hackathons.</p>
 		</div>
 	</div>
 </section>
