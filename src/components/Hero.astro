@@ -1,0 +1,28 @@
+---
+import Icon from "./Icon.astro";
+---
+
+<section id="hero" class="section-container">
+  <div class="section-wrapper">
+    <Icon icon="koss_logo_updated" />
+  </div>
+</section>
+
+<style>
+  section {
+    height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-wrapper {
+    display: flex;
+    justify-content: center;
+
+    gap: 3rem;
+    width: 30vw;
+    max-width: 1200px;
+    margin: 5rem auto;
+  }
+</style>
