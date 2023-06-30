@@ -1,58 +1,42 @@
 ---
 import KOSSLogoLight from "../assets/koss-logo-light-gradient.svg";
+import Section from "./Section.astro";
 ---
 
-<section id="about" class="section-container">
-  <div class="section-wrapper">
-    <img class="section-img" src={KOSSLogoLight} alt="KOSS Logo" />
-    <div class="section-content">
-      <div class="section-title">
-        <img class="section-title-img" src={KOSSLogoLight} alt="KOSS Logo" />
-        <h1>Kharagpur Open Source Society</h1>
-      </div>
-      <p class="section-description">
-        We are a group of Open Source Enthusiasts who focus on something more preliminary and relevant, 'A Love for
-        Coding'. Every year KOSS plans to hold events for familiarizing students with UNIX tools, Linux environment, Git
-        Development Workflow, practice Algorithms and Data Structures, besides conducting workshops on GUI programming,
-        Web development, Android application Development and Hackathons.
-      </p>
+<Section id="about">
+  <img class="about-img" src={KOSSLogoLight} alt="KOSS Logo" />
+  <div class="about-content">
+    <div class="about-title">
+      <img class="about-title-img" src={KOSSLogoLight} alt="KOSS Logo" />
+      <h1>Kharagpur Open Source Society</h1>
     </div>
+    <p class="about-description">
+      We are a group of Open Source Enthusiasts who focus on something more preliminary and relevant, 'A Love for
+      Coding'. Every year KOSS plans to hold events for familiarizing students with UNIX tools, Linux environment, Git
+      Development Workflow, practice Algorithms and Data Structures, besides conducting workshops on GUI programming,
+      Web development, Android application Development and Hackathons.
+    </p>
   </div>
-</section>
+</Section>
+
+<style is:global>
+  #about .section-wrapper {
+    gap: 3rem;
+    max-width: 1200px;
+  }
+</style>
 
 <style>
-  section {
-    height: 100dvh;
-
-    display: flex;
-    align-items: center;
-  }
-
-  .section-container {
-    container: Section / inline-size;
-  }
-
-  .section-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    gap: 3rem;
-    width: 75%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-img {
+  .about-img {
     width: max(50cqw, 50rem);
   }
 
-  .section-title-img {
+  .about-title-img {
     display: none;
     width: max(30cqw, 4rem);
   }
 
-  .section-title {
+  .about-title {
     font-size: max(2cqi, 1.1rem);
     color: var(--accent-color-red);
     text-align: left;
@@ -64,50 +48,46 @@ import KOSSLogoLight from "../assets/koss-logo-light-gradient.svg";
     gap: 1rem;
   }
 
-  .section-description {
+  .about-description {
     font-size: max(1.3cqi, 1rem);
     color: var(--text-secondary);
   }
 
   @container Section (max-width: 768px) {
-    .section-wrapper {
-      width: 80%;
-    }
-
-    .section-img {
+    .about-img {
       display: none;
     }
 
-    .section-title {
+    .about-title {
       align-items: center;
       text-align: center;
     }
 
-    .section-title-img {
+    .about-title-img {
       display: block;
     }
 
-    .section-description {
+    .about-description {
       padding-right: 0;
     }
   }
 
   @container Section (min-width: 481px) and (max-width: 768px) {
-    .section-title {
+    .about-title {
       font-size: 3.2cqi;
     }
 
-    .section-description {
+    .about-description {
       font-size: 2.8cqi;
     }
   }
 
   @container Section (max-width: 480px) {
-    .section-title {
+    .about-title {
       font-size: 4cqi;
     }
 
-    .section-description {
+    .about-description {
       font-size: 4cqi;
     }
   }
