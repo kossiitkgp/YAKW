@@ -1,0 +1,36 @@
+---
+export interface Props {
+  id: string;
+}
+
+const { id } = Astro.props as Props;
+---
+
+<section id={id}>
+  <div class="section-wrapper">
+    <slot />
+  </div>
+</section>
+
+<style>
+  section {
+    height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+
+    container: Section / inline-size;
+  }
+
+  .section-wrapper {
+    display: flex;
+    justify-content: center;
+
+    width: 70vw;
+    margin: 3cqi auto;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+</style>

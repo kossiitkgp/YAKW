@@ -1,29 +1,15 @@
 ---
 import Icon from "./Icon.astro";
+import Section from "./Section.astro";
 ---
 
-<section id="hero" class="section-container">
-  <div class="section-wrapper">
-    <Icon icon="koss-wall" />
-  </div>
-</section>
+<Section id="hero">
+  <Icon icon="koss-wall" />
+</Section>
 
-<style>
-  section {
-    height: 100dvh;
-
-    display: flex;
-    flex-direction: column;
-
-    container: Section / inline-size;
-  }
-
-  .section-wrapper {
-    display: flex;
-    justify-content: center;
-
-    width: 70vw;
+<style is:global>
+  #hero .section-wrapper {
+    gap: 3rem;
     max-width: 600px;
-    margin: 3cqi auto;
   }
 </style>
