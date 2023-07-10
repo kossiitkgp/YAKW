@@ -11,7 +11,9 @@ import Section from "./Section.astro";
       <h1>Kharagpur Open Source Society</h1>
     </div>
     <p class="about-description">
-	A community of open-source enthusiasts at IIT Kharagpur, KOSS members enthusiastically work on cutting-edge coding projects, from solving practical issues to having fun while encouraging one another's development and skill.<br><br>
+	  A community of open-source enthusiasts at IIT Kharagpur, KOSS members enthusiastically work on cutting-edge coding projects, from solving practical issues to having fun while encouraging one another's development and skill.
+    <p/>
+    <p class="about-description">
 	We hold annual events introducing students to Linux, UNIX technologies, and the Git Development Workflow, fostering a culture of technological exploration and knowledge-sharing.
     </p>
   </div>
@@ -49,7 +51,8 @@ import Section from "./Section.astro";
   .about-description {
     font-size: max(1.3cqi, 1rem);
     color: var(--text-secondary);
-    text-align: center;
+    text-align: left;    /* Changed to Left */
+    margin-bottom: 1rem;    /* Added bottom margin */ 
   }
 
   @container Section (max-width: 768px) {
