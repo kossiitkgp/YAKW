@@ -51,8 +51,8 @@ import Section from "./Section.astro";
   .about-description {
     font-size: max(1.3cqi, 1rem);
     color: var(--text-secondary);
-    text-align: left;    /* Changed to Left */
-    margin-bottom: 1rem;    /* Added bottom margin */ 
+    text-align: left;
+    margin-bottom: 1rem; 
   }
 
   @container Section (max-width: 768px) {
@@ -70,6 +70,7 @@ import Section from "./Section.astro";
     }
 
     .about-description {
+      text-align: center; /* Added center alignment for smaller devices like mobile phones*/
       padding-right: 0;
     }
   }
