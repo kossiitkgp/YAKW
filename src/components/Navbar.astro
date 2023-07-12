@@ -84,9 +84,15 @@ const currentPath = Astro.url.pathname;
     border-radius: 8px;
 
     text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: rgba($background-tertiary, 0.5);
+    }
   }
 
-  .active {
+  .active,
+  .active:hover {
     background-color: $background-tertiary;
   }
 
