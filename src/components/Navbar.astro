@@ -36,7 +36,7 @@ const currentPath = Astro.url.pathname;
 <div class="navbar">
   {
     navbarItems.map((item) => (
-      <a class:list={{"active": currentPath === item.link}} href={item.link}>
+      <a class:list={{ active: currentPath === item.link }} href={item.link}>
         <Icon icon={item.icon} />
         <div class="navbar-title">{item.displayName}</div>
       </a>
@@ -54,8 +54,9 @@ const currentPath = Astro.url.pathname;
     display: flex;
     align-items: center;
 
+    max-width: 90%;
     z-index: 100;
-    padding: 0.5rem 0.8rem;
+    padding: min(0.6rem, 1.5cqi) min(0.8rem, 2cqi);
     background-color: var(--background-secondary);
     backdrop-filter: blur(5px);
     border-radius: 10px;
@@ -67,8 +68,8 @@ const currentPath = Astro.url.pathname;
     align-items: center;
     justify-content: flex-end;
 
-    min-width: 7rem;
-    padding: 1rem 1.2rem;
+    width: 7rem;
+    padding: min(1rem, 2.5cqi) min(1.2rem, 3cqi);
     border-radius: 8px;
 
     text-decoration: none;
@@ -81,5 +82,6 @@ const currentPath = Astro.url.pathname;
   .navbar-title {
     margin-top: 0.6rem;
     color: var(--text-primary);
+    font-size: min(1rem, 2.5cqi);
   }
 </style>
