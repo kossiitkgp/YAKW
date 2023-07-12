@@ -30,7 +30,7 @@ import Section from "./Section.astro";
       margin-top: 20vh;
     }
 
-    @container Section (max-width: $screen-md-max) {
+    @container Section (max-width: #{$screen-md-max}) {
       #about .section-wrapper {
         margin-top: 15vh;
       }
@@ -68,7 +68,7 @@ import Section from "./Section.astro";
       margin-bottom: 1rem;
     }
 
-    @container Section (max-width: $screen-md-max) {
+    @container Section (max-width: #{$screen-md-min}) {
       .about-img {
         display: none;
       }
@@ -88,7 +88,7 @@ import Section from "./Section.astro";
       }
     }
 
-    @container Section (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
+    @container Section (min-width: #{$screen-sm-min}) and (max-width: #{$screen-md-min}) {
       .about-title {
         font-size: 3.2cqi;
       }
@@ -98,7 +98,7 @@ import Section from "./Section.astro";
       }
     }
 
-    @container Section (max-width: $screen-sm-max) {
+    @container Section (max-width: #{$screen-sm-max}) {
       .about-title {
         font-size: 4cqi;
       }

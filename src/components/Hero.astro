@@ -16,14 +16,14 @@ import Section from "./Section.astro";
     margin-top: 5vh;
   }
 
-  @container Section (max-width: $screen-xl-max) {
+  @container Section (max-width: #{$screen-xl-max}) {
     #hero .section-wrapper {
       max-width: 400px;
       max-height: 450px;
     }
   }
 
-  @container Section (max-width: $screen-md-max) {
+  @container Section (max-width: #{$screen-md-max}) {
     #hero .section-wrapper {
       margin-top: 15vh;
     }
