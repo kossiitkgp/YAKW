@@ -53,17 +53,9 @@ const socialImageURL = new URL("/open_graph.png", Astro.url);
     <slot />
   </body>
 </html>
-<style is:global>
-  :root {
-    --background-primary: #1a1a1a;
-    --background-secondary: #2b2b2b;
-    --background-tertiary: #3c3c3c;
-    --text-primary: #d9d9d9;
-    --text-secondary: #d9d9d9b3;
-    --accent-color-red: #fb2667;
-    --accent-color-blue: #48c7d9;
-    --border-color: #d9d9d933;
-  }
+
+<style is:global lang="scss">
+  @import "../styles/index.scss";
 
   * {
     margin: 0;
@@ -72,8 +64,8 @@ const socialImageURL = new URL("/open_graph.png", Astro.url);
   }
   html {
     font-family: "Rubik", sans-serif;
-    background-color: var(--background-primary);
-    color: var(--text-primary);
+    background-color: $background-primary;
+    color: $text-primary;
   }
 
   code {

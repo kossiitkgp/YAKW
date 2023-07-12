@@ -46,7 +46,9 @@ const currentPath = Astro.url.pathname;
   }
 </div>
 
-<style>
+<style lang="scss">
+  @import "../styles/index.scss";
+
   .navbar {
     position: fixed;
     left: 50%;
@@ -60,10 +62,10 @@ const currentPath = Astro.url.pathname;
     max-width: 90%;
     width: 35rem;
     z-index: 100;
-    background-color: var(--background-secondary);
+    background-color: $background-secondary;
     border-radius: 10px;
 
-    @media (max-width: 1450px) {
+    @media (max-width: $screen-xl-max) {
       width: 25rem;
     }
 
@@ -85,12 +87,12 @@ const currentPath = Astro.url.pathname;
   }
 
   .active {
-    background-color: var(--background-tertiary);
+    background-color: $background-tertiary;
   }
 
   .navbar-title {
     margin-top: 0.5rem;
-    color: var(--text-primary);
+    color: $text-primary;
     font-size: min(1rem, 2.5cqi);
   }
 

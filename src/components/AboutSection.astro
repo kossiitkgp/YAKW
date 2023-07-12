@@ -21,21 +21,25 @@ import Section from "./Section.astro";
     </p>
   </div>
 
-  <style is:global>
+  <style is:global lang="scss">
+    @import "../styles/index.scss";
+
     #about .section-wrapper {
       gap: 3rem;
       max-width: 1200px;
       margin-top: 20vh;
     }
 
-    @container Section (max-width: 768px) {
+    @container Section (max-width: $screen-md-max) {
       #about .section-wrapper {
         margin-top: 15vh;
       }
     }
   </style>
 
-  <style>
+  <style lang="scss">
+    @import "../styles/index.scss";
+
     .about-img {
       width: max(50cqw, 50rem);
     }
@@ -47,7 +51,7 @@ import Section from "./Section.astro";
 
     .about-title {
       font-size: max(2cqi, 1.1rem);
-      color: var(--accent-color-red);
+      color: $accent-color-red;
       text-align: left;
 
       margin-bottom: 2rem;
@@ -59,12 +63,12 @@ import Section from "./Section.astro";
 
     .about-description {
       font-size: max(1.3cqi, 1rem);
-      color: var(--text-secondary);
+      color: $text-secondary;
       text-align: left;
       margin-bottom: 1rem;
     }
 
-    @container Section (max-width: 768px) {
+    @container Section (max-width: $screen-md-max) {
       .about-img {
         display: none;
       }
@@ -84,7 +88,7 @@ import Section from "./Section.astro";
       }
     }
 
-    @container Section (min-width: 481px) and (max-width: 768px) {
+    @container Section (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
       .about-title {
         font-size: 3.2cqi;
       }
@@ -94,7 +98,7 @@ import Section from "./Section.astro";
       }
     }
 
-    @container Section (max-width: 480px) {
+    @container Section (max-width: $screen-sm-max) {
       .about-title {
         font-size: 4cqi;
       }

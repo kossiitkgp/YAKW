@@ -7,21 +7,23 @@ import Section from "./Section.astro";
   <Icon icon="koss-wall" />
 </Section>
 
-<style is:global>
+<style is:global lang="scss">
+  @import "../styles/index.scss";
+
   #hero .section-wrapper {
     gap: 3rem;
     max-width: 600px;
     margin-top: 5vh;
   }
 
-  @container Section (max-width: 1450px) {
+  @container Section (max-width: $screen-xl-max) {
     #hero .section-wrapper {
       max-width: 400px;
       max-height: 450px;
     }
   }
 
-  @container Section (max-width: 768px) {
+  @container Section (max-width: $screen-md-max) {
     #hero .section-wrapper {
       margin-top: 15vh;
     }
