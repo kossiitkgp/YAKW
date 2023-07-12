@@ -1,4 +1,5 @@
 ---
+import Navbar from "../components/Navbar.astro";
 export interface Props {
   title: string;
   description?: string;
@@ -48,12 +49,15 @@ const socialImageURL = new URL("/open_graph.png", Astro.url);
     <meta property="twitter:image:alt" content="" />
   </head>
   <body>
+    <Navbar />
     <slot />
   </body>
 </html>
 <style is:global>
   :root {
     --background-primary: #1a1a1a;
+    --background-secondary: #2b2b2b;
+    --background-tertiary: #3c3c3c;
     --text-primary: #d9d9d9;
     --text-secondary: #d9d9d9b3;
     --accent-color-red: #fb2667;
@@ -71,6 +75,7 @@ const socialImageURL = new URL("/open_graph.png", Astro.url);
     background-color: var(--background-primary);
     color: var(--text-primary);
   }
+
   code {
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
       monospace;

@@ -1,0 +1,85 @@
+---
+import Icon from "./Icon.astro";
+
+interface NavbarItem {
+  displayName: string;
+  link: string;
+  icon: string;
+}
+
+const navbarItems: NavbarItem[] = [
+  {
+    displayName: "Home",
+    link: "/",
+    icon: "home",
+  },
+  {
+    displayName: "About Us",
+    link: "/about",
+    icon: "about",
+  },
+  {
+    displayName: "Team",
+    link: "/team",
+    icon: "team",
+  },
+  {
+    displayName: "Events",
+    link: "/events",
+    icon: "events",
+  },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<div class="navbar">
+  {
+    navbarItems.map((item) => (
+      <a class:list={{"active": currentPath === item.link}} href={item.link}>
+        <Icon icon={item.icon} />
+        <div class="navbar-title">{item.displayName}</div>
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .navbar {
+    position: fixed;
+    left: 50%;
+    bottom: 2rem;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    z-index: 100;
+    padding: 0.5rem 0.8rem;
+    background-color: var(--background-secondary);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    min-width: 7rem;
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+
+    text-decoration: none;
+  }
+
+  .active {
+    background-color: var(--background-tertiary);
+  }
+
+  .navbar-title {
+    margin-top: 0.6rem;
+    color: var(--text-primary);
+  }
+</style>
