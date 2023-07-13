@@ -1,0 +1,111 @@
+---
+import Icon from "./Icon.astro";
+
+interface NavbarItem {
+  displayName: string;
+  link: string;
+  icon: string;
+}
+
+const navbarItems: NavbarItem[] = [
+  {
+    displayName: "Home",
+    link: "/",
+    icon: "home",
+  },
+  {
+    displayName: "About Us",
+    link: "/about",
+    icon: "about",
+  },
+  {
+    displayName: "Team",
+    link: "/team",
+    icon: "team",
+  },
+  {
+    displayName: "Events",
+    link: "/events",
+    icon: "events",
+  },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<div class="navbar">
+  {
+    navbarItems.map((item) => (
+      <a class:list={{ active: currentPath === item.link }} href={item.link}>
+        <span>
+          <Icon icon={item.icon} />
+        </span>
+        <div class="navbar-title">{item.displayName}</div>
+      </a>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  @import "../styles/index.scss";
+
+  .navbar {
+    position: fixed;
+    left: 50%;
+    bottom: 2rem;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 90%;
+    width: 35rem;
+    z-index: 100;
+    background-color: $background-secondary;
+    border-radius: 10px;
+
+    @media (max-width: #{$screen-xl-max}) {
+      width: 25rem;
+    }
+
+    container: Navbar / inline-size;
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 25cqi;
+    margin: min(0.6rem, 1.5cqi) min(0.8rem, 2cqi);
+    padding: min(0.8rem, 2cqi) min(1.2rem, 3cqi);
+    border-radius: 8px;
+
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: rgba($background-tertiary, 0.5);
+    }
+  }
+
+  .active,
+  .active:hover {
+    background-color: $background-tertiary;
+  }
+
+  .navbar-title {
+    margin-top: 0.5rem;
+    color: $text-primary;
+    font-size: min(1rem, 2.5cqi);
+  }
+
+  span {
+    width: 6cqi;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

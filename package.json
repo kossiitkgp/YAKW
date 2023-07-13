@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^3.5.0",
-    "astro": "^2.6.0"
+    "astro": "^2.6.0",
+    "sass": "^1.63.6"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^5.60.0",
@@ -29,7 +30,7 @@
     "*.{astro,js,ts}": [
       "eslint --ext .js,.astro --fix"
     ],
-    "*.{astro,md,ts,tsx,jsx,js}": [
+    "*.{astro,md,ts,tsx,jsx,js,scss}": [
       "prettier --write"
     ]
   }

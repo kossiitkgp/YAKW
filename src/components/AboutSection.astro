@@ -11,87 +11,100 @@ import Section from "./Section.astro";
       <h1>Kharagpur Open Source Society</h1>
     </div>
     <p class="about-description">
-	  A community of open-source enthusiasts at IIT Kharagpur, KOSS members enthusiastically work on cutting-edge coding projects, from solving practical issues to having fun while encouraging one another's development and skill.
-    <p/>
+      A community of open-source enthusiasts at IIT Kharagpur, KOSS members enthusiastically work on cutting-edge coding
+      projects, from solving practical issues to having fun while encouraging one another's development and skill.
+    </p>
     <p class="about-description">
-	We hold annual events introducing students to Linux, UNIX technologies, and the Git Development Workflow, fostering a culture of technological exploration and knowledge-sharing.
+      We hold annual events introducing students to Linux, UNIX technologies, and the Git Development Workflow,
+      fostering a culture of technological exploration and knowledge-sharing.
     </p>
   </div>
-</Section>
 
-<style is:global>
-  #about .section-wrapper {
-    gap: 3rem;
-    max-width: 1200px;
-  }
-</style>
+  <style is:global lang="scss">
+    @import "../styles/index.scss";
 
-<style>
-  .about-img {
-    width: max(50cqw, 50rem);
-  }
-
-  .about-title-img {
-    display: none;
-    width: max(30cqw, 4rem);
-  }
-
-  .about-title {
-    font-size: max(2cqi, 1.1rem);
-    color: var(--accent-color-red);
-    text-align: left;
-
-    margin-bottom: 2rem;
-
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .about-description {
-    font-size: max(1.3cqi, 1rem);
-    color: var(--text-secondary);
-    text-align: left;
-    margin-bottom: 1rem; 
-  }
-
-  @container Section (max-width: 768px) {
-    .about-img {
-      display: none;
+    #about .section-wrapper {
+      gap: 3rem;
+      max-width: 1200px;
+      margin-top: 20vh;
     }
 
-    .about-title {
-      align-items: center;
-      text-align: center;
+    @container Section (max-width: #{$screen-md-max}) {
+      #about .section-wrapper {
+        margin-top: 15vh;
+      }
+    }
+  </style>
+
+  <style lang="scss">
+    @import "../styles/index.scss";
+
+    .about-img {
+      width: max(50cqw, 50rem);
     }
 
     .about-title-img {
-      display: block;
+      display: none;
+      width: max(30cqw, 4rem);
     }
 
-    .about-description {
-      text-align: center;
-      padding-right: 0;
-    }
-  }
-
-  @container Section (min-width: 481px) and (max-width: 768px) {
     .about-title {
-      font-size: 3.2cqi;
+      font-size: max(2cqi, 1.1rem);
+      color: $accent-color-red;
+      text-align: left;
+
+      margin-bottom: 2rem;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
     .about-description {
-      font-size: 2.8cqi;
-    }
-  }
-
-  @container Section (max-width: 480px) {
-    .about-title {
-      font-size: 4cqi;
+      font-size: max(1.3cqi, 1rem);
+      color: $text-secondary;
+      text-align: left;
+      margin-bottom: 1rem;
     }
 
-    .about-description {
-      font-size: 4cqi;
+    @container Section (max-width: #{$screen-md-min}) {
+      .about-img {
+        display: none;
+      }
+
+      .about-title {
+        align-items: center;
+        text-align: center;
+      }
+
+      .about-title-img {
+        display: block;
+      }
+
+      .about-description {
+        text-align: center;
+        padding-right: 0;
+      }
     }
-  }
-</style>
+
+    @container Section (min-width: #{$screen-sm-min}) and (max-width: #{$screen-md-min}) {
+      .about-title {
+        font-size: 3.2cqi;
+      }
+
+      .about-description {
+        font-size: 2.8cqi;
+      }
+    }
+
+    @container Section (max-width: #{$screen-sm-max}) {
+      .about-title {
+        font-size: 4cqi;
+      }
+
+      .about-description {
+        font-size: 4cqi;
+      }
+    }
+  </style>
+</Section>
