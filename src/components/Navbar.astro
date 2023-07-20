@@ -9,11 +9,6 @@ interface NavbarItem {
 
 const navbarItems: NavbarItem[] = [
   {
-    displayName: "Home",
-    link: "/",
-    icon: "home",
-  },
-  {
     displayName: "About Us",
     link: "/about",
     icon: "about",
@@ -34,6 +29,11 @@ const currentPath = Astro.url.pathname;
 ---
 
 <div class="navbar">
+  <a class="navbar-logo" href="/">
+    <span>
+      <Icon icon="NavLogo" />
+    </span>
+  </a>
   {
     navbarItems.map((item) => (
       <a class:list={{ active: currentPath === item.link }} href={item.link}>
@@ -60,13 +60,13 @@ const currentPath = Astro.url.pathname;
     justify-content: center;
 
     max-width: 90%;
-    width: 35rem;
+    width: 45rem;
     z-index: 100;
     background-color: $background-secondary;
-    border-radius: 10px;
+    border-radius: 12px;
 
     @media (max-width: #{$screen-xl-max}) {
-      width: 25rem;
+      width: 45rem;
     }
 
     container: Navbar / inline-size;
@@ -74,9 +74,10 @@ const currentPath = Astro.url.pathname;
 
   a {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+    gap:2cqi;
 
     width: 25cqi;
     margin: min(0.6rem, 1.5cqi) min(0.8rem, 2cqi);
@@ -97,7 +98,6 @@ const currentPath = Astro.url.pathname;
   }
 
   .navbar-title {
-    margin-top: 0.5rem;
     color: $text-primary;
     font-size: min(1rem, 2.5cqi);
   }
@@ -108,4 +108,21 @@ const currentPath = Astro.url.pathname;
     align-items: center;
     justify-content: center;
   }
+  .navbar-logo{
+    height: auto;
+    width: auto;
+    transition: none;
+    margin: min(0.1rem,1.5cqi) min(0.8rem,2cqi) min(-0.4rem,1.5cqi);
+    padding: min(0.5rem,2cqi) min(1.2rem,3cqi);
+  }
+  .navbar-logo:hover{
+    background-color: transparent;
+  }
+  .navbar-logo span{
+    width:10.7cqi;
+    justify-content: flex-start;
+    
+  }
+ 
+  
 </style>
