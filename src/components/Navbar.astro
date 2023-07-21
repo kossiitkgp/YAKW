@@ -9,6 +9,11 @@ interface NavbarItem {
 
 const navbarItems: NavbarItem[] = [
   {
+    displayName: "",
+    link: "/",
+    icon: "NavLogo",
+  },
+  {
     displayName: "About Us",
     link: "/about",
     icon: "about",
@@ -29,14 +34,9 @@ const currentPath = Astro.url.pathname;
 ---
 
 <div class="navbar">
-  <a class="navbar-logo" href="/">
-    <span>
-      <Icon icon="NavLogo" />
-    </span>
-  </a>
   {
-    navbarItems.map((item) => (
-      <a class:list={{ active: currentPath === item.link }} href={item.link}>
+    navbarItems.map((item,index) => (
+      <a class:list={index === 0? "navbar-logo": { active: currentPath === item.link }} href={item.link}>
         <span>
           <Icon icon={item.icon} />
         </span>
@@ -77,12 +77,12 @@ const currentPath = Astro.url.pathname;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap:2cqi;
 
     width: 25cqi;
     margin: min(0.6rem, 1.5cqi) min(0.8rem, 2cqi);
-    padding: min(0.8rem, 2cqi) min(1.2rem, 3cqi);
+    padding: min(0.8rem, 2cqi) min(0.5rem, 3cqi);
     border-radius: 8px;
+    gap: 4px;
 
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -119,7 +119,8 @@ const currentPath = Astro.url.pathname;
     background-color: transparent;
   }
   .navbar-logo span{
-    width:10.7cqi;
+    width:7.7cqi;
+    height:7.7cqi;
     justify-content: flex-start;
     
   }
