@@ -65,6 +65,11 @@ const currentPath = Astro.url.pathname;
     background-color: $background-secondary;
     border-radius: 12px;
 
+    background: linear-gradient($background-secondary, $background-secondary) padding-box,
+    linear-gradient(180deg, rgba($border-color, 0.1) 0%, rgba($border-color, 0) 83.85%, rgba(white, 0.05) 100%, rgba($border-color, 0.05) 100%) border-box;
+    border: 1px solid transparent;
+    padding: 10px 20px;
+
     @media (max-width: #{$screen-xl-max}) {
       width: 45rem;
     }
@@ -88,13 +93,21 @@ const currentPath = Astro.url.pathname;
     transition: background-color 0.3s ease;
 
     &:hover {
+<<<<<<< HEAD
       background-color: rgba($background-primary, 0.5);
+=======
+      background-color: $accent-color;
+>>>>>>> 53c9a61 (changed border)
     }
   }
 
   .active,
   .active:hover {
+<<<<<<< HEAD
     background-color: $background-primary;
+=======
+    background-color: $accent-color;
+>>>>>>> 53c9a61 (changed border)
   }
 
   .navbar-title {
