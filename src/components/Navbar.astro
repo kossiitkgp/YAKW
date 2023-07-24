@@ -68,10 +68,16 @@ const currentPath = Astro.url.pathname;
     background: linear-gradient($background-secondary, $background-secondary) padding-box,
     linear-gradient(180deg, rgba($border-color, 0.1) 0%, rgba($border-color, 0) 83.85%, rgba(white, 0.05) 100%, rgba($border-color, 0.05) 100%) border-box;
     border: 1px solid transparent;
-    padding: 10px 20px;
+
+    box-shadow: 0px 12px 12px 0px rgba(black, 0.1);
 
     @media (max-width: #{$screen-xl-max}) {
       width: 45rem;
+    }
+
+    @media screen and (orientation:landscape)
+      and (max-device-width: $screen-md-max) {
+        width: 27rem;      
     }
 
     container: Navbar / inline-size;
@@ -93,26 +99,30 @@ const currentPath = Astro.url.pathname;
     transition: background-color 0.3s ease;
 
     &:hover {
-<<<<<<< HEAD
-      background-color: rgba($background-primary, 0.5);
-=======
       background-color: $accent-color;
->>>>>>> 53c9a61 (changed border)
+      box-shadow: 0px 4px 24px 0px rgba($text-primary , 0.15);
+      .navbar-title{
+        color: $background-primary;
+      }
+
+    }
+    @media (max-width: #{$screen-md-max}) {
+      padding: 0px;
     }
   }
 
   .active,
   .active:hover {
-<<<<<<< HEAD
-    background-color: $background-primary;
-=======
     background-color: $accent-color;
->>>>>>> 53c9a61 (changed border)
   }
 
   .navbar-title {
     color: $text-primary;
-    font-size: min(1rem, 2.5cqi);
+    font-size: min(2rem, 2.5cqi);
+    text-transform: uppercase;
+    @media (max-width: #{$screen-md-max}) {
+      font-size: min(1rem, 2.8cqi);
+    }
   }
 
   span {
@@ -125,11 +135,13 @@ const currentPath = Astro.url.pathname;
     height: auto;
     width: auto;
     transition: none;
-    margin: min(0.1rem,1.5cqi) min(0.8rem,2cqi);
-    padding: min(0.5rem,2cqi) min(1.2rem,3cqi);
+    margin: min(0.0rem,1.5cqi) min(0.8rem,2cqi);
+    padding: min(0.5rem,2cqi) min(0.5rem,3cqi);
   }
   .navbar-logo:hover{
     background-color: transparent;
+    background-color: inherit;
+    box-shadow: none
   }
   .navbar-logo span{
     width:7.7cqi;
