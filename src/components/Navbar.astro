@@ -35,8 +35,8 @@ const currentPath = Astro.url.pathname;
 
 <div class="navbar">
   {
-    navbarItems.map((item,index) => (
-      <a class:list={index === 0? "navbar-logo": { active: currentPath === item.link }} href={item.link}>
+    navbarItems.map((item, index) => (
+      <a class:list={index === 0 ? "navbar-logo" : { active: currentPath === item.link }} href={item.link}>
         <span>
           <Icon icon={item.icon} />
         </span>
@@ -66,7 +66,14 @@ const currentPath = Astro.url.pathname;
     border-radius: 12px;
 
     background: linear-gradient($background-secondary, $background-secondary) padding-box,
-    linear-gradient(180deg, rgba($border-color, 0.1) 0%, rgba($border-color, 0) 83.85%, rgba(white, 0.05) 100%, rgba($border-color, 0.05) 100%) border-box;
+      linear-gradient(
+          180deg,
+          rgba($border-color, 0.1) 0%,
+          rgba($border-color, 0) 83.85%,
+          rgba(white, 0.05) 100%,
+          rgba($border-color, 0.05) 100%
+        )
+        border-box;
     border: 1px solid transparent;
 
     box-shadow: 0px 12px 12px 0px rgba(black, 0.1);
@@ -75,9 +82,8 @@ const currentPath = Astro.url.pathname;
       width: 45rem;
     }
 
-    @media screen and (orientation:landscape)
-      and (max-device-width: $screen-md-max) {
-        width: 27rem;      
+    @media screen and (orientation: landscape) and (max-device-width: $screen-md-max) {
+      width: 27rem;
     }
 
     container: Navbar / inline-size;
@@ -101,20 +107,19 @@ const currentPath = Astro.url.pathname;
 
     &:hover {
       background-color: $accent-color;
-      box-shadow: 0px 4px 24px 0px rgba($text-primary , 0.15);
-      .navbar-title{
+      box-shadow: 0px 4px 24px 0px rgba($text-primary, 0.15);
+      .navbar-title {
         color: $background-primary;
       }
-      span{
-      fill:$background-primary;
-    }
-
+      span {
+        fill: $background-primary;
+      }
     }
     @media (max-width: #{$screen-md-max}) {
       padding: 0px;
     }
-    span{
-      fill:$accent-color;
+    span {
+      fill: $accent-color;
     }
   }
 
@@ -138,24 +143,21 @@ const currentPath = Astro.url.pathname;
     align-items: center;
     justify-content: center;
   }
-  .navbar-logo{
+  .navbar-logo {
     height: auto;
     width: auto;
     transition: none;
-    margin: min(0.0rem,1.5cqi) min(0.8rem,2cqi);
-    padding: min(0.5rem,2cqi) min(0.5rem,3cqi);
+    margin: min(0rem, 1.5cqi) min(0.8rem, 2cqi);
+    padding: min(0.5rem, 2cqi) min(0.5rem, 3cqi);
   }
-  .navbar-logo:hover{
+  .navbar-logo:hover {
     background-color: transparent;
     background-color: inherit;
-    box-shadow: none
+    box-shadow: none;
   }
-  .navbar-logo span{
-    width:7.7cqi;
-    height:7.7cqi;
+  .navbar-logo span {
+    width: 7.7cqi;
+    height: 7.7cqi;
     justify-content: flex-start;
-    
   }
- 
-  
 </style>
