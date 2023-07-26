@@ -10,7 +10,7 @@ interface NavbarItem {
 const navbarItems: NavbarItem[] = [
   {
     displayName: "",
-    link: "/",
+    link: "#",
     icon: "logoblue",
   },
   {
@@ -76,7 +76,7 @@ const currentPath = Astro.url.pathname;
         border-box;
     border: 2px solid transparent;
 
-    box-shadow: 0px 7px 9px 2px rgba(black,0.2);
+    box-shadow: 0px 7px 9px 2px rgba(black, 0.2);
 
     @media (max-width: #{$screen-xl-max}) {
       width: 45rem;
@@ -123,7 +123,7 @@ const currentPath = Astro.url.pathname;
     }
     @media screen and (max-device-width: $screen-md-max) {
       height: 10cqi;
-      margin: min(0.4rem,1.5cqi) min(0.1rem,2cqi);
+      margin: min(0.4rem, 1.5cqi) min(0.1rem, 2cqi);
     }
   }
 
@@ -153,6 +153,7 @@ const currentPath = Astro.url.pathname;
     transition: none;
     margin: min(0rem, 1.5cqi) min(0.8rem, 2cqi);
     padding: min(0.5rem, 2cqi) min(0.5rem, 3cqi);
+    overflow: hidden;
   }
   .navbar-logo:hover {
     background-color: transparent;
@@ -165,3 +166,12 @@ const currentPath = Astro.url.pathname;
     justify-content: flex-start;
   }
 </style>
+
+<script>
+  let toTop = document.querySelector('[href="#"]');
+
+  toTop.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
+  });
+</script>
