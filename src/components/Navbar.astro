@@ -121,6 +121,10 @@ const currentPath = Astro.url.pathname;
     span {
       fill: $accent-color;
     }
+    @media screen and (max-device-width: $screen-md-max) {
+      height: 10cqi;
+      margin: min(0.4rem,1.5cqi) min(0.1rem,2cqi);
+    }
   }
 
   .active,
