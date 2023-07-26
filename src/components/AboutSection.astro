@@ -1,14 +1,18 @@
 ---
-import KOSSLogoLight from "../assets/koss-logo-light-gradient.svg";
+import KOSSLogoBlue from "../assets/logoblue.svg";
 import Section from "./Section.astro";
 ---
 
 <Section id="about">
-  <img class="about-img" src={KOSSLogoLight} alt="KOSS Logo" />
+  <img class="about-img" src={KOSSLogoBlue} alt="KOSS Logo" />
   <div class="about-content">
     <div class="about-title">
-      <img class="about-title-img" src={KOSSLogoLight} alt="KOSS Logo" />
-      <h1>Kharagpur Open Source Society</h1>
+      <img class="about-title-img" src={KOSSLogoBlue} alt="KOSS Logo" />
+      <h1>
+        <span class="about-title-highlight">K</span>haragpur <span class="about-title-highlight">O</span>pen <span
+          class="about-title-highlight">S</span
+        >ource <span class="about-title-highlight">S</span>ociety
+      </h1>
     </div>
     <p class="about-description">
       A community of open-source enthusiasts at IIT Kharagpur, KOSS members enthusiastically work on cutting-edge coding
@@ -50,7 +54,7 @@ import Section from "./Section.astro";
 
     .about-title {
       font-size: max(2cqi, 1.1rem);
-      color: $accent-color;
+      color: $text-primary;
       text-align: left;
 
       margin-bottom: 2rem;
@@ -60,9 +64,13 @@ import Section from "./Section.astro";
       gap: 1rem;
     }
 
+    .about-title-highlight {
+      color: $text-secondary;
+    }
+
     .about-description {
       font-size: max(1.3cqi, 1rem);
-      color: $text-secondary;
+      color: $text-primary;
       text-align: left;
       margin-bottom: 1rem;
     }
