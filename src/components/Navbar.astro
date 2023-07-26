@@ -10,7 +10,7 @@ interface NavbarItem {
 const navbarItems: NavbarItem[] = [
   {
     displayName: "",
-    link: "#",
+    link: "/",
     icon: "logoblue",
   },
   {
@@ -36,7 +36,7 @@ const currentPath = Astro.url.pathname;
 <div class="navbar">
   {
     navbarItems.map((item, index) => (
-      <a class:list={index === 0 ? "navbar-logo" : { active: currentPath === item.link }} href={item.link}>
+      <a class:list={index === 0 ? "navbar-logo" : { active: currentPath === item.link }}  href={currentPath === item.link ? '#' : item.link}>
         <span>
           <Icon icon={item.icon} />
         </span>
@@ -103,7 +103,7 @@ const currentPath = Astro.url.pathname;
     gap: 4px;
 
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 
     &:hover {
       background-color: $accent-color;
@@ -170,7 +170,7 @@ const currentPath = Astro.url.pathname;
 <script>
   let toTop = document.querySelector('[href="#"]');
 
-  toTop.addEventListener("click", function (e) {
+  toTop?.addEventListener("click", function (e) {
     e.preventDefault();
     window.scroll({ top: 0, left: 0, behavior: "smooth" });
   });
