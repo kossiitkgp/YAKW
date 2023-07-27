@@ -11,7 +11,7 @@ const navbarItems: NavbarItem[] = [
   {
     displayName: "",
     link: "/",
-    icon: "logoblue",
+    icon: "logoblue-noglow",
   },
   {
     displayName: "About Us",
@@ -36,7 +36,10 @@ const currentPath = Astro.url.pathname;
 <div class="navbar">
   {
     navbarItems.map((item, index) => (
-      <a class:list={index === 0 ? "navbar-logo" : { active: currentPath === item.link }}  href={currentPath === item.link ? '#' : item.link}>
+      <a
+        class:list={index === 0 ? "navbar-logo" : { active: currentPath === item.link }}
+        href={currentPath === item.link ? "#" : item.link}
+      >
         <span>
           <Icon icon={item.icon} />
         </span>
