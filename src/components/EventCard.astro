@@ -1,0 +1,149 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  date: string;
+  time: string;
+  location: string;
+  poster_img: string;
+  link: string;
+}
+
+const { title, description, date, time, poster_img, location, link } = Astro.props as Props;
+---
+
+<a class="card" href={link}>
+  <div class="card-img-wrapper">
+    <img class="card-img" src={poster_img} alt="Workshop Poster" />
+  </div>
+  <div class="card-content">
+    <div class="card-header">
+      <h3 class="card-title">{title}</h3>
+      <p class="card-desc">{description}</p>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <Icon icon="calendar" />
+        {date}
+      </div>
+      <div class="row">
+        <Icon icon="clock" />
+        {time}
+      </div>
+      <div class="row">
+        <Icon icon="location" />
+        {location}
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal-on-hover">
+    <p>Click to learn more &gt;&gt;</p>
+  </div>
+</a>
+
+<style lang="scss">
+  @import "../styles/index.scss";
+
+  .card {
+    color: $text-primary;
+
+    position: relative;
+    flex-direction: column;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 12px;
+
+    @include raised;
+
+    width: 30%;
+    transition: all 200ms;
+
+    min-height: fit-content;
+    max-height: 100%;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+
+    .card-img {
+      opacity: 0.5;
+    }
+
+    .reveal-on-hover {
+      opacity: 1;
+    }
+  }
+
+  .reveal-on-hover {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+  }
+
+  .card-img {
+    max-height: 100%;
+    width: 100%;
+    border-radius: 12px;
+
+    margin-bottom: 1rem;
+  }
+
+  .card-img-wrapper::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba($background-secondary, 0.1) 0%, rgba($background-secondary, 1) 85%);
+  }
+
+  .card-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    text-align: center;
+
+    top: 70%;
+    bottom: 0;
+    padding: 0.5rem 1rem;
+
+    .card-title {
+      font-size: max(1.5cqi, 1.1rem);
+    }
+
+    .card-footer {
+      padding-top: 0.5rem;
+
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      justify-content: space-between;
+
+      fill: $accent-color;
+      color: $text-primary;
+
+      border-top: 1px solid $accent-color;
+
+      .row {
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        min-width: fit-content;
+      }
+    }
+  }
+</style>
