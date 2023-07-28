@@ -1,0 +1,67 @@
+---
+import EventCard from "./EventCard.astro";
+import Section from "./Section.astro";
+
+import UPCOMING_EVENTS from "../data/events.json";
+---
+
+<Section id="upcoming-events">
+  <div class="title">
+    <h1>Upcoming Events</h1>
+  </div>
+
+  <div class="events">
+    {
+      UPCOMING_EVENTS.length > 0
+        ? UPCOMING_EVENTS.map((event) => (
+            <EventCard
+              title={event.title}
+              description={event.description}
+              date={event.date}
+              time={event.time}
+              location={event.location}
+              poster_img={event.poster_img}
+              link={event.link}
+            />
+          ))
+        : "Stay Tuned."
+    }
+  </div>
+</Section>
+
+<style is:global lang="scss">
+  @import "../styles/index.scss";
+
+  #upcoming-events .section-wrapper {
+    flex-direction: column;
+  }
+</style>
+
+<style lang="scss">
+  @import "../styles/index.scss";
+
+  .title {
+    font-size: max(2cqi, 1.1rem);
+    color: $text-primary;
+
+    margin-bottom: 2rem;
+
+    display: flex;
+    justify-items: center;
+    gap: 1rem;
+
+    width: 100%;
+    text-align: center;
+
+    h1 {
+      width: 100%;
+    }
+  }
+
+  .events {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+  }
+</style>
