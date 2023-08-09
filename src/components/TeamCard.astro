@@ -29,25 +29,25 @@ const {name, pref, gref, lref} = Astro.props as Props;
   </div>
 </li>
 <style lang="scss">
-  @import "../styles/index.scss";
+  @import "../styles/index.scss"; 
+    .link-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: top;
+      text-align: center;
 
-  .link-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: top;
-    text-align: center;
-    max-width: 100%;
-    width: 12rem;
-    max-height: 100%;
-    height: 15rem;
-    z-index: -1;
-    background-color: $background-secondary;
-    border-radius: 10px;
-    list-style: none;
-    padding: calc(1.5rem - 1px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  }
+      max-width: 100%;
+      width: 12rem;
+      max-height: 100%;
+      height: 15rem;
+      z-index: -1;
+      background-color: $background-secondary;
+      border-radius: 10px;
+		  list-style: none;
+		  padding: calc(1.5rem - 1px);
+		  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+	}
 
   .pfp{
     padding-top: 10px;
