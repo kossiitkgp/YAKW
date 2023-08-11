@@ -72,21 +72,6 @@ const { title, description, date, time, poster_img, location, link } = Astro.pro
     }
   }
 
-  @media screen and (min-device-width: $screen-md-max) {
-    .card:hover {
-      transform: scale(1.05);
-      cursor: pointer;
-
-      .card-img {
-        opacity: 0.5;
-      }
-
-      .reveal-on-hover {
-        opacity: 1;
-      }
-    }
-  }
-
   .reveal-on-hover {
     opacity: 0;
     position: absolute;
@@ -107,6 +92,21 @@ const { title, description, date, time, poster_img, location, link } = Astro.pro
     margin-bottom: 1rem;
 
     transition: all 300ms;
+  }
+
+  @media screen and (min-device-width: $screen-md-max) {
+    .card:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+
+      .card-img {
+        opacity: 0.5;
+      }
+
+      .reveal-on-hover {
+        opacity: 1;
+      }
+    }
   }
 
   .card-img-wrapper::after {
