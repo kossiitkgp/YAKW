@@ -2,7 +2,11 @@
 import EventCard from "./EventCard.astro";
 import Section from "./Section.astro";
 
-import UPCOMING_EVENTS from "../data/events.json";
+import EVENTS from "../data/events.json";
+
+import { getUpcomingEvents } from '../utils/events';
+
+const UPCOMING_EVENTS = getUpcomingEvents(EVENTS);
 ---
 
 <Section id="upcoming-events">

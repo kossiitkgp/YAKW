@@ -1,15 +1,9 @@
 ---
+import type { IEvent } from "../utils/events";
+import { getFormattedDate } from "../utils/events";
 import Icon from "./Icon.astro";
 
-interface Props {
-  title: string;
-  description: string;
-  date: string;
-  time: string;
-  location: string;
-  poster_img: string;
-  link: string;
-}
+interface Props extends IEvent {}
 
 const { title, description, date, time, poster_img, location, link } = Astro.props as Props;
 ---
@@ -26,7 +20,7 @@ const { title, description, date, time, poster_img, location, link } = Astro.pro
     <div class="card-footer">
       <div class="row">
         <Icon icon="calendar" />
-        {date}
+        {getFormattedDate(date)}
       </div>
       <div class="row">
         <Icon icon="clock" />
