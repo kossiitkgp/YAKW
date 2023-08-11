@@ -92,6 +92,8 @@ const { title, description, date, time, poster_img, location, link } = Astro.pro
     position: absolute;
     top: 50%;
 
+    transition: all 300ms;
+
     @media screen and (max-device-width: $screen-md-max) {
       display: none;
     }
@@ -103,6 +105,8 @@ const { title, description, date, time, poster_img, location, link } = Astro.pro
     border-radius: 12px;
 
     margin-bottom: 1rem;
+
+    transition: all 300ms;
   }
 
   .card-img-wrapper::after {
