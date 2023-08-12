@@ -1,0 +1,41 @@
+[
+	{
+		"title": "Ubuntu Install Fest",
+		"description": "Learn how to install Linux on your PC.",
+		"date": {
+			"day": 10,
+			"month": 9,
+			"year": 2023
+		},
+		"time": "2 PM",
+		"location": "NR222",
+		"poster_img": "https://raw.githubusercontent.com/kossiitkgp/design/master/posters/Events/ubuntu-install/ubuntu-install-19.svg",
+		"link": "/events/install-fest"
+	},
+	{
+		"title": "Git and Github Workshop",
+		"description": "Introduction to Git and GitHub.",
+		"date": {
+			"day": 11,
+			"month": 8,
+			"year": 2023
+		},
+		"time": "3 PM",
+		"location": "V2",
+		"poster_img": "https://raw.githubusercontent.com/kossiitkgp/design/master/posters/Events/git-github/git-github-20.png",
+		"link": "/events/git-and-github"
+	},
+	{
+		"title": "Python Workshop",
+		"description": "Introduction to the Python programming language.",
+		"date": {
+			"day": 20,
+			"month": 9,
+			"year": 2023
+		},
+		"time": "3 PM",
+		"location": "NR123",
+		"poster_img": "https://raw.githubusercontent.com/kossiitkgp/design/master/posters/Events/python/python-23.png",
+		"link": "/events/python-workshop"
+	}
+]

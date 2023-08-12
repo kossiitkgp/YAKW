@@ -1,0 +1,190 @@
+---
+import type { IEvent } from "../types/events";
+import { getFormattedDate } from "../utils/events";
+import Icon from "./Icon.astro";
+
+interface Props extends IEvent {}
+
+const { title, description, date, time, poster_img, location, link } = Astro.props as Props;
+---
+
+<a class="card" href={link}>
+  <div class="card-img-wrapper">
+    <img class="card-img" src={poster_img} alt="Workshop Poster" />
+  </div>
+  <div class="card-content">
+    <div class="card-header">
+      <h3 class="card-title">{title}</h3>
+      <p class="card-desc">{description}</p>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <Icon icon="calendar" />
+        {getFormattedDate(date)}
+      </div>
+      <div class="row">
+        <Icon icon="clock" />
+        {time}
+      </div>
+      <div class="row">
+        <Icon icon="location" />
+        {location}
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal-on-hover">
+    <p>Click to learn more &gt;&gt;</p>
+  </div>
+</a>
+
+<style lang="scss">
+  @import "../styles/index.scss";
+
+  .card {
+    color: $text-primary;
+
+    position: relative;
+    flex-direction: column;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-radius: 12px;
+
+    @include raised;
+
+    width: 28%;
+    transition: all 300ms;
+
+    min-height: fit-content;
+    max-height: 100%;
+
+    @media screen and (max-device-width: $screen-md-max) {
+      width: 100%;
+    }
+  }
+
+  .reveal-on-hover {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+
+    transition: all 300ms;
+
+    @media screen and (max-device-width: $screen-md-max) {
+      display: none;
+    }
+  }
+
+  .card-img {
+    max-height: 100%;
+    width: 100%;
+    border-radius: 12px;
+
+    margin-bottom: 1rem;
+
+    transition: all 300ms;
+  }
+
+  @media screen and (min-device-width: $screen-md-max) {
+    .card:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+
+      .card-img {
+        opacity: 0.5;
+      }
+
+      .reveal-on-hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .card-img-wrapper::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba($background-secondary, 0.4) 0%, rgba($background-secondary, 1) 85%);
+  }
+
+  .card-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    text-align: center;
+
+    top: 75%;
+    bottom: 0;
+    padding: 0.5rem 1rem;
+
+    width: 100%;
+
+    @media screen and (max-device-width: $screen-md-max) {
+      bottom: 0;
+      top: auto;
+
+      font-size: min(1rem, 2.8cqi);
+    }
+
+    .card-desc {
+      color: $text-secondary;
+      font-size: min(1rem, 1cqi);
+
+      @media screen and (max-device-width: $screen-md-max) {
+        font-size: min(1rem, 2.8cqi);
+      }
+    }
+
+    .card-title {
+      font-size: max(1.4cqi, 1rem);
+
+      @media (max-width: #{$screen-md-max}) {
+        font-size: min(1.3rem, 3.8cqi);
+      }
+    }
+
+    .card-footer {
+      padding-top: 1rem;
+      padding-bottom: 0.5rem;
+
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      justify-content: space-between;
+
+      fill: $accent-color;
+      color: $text-primary;
+
+      border-top: 1px solid $accent-color;
+
+      font-size: min(1rem, 1cqi);
+
+      @media screen and (max-device-width: $screen-md-max) {
+        width: 100%;
+
+        font-size: min(1rem, 2.8cqi);
+      }
+
+      .row {
+        display: flex;
+        gap: 5px;
+        flex-direction: row;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        min-width: fit-content;
+      }
+    }
+  }
+</style>

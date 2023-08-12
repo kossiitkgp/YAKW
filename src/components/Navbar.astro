@@ -65,21 +65,9 @@ const currentPath = Astro.url.pathname;
     max-width: 90%;
     width: 45rem;
     z-index: 100;
-    background-color: $background-secondary;
     border-radius: 12px;
 
-    background: linear-gradient($background-secondary, $background-secondary) padding-box,
-      linear-gradient(
-          180deg,
-          rgba($border-color, 0.1) 0%,
-          rgba($border-color, 0) 83.85%,
-          rgba(white, 0.05) 100%,
-          rgba($border-color, 0.05) 100%
-        )
-        border-box;
-    border: 2px solid transparent;
-
-    box-shadow: 0px 7px 9px 2px rgba(black, 0.2);
+    @include raised;
 
     @media (max-width: #{$screen-xl-max}) {
       width: 45rem;
