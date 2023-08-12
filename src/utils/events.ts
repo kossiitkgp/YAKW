@@ -1,17 +1,4 @@
-export interface IEventDate {
-	day: number;
-	month: number;
-	year: number;
-}
-export interface IEvent {
-	title: string;
-	description: string;
-	date: IEventDate;
-	time: string;
-	location: string;
-	poster_img: string;
-	link: string;
-}
+import type { IEvent, IEventDate } from '../types/events';
 
 function eventDateToJSDate(event_date: IEventDate): Date {
 	const date = new Date();
