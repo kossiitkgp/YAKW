@@ -67,7 +67,9 @@ const socialImageURL = new URL("/open_graph.png", Astro.url);
     background-color: $background-primary;
     color: $text-primary;
   }
-
+  body {
+    @include custom-scrollbar;
+  }
   code {
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
       monospace;
