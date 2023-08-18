@@ -4,81 +4,93 @@ import Section from "./Section.astro";
 ---
 
 <Section id="what-is-koss">
-  <p class="question-title">
-    What are we?
-  </p>
+  <div class="question-title">
+    <h1>
+      <span class="question-title-highlight">W</span>ho <span class="question-title-highlight">A</span>re <span
+        class="question-title-highlight">W</span
+      >e?
+    </h1>
+  </div>
   <p class="about-description">
-      We are a group of like minded people bonded together by the spirit of Open-Source, focused on our love for coding.
-      KOSS holds events to familiarize students with UNIX tools, Linux environment, Git Development Workflow, 
-      practice Algorithms and Data Structures, besides conducting workshops on GUI programming, Web development, 
-      Android application Development and Hackathons.
-      <br><br>
-      As a Society, we hope to inculcate and foster the spirit of Open-Source in the students of IIT Kharagpur.
-      <br><br>
-      KOSS works under the guidance of Prof. Animesh Mukherjee, Department of Computer Science and Engineering, Indian Institute of Technology Kharagpur.
+    We are a group of like minded people bonded together by the spirit of Open-Source, focused on our love for coding.
+    KOSS holds events to familiarize students with UNIX tools, Linux environment, Git Development Workflow, practice
+    Algorithms and Data Structures, besides conducting workshops on GUI programming, Web development, Android
+    application Development and Hackathons.
+    <br /><br />
+    As a Society, we hope to inculcate and foster the spirit of Open-Source in the students of IIT Kharagpur.
   </p>
-  <p class="question-title">
-    What is Open Source?
-  </p>
+  <div class="question-title">
+    <h1>
+      <span class="question-title-highlight">W</span>hat <span class="question-title-highlight">I</span>s <span
+        class="question-title-highlight">O</span
+      >pen <span class="question-title-highlight">S</span>ource?
+    </h1>
+  </div>
   <p class="about-description">
-      Simply put, Open source refers to software or projects that are made freely available for anyone to use, 
-      modify, and distribute; encouraging collaboration and sharing among a community of developers and users.
-      <br><br>
-      Open source culture embodies the boundless spirit of collaboration and knowledge-sharing that underpins the modern digital landscape. 
-      At its core, it champions the idea that software, technology, and creative works should be accessible to all, unhindered by proprietary barriers. 
-      This culture invites diverse minds to contribute, modify, and improve upon existing projects, fostering a global community of creators and problem solvers. 
-      <br><br>
-      Much of modern technology stands on the sturdy foundation of open source software. From the operating systems that power our computers and smartphones to the intricate 
-      frameworks that enable web development and cloud computing, open source components are woven seamlessly into the fabric of our digital lives.
+    Simply put, Open source refers to software or projects that are made freely available for anyone to use, modify, and
+    distribute; encouraging collaboration and sharing among a community of developers and users.
+    <br /><br />
+    Open source culture embodies the boundless spirit of collaboration and knowledge-sharing that underpins the modern digital
+    landscape. At its core, it champions the idea that software, technology, and creative works should be accessible to all,
+    unhindered by proprietary barriers. This culture invites diverse minds to contribute, modify, and improve upon existing
+    projects, fostering a global community of creators and problem solvers.
+    <br /><br />
+    Much of modern technology stands on the sturdy foundation of open source software. From the operating systems that power
+    our computers and smartphones to the intricate frameworks that enable web development and cloud computing, open source
+    components are woven seamlessly into the fabric of our digital lives.
   </p>
 </Section>
 
 <style is:global lang="scss">
   #what-is-koss .section-wrapper {
-        flex-direction: column; 
-    }
+    flex-direction: column;
+  }
 </style>
 
 <style lang="scss">
-    @import "../styles/index.scss";
+  @import "../styles/index.scss";
 
+  .question-title {
+    font-size: max(2cqi, 1.1rem);
+    color: $text-primary;
+    text-align: left;
+    margin-right: auto;
+
+    margin-bottom: 1vw;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .question-title-highlight {
+    color: $text-secondary;
+  }
+
+  .about-description {
+    font-size: max(1.3cqi, 1rem);
+    color: $text-primary;
+    text-align: left;
+    margin-bottom: 4vw;
+  }
+
+  @container Section (min-width: #{$screen-sm-min}) and (max-width: #{$screen-md-min}) {
     .question-title {
-      font-size: max(2cqi, 1.1rem);
-      color: $text-primary;
-      text-align: left;
-      margin-right: auto;
-
-      margin-bottom: 1vw;
-
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      font-size: 3.2cqi;
     }
 
     .about-description {
-      font-size: max(1.3cqi, 1rem);
-      color: $text-primary;
-      text-align: left;
-      margin-bottom: 4vw;
+      font-size: 2.8cqi;
+    }
+  }
+
+  @container Section (max-width: #{$screen-sm-max}) {
+    .question-title {
+      font-size: 4cqi;
     }
 
-    @container Section (min-width: #{$screen-sm-min}) and (max-width: #{$screen-md-min}) {
-      .question-title {
-        font-size: 3.2cqi;
-      }
-
-      .about-description {
-        font-size: 2.8cqi;
-      }
+    .about-description {
+      font-size: 4cqi;
     }
-
-    @container Section (max-width: #{$screen-sm-max}) {
-      .question-title {
-        font-size: 4cqi;
-      }
-
-      .about-description {
-        font-size: 4cqi;
-      }
-    }
+  }
 </style>
