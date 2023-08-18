@@ -1,0 +1,170 @@
+---
+import Icon from "./Icon.astro";
+
+interface NavbarItem {
+  displayName: string;
+  link: string;
+  icon: string;
+}
+
+const navbarItems: NavbarItem[] = [
+  
+  {
+    displayName: "Core Team Members",
+    link: "/about",
+    icon: "about",
+  },
+  {
+    displayName: "Executives",
+    link: "/team",
+    icon: "team",
+  },
+  {
+    displayName: "Advisors",
+    link: "/events",
+    icon: "events",
+  },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<div class="navbar">
+  {
+    navbarItems.map((item, index) => (
+      <a
+        class:list={index === 0 ? "navbar-logo" : { active: currentPath === item.link }}
+        href={currentPath === item.link ? "#" : item.link}
+      >
+        <span>
+          <Icon icon={item.icon} />
+        </span>
+        <div class="navbar-title">{item.displayName}</div>
+      </a>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  @import "../styles/index.scss";
+
+  .navbar {
+    position: fixed;
+    left: 50%;
+    top: 2rem;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 90%;
+    width: 45rem;
+    z-index: 100;
+    //border-radius: 12px;
+
+    @include raised;
+
+    @media (max-width: #{$screen-xl-max}) {
+      width: 45rem;
+    }
+
+    @media screen and (orientation: landscape) and (max-device-width: $screen-md-max) {
+      width: 27rem;
+    }
+
+    container: Navbar / inline-size;
+  }
+
+  a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 25cqi;
+    margin: min(0.6rem, 1.5cqi) min(0.8rem, 2cqi);
+    padding: min(0.8rem, 2cqi) min(0.6rem, 3cqi);
+    padding-left: 0;
+    border-radius: 8px;
+    gap: 4px;
+
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $accent-color;
+      box-shadow: 0px 4px 24px 0px rgba($text-primary, 0.15);
+      .navbar-title {
+        color: $background-primary;
+      }
+      span {
+        fill: $background-primary;
+      }
+    }
+    @media (max-width: #{$screen-md-max}) {
+      padding: 0px;
+    }
+    span {
+      fill: $accent-color;
+    }
+    @media screen and (max-device-width: $screen-md-max) {
+      height: 10cqi;
+      margin: min(0.4rem, 1.5cqi) min(0.1rem, 2cqi);
+    }
+  }
+
+  .active,
+  .active:hover {
+    background-color: $accent-color;
+    .navbar-title {
+        color: $background-primary;
+      }
+      span {
+        fill: $background-primary;
+      }
+  }
+
+  .navbar-title {
+    color: $text-primary;
+    font-size: min(2rem, 2.5cqi);
+    text-transform: uppercase;
+    @media (max-width: #{$screen-md-max}) {
+      font-size: min(1rem, 2.8cqi);
+    }
+  }
+
+  span {
+    width: 6cqi;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar-logo {
+    height: auto;
+    width: auto;
+    transition: none;
+    margin: min(0rem, 1.5cqi) min(0.8rem, 2cqi);
+    padding: min(0.5rem, 2cqi) min(0.5rem, 3cqi);
+    overflow: hidden;
+  }
+  .navbar-logo:hover {
+    background-color: transparent;
+    background-color: inherit;
+    box-shadow: none;
+  }
+  .navbar-logo span {
+    width: 7.7cqi;
+    height: 7.7cqi;
+    justify-content: flex-start;
+  }
+</style>
+
+<script>
+  let toTop = document.querySelector('[href="#"]');
+
+  toTop?.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
+  });
+</script>
