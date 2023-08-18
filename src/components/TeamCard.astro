@@ -11,8 +11,9 @@ const {name, pref, gref, lref} = Astro.props as Props;
 ---
 
 <li class="link-card">
-  <a class="pfp" href={pref}>
-    <Icon icon="profile" />
+  <a href={pref}>
+    <img src="https://avatars.githubusercontent.com/cliff-4" class="pfp">
+    <!--<Icon icon="profile" />-->
   </a>
   <br>
   <h4 class="name">
@@ -22,8 +23,7 @@ const {name, pref, gref, lref} = Astro.props as Props;
 	
   <div class="footer-content">
     <a class="icon" href={gref}>
-      <Icon icon="github" />
-    </a>
+      <Icon icon="github" /></a>
     <a class="icon" href={lref}>
       <Icon icon="linkedin" />
     </a>
@@ -68,6 +68,8 @@ const {name, pref, gref, lref} = Astro.props as Props;
 
 .pfp{
     padding-top: 10px;
+    border-radius: 50%;
+    height: 100px;
   }
 
 .icon {
