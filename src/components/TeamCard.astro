@@ -1,83 +1,80 @@
 ---
 import Icon from "./Icon.astro";
 export interface Props {
-    name: string;
-    pref: string;
-    gref: string;
-    lref: string;
+  name: string;
+  gref: string;
+  lref: string;
+  github_username: string;
 }
 
-const {name, pref, gref, lref} = Astro.props as Props;
+const { name, gref, lref, github_username } = Astro.props as Props;
 ---
 
 <li class="link-card">
-  <a href={pref}>
-    <img src="https://avatars.githubusercontent.com/cliff-4" class="pfp">
+  <div>
+    <img src={`https://avatars.githubusercontent.com/${github_username}`} class="pfp" />
     <!--<Icon icon="profile" />-->
-  </a>
-  <br>
+  </div>
+  <br />
   <h4 class="name">
     {name}
   </h4>
-  <br>
-	
+  <br />
+
   <div class="footer-content">
-    <a class="icon" href={gref}>
-      <Icon icon="github" /></a>
+    <a class="icon" href={gref}> <Icon icon="github" /></a>
     <a class="icon" href={lref}>
       <Icon icon="linkedin" />
     </a>
   </div>
-  
 </li>
 <style lang="scss">
-  @import "../styles/index.scss"; 
-    .link-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: top;
-      text-align: center;
-      align-content:space-around;
-      min-width: 100%;
-      width: 10rem;
-      max-height: 100%;
-      height: 16rem;
-      z-index: -1;
-      background-color: $background-secondary;
-      border-radius: 10px;
-		  list-style: none;
-		  padding: calc(1.5rem - 1px);
-		  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-	}
+  @import "../styles/index.scss";
+  .link-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    text-align: center;
+    align-content: space-around;
+    max-width: 100%;
+    width: 13rem;
+    max-height: 100%;
+    height: 16rem;
+    z-index: -1;
+    background-color: $background-secondary;
+    border-radius: 10px;
+    list-style: none;
+    padding: calc(1.5rem - 1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  }
 
   @mixin raised {
-  box-shadow: 0px 7px 9px 2px rgba(black, 0.2);
-  border: 2px solid transparent;
-  background-color: $background-secondary;
-  background: linear-gradient($background-secondary, $background-secondary) padding-box,
-    linear-gradient(
-        180deg,
-        rgba($border-color, 0.1) 0%,
-        rgba($border-color, 0) 83.85%,
-        rgba(white, 0.05) 100%,
-        rgba($border-color, 0.05) 100%
-      )
-      border-box;
-}
+    box-shadow: 0px 7px 9px 2px rgba(black, 0.2);
+    border: 2px solid transparent;
+    background-color: $background-secondary;
+    background: linear-gradient($background-secondary, $background-secondary) padding-box,
+      linear-gradient(
+          180deg,
+          rgba($border-color, 0.1) 0%,
+          rgba($border-color, 0) 83.85%,
+          rgba(white, 0.05) 100%,
+          rgba($border-color, 0.05) 100%
+        )
+        border-box;
+  }
 
-.pfp{
+  .pfp {
     padding-top: 10px;
     border-radius: 50%;
     height: 100px;
   }
 
-.icon {
-    padding: 10px;    
-  } 
-   
-.footer-content {
-  margin-top: auto;
-}
-  
+  .icon {
+    padding: 10px;
+  }
+
+  .footer-content {
+    margin-top: auto;
+  }
 </style>

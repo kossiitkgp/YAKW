@@ -8,7 +8,6 @@ interface NavbarItem {
 }
 
 const navbarItems: NavbarItem[] = [
-  
   {
     displayName: "Core Team Members",
     link: "/team/Core Team Members",
@@ -36,9 +35,6 @@ const currentPath = Astro.url.pathname;
         class:list={index === 0 ? "navbar-logo" : { active: currentPath === item.link }}
         href={currentPath === item.link ? "#" : item.link}
       >
-        <span>
-          <Icon icon={item.icon} />
-        </span>
         <div class="navbar-title">{item.displayName}</div>
       </a>
     ))
@@ -49,10 +45,10 @@ const currentPath = Astro.url.pathname;
   @import "../styles/index.scss";
 
   .navbar {
-    position: fixed;
-    left: 50%;
-    top: 2rem;
-    transform: translateX(-50%);
+    // position: fixed;
+    // left: 50%;
+    // top: 2rem;
+    // transform: translateX(-50%);
 
     display: flex;
     align-items: center;
@@ -118,11 +114,11 @@ const currentPath = Astro.url.pathname;
   .active:hover {
     background-color: $accent-color;
     .navbar-title {
-        color: $background-primary;
-      }
-      span {
-        fill: $background-primary;
-      }
+      color: $background-primary;
+    }
+    span {
+      fill: $background-primary;
+    }
   }
 
   .navbar-title {
@@ -148,11 +144,11 @@ const currentPath = Astro.url.pathname;
     padding: min(0.5rem, 2cqi) min(0.5rem, 3cqi);
     overflow: hidden;
   }
-//   .navbar-logo:hover {
-//     background-color: transparent;
-//     background-color: inherit;
-//     box-shadow: none;
-//   }
+  //   .navbar-logo:hover {
+  //     background-color: transparent;
+  //     background-color: inherit;
+  //     box-shadow: none;
+  //   }
   .navbar-logo span {
     width: 7.7cqi;
     height: 7.7cqi;
