@@ -33,5 +33,6 @@
     "*.{astro,md,ts,tsx,jsx,js,scss}": [
       "prettier --write"
     ]
-  }
+  },
+  "packageManager": "yarn@1.22.19"
 }
