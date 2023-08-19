@@ -1,0 +1,109 @@
+---
+import Layout from "../../layouts/Layout.astro";
+//import AboutSection from "../components/AboutSection.astro";
+//import Hero from "../components/Hero.astro";
+import TeamCard from "../../components/TeamCard.astro";
+import TeamTab from "../../components/TeamTab.astro"
+
+export function getStaticPaths() {
+    return [
+        {params: {team: 'Core Team Members'}},
+        {params: {team: 'Executives'}},
+        {params: {team: 'Advisors'}},
+    ];
+}
+
+const {team} = Astro.params;
+---
+
+<Layout title="Meet our Team|">
+  <main>
+    <TeamTab />
+    <div class="container">
+    <ul role="list" class="link-card-grid">
+      <TeamCard
+        pref=""
+        name="Aditya Mishra"
+        gref=""
+        lref=""
+      />
+      <TeamCard
+        pref=""
+        name="Aditya Ranjan Jha"
+        gref=""
+        lref=""
+      />
+      <TeamCard
+        pref=""
+        name="Ananya Das"
+        gref=""
+        lref=""
+      />
+      <TeamCard
+        pref=""
+        name="Anushka Srivastava"
+        gref=""
+        lref=""
+      />
+      <TeamCard
+        pref=""
+        name="Ashwani Kumar Kamal"
+        gref=""
+        lref=""
+      />
+      <TeamCard
+        pref=""
+        name="Atharva"
+        gref=""
+        lref=""
+      />
+      <TeamCard
+        pref=""
+        name="Atharva Amritkar"
+        gref=""
+        lref=""
+      />
+      <TeamCard
+        pref=""
+        name="Atharva Amritkar"
+        gref=""
+        lref=""
+      />
+      <TeamCard
+        pref=""
+        name="Rajiv Harlalka"
+        gref=""
+        lref=""
+      />
+    </ul>
+  </div>
+  </main>
+</Layout>
+  
+<style>
+
+main {    
+    padding: 2rem;
+    max-width: 1000px;
+		width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10%;
+		/*max-width: calc(100% - 2rem);
+		font-size: 20px;
+	  line-height: 1.6;*/
+	}
+
+  .link-card-grid {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(15ch, 1fr));
+  grid-gap: 1rem 5rem; /*calc(10px + 10%)*/
+  padding: 1rem;
+}
+
+.member{
+  text-align: center;
+  padding-bottom: 2rem;
+}
+</style>

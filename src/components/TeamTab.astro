@@ -11,17 +11,17 @@ const navbarItems: NavbarItem[] = [
   
   {
     displayName: "Core Team Members",
-    link: "/about",
+    link: "/team/Core Team Members",
     icon: "about",
   },
   {
     displayName: "Executives",
-    link: "/team",
+    link: "/team/Executives",
     icon: "team",
   },
   {
     displayName: "Advisors",
-    link: "/events",
+    link: "/team/Advisors",
     icon: "events",
   },
 ];
@@ -148,11 +148,11 @@ const currentPath = Astro.url.pathname;
     padding: min(0.5rem, 2cqi) min(0.5rem, 3cqi);
     overflow: hidden;
   }
-  .navbar-logo:hover {
-    background-color: transparent;
-    background-color: inherit;
-    box-shadow: none;
-  }
+//   .navbar-logo:hover {
+//     background-color: transparent;
+//     background-color: inherit;
+//     box-shadow: none;
+//   }
   .navbar-logo span {
     width: 7.7cqi;
     height: 7.7cqi;
