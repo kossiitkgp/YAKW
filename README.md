@@ -74,3 +74,11 @@ Any static assets, like images, can be placed in the `public/` directory.
 ---
 
 > Please update this documentation if you make changes to the KOSS website. Future humans will praise you.
+
+
+### Credits
+
+- “Home” icon by [Aleksey Popov](https://iconduck.com/designers/aleksey-popov) from [Evericons Project](https://iconduck.com/sets/evericons) - CC BY Zero v1.0
+- “About” icon from [Google Material Icons](https://pictogrammers.com/contributor/google/) - Apache v2.0
+- “Team” icon from [Microsoft](https://www.iconfinder.com/icons/8675239/ic_fluent_people_team_regular_icon) - CC BY 4.0
+- “Events” icon from [Clarity Design System](https://core.clarity.design/foundation/icons/shapes/) - MIT License
