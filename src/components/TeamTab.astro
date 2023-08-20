@@ -9,8 +9,8 @@ interface NavbarItem {
 
 const navbarItems: NavbarItem[] = [
   {
-    displayName: "Core Team Members",
-    link: "/team/Core Team Members",
+    displayName: "CTMS",
+    link: "/team/Core%20Team%20Members",
     icon: "about",
   },
   {
@@ -31,10 +31,7 @@ const currentPath = Astro.url.pathname;
 <div class="navbar">
   {
     navbarItems.map((item, index) => (
-      <a
-        class:list={index === 0 ? "navbar-logo" : { active: currentPath === item.link }}
-        href={currentPath === item.link ? "#" : item.link}
-      >
+      <a class:list={{ active: currentPath === item.link }} href={currentPath === item.link ? "#" : item.link}>
         <div class="navbar-title">{item.displayName}</div>
       </a>
     ))
@@ -46,20 +43,28 @@ const currentPath = Astro.url.pathname;
 
   .navbar {
     // position: fixed;
-    // left: 50%;
+    //left: 50%;
     // top: 2rem;
-    // transform: translateX(-50%);
+    //transform: translateX(-50%);
+    margin-left: -10rem;
 
     display: flex;
+    flex-direction: column;
+    float: left;
     align-items: center;
     justify-content: center;
 
-    max-width: 90%;
-    width: 45rem;
+    max-width: 100%;
+    width: 2rem;
+    height: 45rem;
     z-index: 100;
     //border-radius: 12px;
 
-    @include raised;
+    text-align: left;
+    //writing-mode: vertical-lr;
+    text-orientation: mixed;
+
+    //@include raised;
 
     @media (max-width: #{$screen-xl-max}) {
       width: 45rem;
@@ -69,7 +74,7 @@ const currentPath = Astro.url.pathname;
       width: 27rem;
     }
 
-    container: Navbar / inline-size;
+    //container: Navbar / inline-size;
   }
 
   a {
@@ -78,10 +83,10 @@ const currentPath = Astro.url.pathname;
     align-items: center;
     justify-content: center;
 
-    width: 25cqi;
+    width: 12rem;
     margin: min(0.6rem, 1.5cqi) min(0.8rem, 2cqi);
     padding: min(0.8rem, 2cqi) min(0.6rem, 3cqi);
-    padding-left: 0;
+    padding-left: 0rem;
     border-radius: 8px;
     gap: 4px;
 
@@ -123,7 +128,8 @@ const currentPath = Astro.url.pathname;
 
   .navbar-title {
     color: $text-primary;
-    font-size: min(2rem, 2.5cqi);
+    //font-size: min(2rem, 2.5cqi);
+    font-size: 1rem;
     text-transform: uppercase;
     @media (max-width: #{$screen-md-max}) {
       font-size: min(1rem, 2.8cqi);
@@ -144,11 +150,11 @@ const currentPath = Astro.url.pathname;
     padding: min(0.5rem, 2cqi) min(0.5rem, 3cqi);
     overflow: hidden;
   }
-  //   .navbar-logo:hover {
-  //     background-color: transparent;
-  //     background-color: inherit;
-  //     box-shadow: none;
-  //   }
+  .navbar-logo:hover {
+    background-color: transparent;
+    background-color: inherit;
+    box-shadow: none;
+  }
   .navbar-logo span {
     width: 7.7cqi;
     height: 7.7cqi;
