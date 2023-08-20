@@ -25,6 +25,7 @@ const socialItems: SocialItems[] = [
 
 <footer class="footer">
     <div class="footer-column half">
+      <div class="logo-buttons">
         <div class = "footer-logo">
             <img class="footer-img" src={KOSSLogoBlue} alt="KOSS Logo" />
             <h2>Kharagpur Open<br>Source Society</h2>
@@ -44,19 +45,18 @@ const socialItems: SocialItems[] = [
               }
         </div>
       </div>
-      <div class="footer-column quarter">
-        <div class="footer-list">
+      <div class="footer-list contact">
         <h2 class="footer-heading">Contact Us</h2>
-        <address>admin@kossiitkgp.org</address>
-        </div>
+        <address>contact@kossiitkgp.org</address>
+      </div>
       </div>
       <div class="footer-column quarter">
         <div class="footer-list">
         <h2 class="footer-heading">Important Links</h2>
-        <a>About</a>
-        <a>The Team</a>
-        <a>Docs</a>
-        <a>Events</a>
+        <a class="important-link">About</a>
+        <a class="important-link">The Team</a>
+        <a class="important-link">Docs</a>
+        <a class="important-link">Events</a>
         </div>
       </div>
       
@@ -75,20 +75,41 @@ const socialItems: SocialItems[] = [
         box-shadow: none;
         padding: 1em 2em;
 
-        @media (max-width: #{$screen-md-max}) {
-            flex-direction: column;
-        }
-
         }
     .footer-column {
         flex:1;
     }
     .half{
-      flex:2
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      flex:3;
+      @media (max-width: #{$screen-md-max}){
+        justify-content:left;
+      }
+
+    }
+    .contact{
+      margin: 1cqi 0 0 0;
+      @media (max-width: #{$screen-md-max}) {
+          margin: 3cqi 0 0 0;
+
+        }
+      address {
+        @media (max-width: #{$screen-md-max}) {
+            font-size: 3vw;
+        }
+      }
     }
     .quarter{
       flex:1;
+      margin: 1cqi 0 0 3cqi;
+      @media (max-width: #{$screen-md-max}) {
+          margin: 1.8cqi 0 0;
+
+        }
     }
+
     .footer-logo{
         display: flex;
         align-items: center;
@@ -115,6 +136,7 @@ const socialItems: SocialItems[] = [
             width: 22%;
 
         }
+        margin: 1cqi 0 0 0;
     }
     .right{
         display: flex;
@@ -150,7 +172,7 @@ const socialItems: SocialItems[] = [
         }
         }
         .footer-heading{
-            margin-bottom: 1rem;
+            margin-bottom: 2cqi;
             @media (max-width: #{$screen-md-max}) {
             font-size: 3.4vw;
         }
@@ -163,5 +185,15 @@ const socialItems: SocialItems[] = [
         a {
           display:block;
         }
+      .buttons:first-child{
+        margin-left: 1cqi;
+      }
+      .important-link{
+        @media (max-width: #{$screen-md-max}) {
+            font-size: 3vw;
+            margin: 2vh 0;
+        }
+        margin-bottom: 1vh;
+      }
 
 </style>
