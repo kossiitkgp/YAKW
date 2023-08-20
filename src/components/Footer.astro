@@ -1,0 +1,167 @@
+---
+import KOSSLogoBlue from "../assets/logoblue.svg";
+import Icon from "./Icon.astro";
+
+interface SocialItems {
+  link: string;
+  icon: string;
+}
+
+const socialItems: SocialItems[] = [
+  {
+    link: "/about",
+    icon: "about",
+  },
+  {
+    link: "/team",
+    icon: "team",
+  },
+  {
+    link: "/events",
+    icon: "events",
+  },
+];
+---
+
+<footer class="footer">
+    <div class="footer-column half">
+        <div class = "footer-logo">
+            <img class="footer-img" src={KOSSLogoBlue} alt="KOSS Logo" />
+            <h2>Kharagpur Open<br>Source Society</h2>
+        </div>
+        <div class="social-buttons">
+            {
+                socialItems.map((item, index) => (
+                  <a
+                    class="buttons"
+                    href={item.link}
+                  >
+                    <span>
+                      <Icon icon={item.icon} />
+                    </span>
+                  </a>
+                ))
+              }
+        </div>
+      </div>
+      <div class="footer-column quarter">
+        <div class="footer-list">
+        <h2 class="footer-heading">Contact Us</h2>
+        <address>admin@kossiitkgp.org</address>
+        </div>
+      </div>
+      <div class="footer-column quarter">
+        <div class="footer-list">
+        <h2 class="footer-heading">Important Links</h2>
+        <a>About</a>
+        <a>The Team</a>
+        <a>Docs</a>
+        <a>Events</a>
+        </div>
+      </div>
+      
+</footer>
+
+<style lang="scss">
+    @import "../styles/index.scss" ;
+
+    .footer {
+        background-color: #333;
+        margin: 1vw;
+        border-radius: 12px;
+        display: flex;
+
+        @include raised;
+        box-shadow: none;
+        padding: 1em 2em;
+
+        @media (max-width: #{$screen-md-max}) {
+            flex-direction: column;
+        }
+
+        }
+    .footer-column {
+        flex:1;
+    }
+    .half{
+      flex:2
+    }
+    .quarter{
+      flex:1;
+    }
+    .footer-logo{
+        display: flex;
+        align-items: center;
+
+        .footer-img{
+        max-width: fit-content;
+
+        @media (max-width: #{$screen-md-max}) {
+            width: 22%;
+
+        }
+        
+    }
+    h2{
+        margin: 0 0.5em;
+        @media (max-width: #{$screen-md-max}) {
+            font-size: 3.4vw;
+        }
+        }
+    }
+    .social-buttons{
+        display: flex;
+        @media (max-width: #{$screen-md-max}) {
+            width: 22%;
+
+        }
+    }
+    .right{
+        display: flex;
+        justify-content: space-evenly;
+        padding-top: 0.9%;
+
+    }
+    .buttons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: min(0.6rem, 1.5cqi) min(0.8rem, 2cqi);
+        padding: min(0.7rem, 2cqi);
+        border-radius: 8px;
+        gap: 4px;
+
+        text-decoration: none;
+        transition: all 0.3s ease;
+        background-color: #333;
+        @include raised;
+
+        &:hover {
+        background: none;
+        background-color: $accent-color;
+        box-shadow: 0px 4px 24px 0px rgba($text-primary, 0.15);
+        span {
+          fill: $background-primary;
+        }
+        }
+        span {
+          fill: $accent-color;
+        }
+        }
+        .footer-heading{
+            margin-bottom: 1rem;
+            @media (max-width: #{$screen-md-max}) {
+            font-size: 3.4vw;
+        }
+        }
+        .footer-list{
+            p{
+                margin: 0.5rem 0;
+            }     
+        }
+        a {
+          display:block;
+        }
+
+</style>
