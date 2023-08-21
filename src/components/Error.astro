@@ -1,0 +1,60 @@
+<script src="https://harshkhandeparkar.github.io/typoist/dist/typoist.min.js"></script>
+<div class="center">
+  <h1 class="type-box" id="error-desc"></h1>
+</div>
+
+<script>
+  window.onload = () => {
+    const typeIt = (selector, text, options) => {
+      const textArea = document.querySelector(selector);
+
+      const typoist = new Typoist.Typoist({
+        ...options,
+        appendFunction: (character) =>
+          new Promise((resolve) => {
+            textArea.innerText += character;
+            resolve();
+          }),
+        deleteFunction: () =>
+          new Promise((resolve) => {
+            textArea.innerText = textArea.innerText.slice(0, -1);
+            resolve();
+          }),
+      });
+
+      typoist.type(text);
+    };
+
+    typeIt("#error-desc", "404 Error, Webpage not Found", { speed: 8, mistakeProbability: 0 });
+  };
+</script>
+
+<style>
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .type-box {
+    font-size: 28px;
+  }
+  .type-box::after {
+    content: "g";
+    border-left: 5px solid;
+    border-color: white;
+    animation: blink 0.7s infinite;
+    color: transparent;
+    margin-left: 2px;
+  }
+  @keyframes blink {
+    0%,
+    100% {
+      border-left-color: transparent;
+    }
+
+    50% {
+      border-left-color: white;
+    }
+  }
+</style>
