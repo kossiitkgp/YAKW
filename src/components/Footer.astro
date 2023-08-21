@@ -9,17 +9,21 @@ interface SocialItems {
 
 const socialItems: SocialItems[] = [
   {
-    link: "/about",
-    icon: "about",
+    link: "https://github.com/kossiitkgp",
+    icon: "github-logo",
   },
   {
-    link: "/team",
-    icon: "team",
+    link: "https://twitter.com/kossiitkgp",
+    icon: "twitter-logo",
   },
   {
-    link: "/events",
-    icon: "events",
+    link: "https://www.facebook.com/kossiitkgp",
+    icon: "facebook-logo",
   },
+  {
+    link: "https://www.linkedin.com/company/kharagpur-open-source-society/",
+    icon: "linkedin-logo",
+  }
 ];
 ---
 
@@ -36,6 +40,7 @@ const socialItems: SocialItems[] = [
                   <a
                     class="buttons"
                     href={item.link}
+                    target="_blank"
                   >
                     <span>
                       <Icon icon={item.icon} />
@@ -53,7 +58,7 @@ const socialItems: SocialItems[] = [
       <div class="footer-column quarter">
         <div class="footer-list">
         <h2 class="footer-heading">Important Links</h2>
-        <a class="important-link">About</a>
+        <a class="important-link" href="example.com">About</a>
         <a class="important-link">The Team</a>
         <a class="important-link">Docs</a>
         <a class="important-link">Events</a>
@@ -105,7 +110,7 @@ const socialItems: SocialItems[] = [
       flex:1;
       margin: 1cqi 0 0 3cqi;
       @media (max-width: #{$screen-md-max}) {
-          margin: 1.8cqi 0 0;
+          margin: 1.8cqi 0 0 0;
 
         }
     }
@@ -149,15 +154,18 @@ const socialItems: SocialItems[] = [
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        margin: min(0.6rem, 1.5cqi) min(0.8rem, 2cqi);
-        padding: min(0.7rem, 2cqi);
+        margin: min(0.6rem, 1.5cqi) min(0.8rem, 1.5cqi);
+        padding: min(0.7rem, 1.5cqi);
         border-radius: 8px;
-        gap: 4px;
+        gap: 4px; 
 
         text-decoration: none;
         transition: all 0.3s ease;
         background-color: #333;
         @include raised;
+        height: auto;
+        width: auto;
+
 
         &:hover {
         background: none;
@@ -170,6 +178,7 @@ const socialItems: SocialItems[] = [
         span {
           fill: $accent-color;
         }
+        
         }
         .footer-heading{
             margin-bottom: 2cqi;
@@ -188,12 +197,18 @@ const socialItems: SocialItems[] = [
       .buttons:first-child{
         margin-left: 1cqi;
       }
-      .important-link{
+      .important-link, .important-link:visited{
+        text-decoration: none;
+        color: $text-primary;
         @media (max-width: #{$screen-md-max}) {
             font-size: 3vw;
             margin: 2vh 0;
         }
         margin-bottom: 1vh;
+        transition: all 0.3s ease;
+        &:hover{
+          color: $accent-color;;
+        }
       }
 
 </style>
