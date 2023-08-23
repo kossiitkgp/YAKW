@@ -1,26 +1,26 @@
 ---
 import Icon from "./Icon.astro";
 
-interface NavbarItem {
+interface TabItem {
   displayName: string;
   link: string;
   icon: string;
 }
 
-const navbarItems: NavbarItem[] = [
+const tabItems: TabItem[] = [
   {
     displayName: "CTMS",
-    link: "/team/Core%20Team%20Members",
+    link: "/team/ctms",
     icon: "about",
   },
   {
     displayName: "Executives",
-    link: "/team/Executives",
+    link: "/team/executives",
     icon: "team",
   },
   {
     displayName: "Advisors",
-    link: "/team/Advisors",
+    link: "/team/advisors",
     icon: "events",
   },
 ];
@@ -28,11 +28,11 @@ const navbarItems: NavbarItem[] = [
 const currentPath = Astro.url.pathname;
 ---
 
-<div class="navbar">
+<div class="tab">
   {
-    navbarItems.map((item, index) => (
+    tabItems.map((item, index) => (
       <a class:list={{ active: currentPath === item.link }} href={currentPath === item.link ? "#" : item.link}>
-        <div class="navbar-title">{item.displayName}</div>
+        <div class="tab-title">{item.displayName}</div>
       </a>
     ))
   }
@@ -41,13 +41,8 @@ const currentPath = Astro.url.pathname;
 <style lang="scss">
   @import "../styles/index.scss";
 
-  .navbar {
-    // position: fixed;
-    //left: 50%;
-    // top: 2rem;
-    //transform: translateX(-50%);
+  .tab {
     margin-left: -10rem;
-
     display: flex;
     flex-direction: column;
     float: left;
@@ -58,13 +53,9 @@ const currentPath = Astro.url.pathname;
     width: 2rem;
     height: 45rem;
     z-index: 100;
-    //border-radius: 12px;
 
     text-align: left;
-    //writing-mode: vertical-lr;
     text-orientation: mixed;
-
-    //@include raised;
 
     @media (max-width: #{$screen-xl-max}) {
       width: 45rem;
@@ -73,8 +64,6 @@ const currentPath = Astro.url.pathname;
     @media screen and (orientation: landscape) and (max-device-width: $screen-md-max) {
       width: 27rem;
     }
-
-    //container: Navbar / inline-size;
   }
 
   a {
@@ -118,7 +107,7 @@ const currentPath = Astro.url.pathname;
   .active,
   .active:hover {
     background-color: $accent-color;
-    .navbar-title {
+    .tab-title {
       color: $background-primary;
     }
     span {
@@ -126,9 +115,8 @@ const currentPath = Astro.url.pathname;
     }
   }
 
-  .navbar-title {
+  .tab-title {
     color: $text-primary;
-    //font-size: min(2rem, 2.5cqi);
     font-size: 1rem;
     text-transform: uppercase;
     @media (max-width: #{$screen-md-max}) {
@@ -142,31 +130,4 @@ const currentPath = Astro.url.pathname;
     align-items: center;
     justify-content: center;
   }
-  .navbar-logo {
-    height: auto;
-    width: auto;
-    transition: none;
-    margin: min(0rem, 1.5cqi) min(0.8rem, 2cqi);
-    padding: min(0.5rem, 2cqi) min(0.5rem, 3cqi);
-    overflow: hidden;
-  }
-  .navbar-logo:hover {
-    background-color: transparent;
-    background-color: inherit;
-    box-shadow: none;
-  }
-  .navbar-logo span {
-    width: 7.7cqi;
-    height: 7.7cqi;
-    justify-content: flex-start;
-  }
 </style>
-
-<script>
-  let toTop = document.querySelector('[href="#"]');
-
-  toTop?.addEventListener("click", function (e) {
-    e.preventDefault();
-    window.scroll({ top: 0, left: 0, behavior: "smooth" });
-  });
-</script>

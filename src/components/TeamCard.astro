@@ -2,18 +2,16 @@
 import Icon from "./Icon.astro";
 export interface Props {
   name: string;
-  gref: string;
-  lref: string;
+  linkedin_url: string;
   github_username: string;
 }
 
-const { name, gref, lref, github_username } = Astro.props as Props;
+const { name, linkedin_url, github_username } = Astro.props as Props;
 ---
 
 <li class="link-card">
   <div>
-    <img src={`https://avatars.githubusercontent.com/${github_username}`} class="pfp" />
-    <!--<Icon icon="profile" />-->
+    <img src={`https://avatars.githubusercontent.com/${github_username}`} alt="PFP" class="pfp" />
   </div>
   <br />
   <h4 class="name">
@@ -22,14 +20,11 @@ const { name, gref, lref, github_username } = Astro.props as Props;
   <br />
 
   <div class="footer-content">
-    <a class="icon" href={gref}> <Icon icon="github" /></a>
-    <a class="icon" href={lref}>
-      <Icon icon="linkedin" />
-    </a>
+    <a class="icon" href={`https://github.com/${github_username}`}> <Icon icon="github" /></a>
+    <a class="icon" href={linkedin_url}> <Icon icon="linkedin" /></a>
   </div>
 </li>
 <style lang="scss">
-  @import "../styles/mixins.scss";
   @import "../styles/index.scss";
   .link-card {
     display: flex;
