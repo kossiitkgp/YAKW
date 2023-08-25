@@ -14,11 +14,17 @@ export function getStaticPaths() {
 const team = Astro.params.team as string;
 
 let team_members = ADVISORS;
-if (team === "ctms") {
-  team_members = CTMS;
-}
-if (team === "executives") {
-  team_members = EXECUTIVES;
+
+switch (team) {
+  case "ctms":
+    team_members = CTMS;
+    break;
+  case "executives":
+    team_members = EXECUTIVES;
+    break;
+  case "advisors":
+    team_members = ADVISORS;
+    break;
 }
 ---
 
