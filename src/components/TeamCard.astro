@@ -11,7 +11,11 @@ const { name, linkedin_url, github_username } = Astro.props as Props;
 
 <li class="link-card">
   <div>
-    <img src={`https://avatars.githubusercontent.com/${github_username}`} alt="PFP" class="pfp" />
+    <img
+      src={`https://avatars.githubusercontent.com/${github_username}`}
+      alt=`${github_username}'s Profile Picture'`
+      class="pfp"
+    />
   </div>
   <br />
   <h4 class="name">
