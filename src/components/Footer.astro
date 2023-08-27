@@ -23,192 +23,200 @@ const socialItems: SocialItems[] = [
   {
     link: "https://www.linkedin.com/company/kharagpur-open-source-society/",
     icon: "linkedin-logo",
-  }
+  },
 ];
 ---
 
-<footer class="footer">
-    <div class="footer-column half">
-      <div class="logo-buttons">
-        <div class = "footer-logo">
-            <img class="footer-img" src={KOSSLogoBlue} alt="KOSS Logo" />
-            <h2>Kharagpur Open<br>Source Society</h2>
-        </div>
-        <div class="social-buttons">
-            {
-                socialItems.map((item, index) => (
-                  <a
-                    class="buttons"
-                    href={item.link}
-                    target="_blank"
-                  >
-                    <span>
-                      <Icon icon={item.icon} />
-                    </span>
-                  </a>
-                ))
-              }
-        </div>
+<div class="footer">
+  <div class="footer-column half">
+    <div class="logo-buttons">
+      <div class="footer-logo">
+        <img class="footer-img" src={KOSSLogoBlue} alt="KOSS Logo" />
+        <h2>Kharagpur Open<br />Source Society</h2>
       </div>
-      <div class="footer-list contact">
-        <h2 class="footer-heading">Contact Us</h2>
-        <address>contact@kossiitkgp.org</address>
+      <div class="social-buttons">
+        {
+          socialItems.map((item, index) => (
+            <a class="buttons" href={item.link} target="_blank">
+              <span>
+                <Icon icon={item.icon} />
+              </span>
+            </a>
+          ))
+        }
       </div>
-      </div>
-      <div class="footer-column quarter">
-        <div class="footer-list">
-        <h2 class="footer-heading">Important Links</h2>
-        <a class="important-link" href="example.com">About</a>
-        <a class="important-link">The Team</a>
-        <a class="important-link">Docs</a>
-        <a class="important-link">Events</a>
-        </div>
-      </div>
-      
-</footer>
+    </div>
+    <div class="footer-list contact">
+      <h2 class="footer-heading">Contact Us</h2>
+      <address>contact@kossiitkgp.org</address>
+    </div>
+  </div>
+  <div class="footer-column quarter">
+    <div class="footer-list">
+      <h2 class="footer-heading">Important Links</h2>
+      <a class="important-link" href="example.com">About</a>
+      <a class="important-link">The Team</a>
+      <a class="important-link">Docs</a>
+      <a class="important-link">Events</a>
+    </div>
+  </div>
+  <div class="credits">
+    <p class="credits-para">made with love and collaboration using </p><a class="important-link end-link" href="https://astro.build/">Astro</a>
+
+  </div>
+</div>
 
 <style lang="scss">
-    @import "../styles/index.scss" ;
+  @import "../styles/index.scss";
 
-    .footer {
-        background-color: #333;
-        margin: 1vw;
-        border-radius: 12px;
-        display: flex;
+  .footer {
+    background-color: #333;
+    margin: 1vw;
+    border-radius: 12px;
+    flex-wrap: wrap;
+    display: flex;
+    margin-bottom: 19vh;
 
-        @include raised;
-        box-shadow: none;
-        padding: 1em 2em;
-
-        }
-    .footer-column {
-        flex:1;
+    @include raised;
+    box-shadow: none;
+    padding: 1em 2em;
+    @media (max-width: #{$screen-md-max}) {
+      margin-bottom: 14vh;
     }
-    .half{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      flex:3;
-      @media (max-width: #{$screen-md-max}){
-        justify-content:left;
-      }
-
+  }
+  .footer-column {
+    flex: 1;
+  }
+  .half {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex: 3;
+    @media (max-width: #{$screen-md-max}) {
+      justify-content: left;
     }
-    .contact{
-      margin: 1cqi 0 0 0;
+  }
+  .contact {
+    margin: 1cqi 0 0 0;
+    @media (max-width: #{$screen-md-max}) {
+      margin: 3cqi 0 0 0;
+    }
+    address {
       @media (max-width: #{$screen-md-max}) {
-          margin: 3cqi 0 0 0;
-
-        }
-      address {
-        @media (max-width: #{$screen-md-max}) {
-            font-size: 3vw;
-        }
+        font-size: 3vw;
       }
     }
-    .quarter{
-      flex:1;
-      margin: 1cqi 0 0 3cqi;
+  }
+  .quarter {
+    flex: 1;
+    margin: 1cqi 0 0 3cqi;
+    @media (max-width: #{$screen-md-max}) {
+      margin: 1.8cqi 0 0 0;
+    }
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+
+    .footer-img {
+      max-width: fit-content;
+
       @media (max-width: #{$screen-md-max}) {
-          margin: 1.8cqi 0 0 0;
-
-        }
-    }
-
-    .footer-logo{
-        display: flex;
-        align-items: center;
-
-        .footer-img{
-        max-width: fit-content;
-
-        @media (max-width: #{$screen-md-max}) {
-            width: 22%;
-
-        }
-        
-    }
-    h2{
-        margin: 0 0.5em;
-        @media (max-width: #{$screen-md-max}) {
-            font-size: 3.4vw;
-        }
-        }
-    }
-    .social-buttons{
-        display: flex;
-        @media (max-width: #{$screen-md-max}) {
-            width: 22%;
-
-        }
-        margin: 1cqi 0 0 0;
-    }
-    .right{
-        display: flex;
-        justify-content: space-evenly;
-        padding-top: 0.9%;
-
-    }
-    .buttons{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        margin: min(0.6rem, 1.5cqi) min(0.8rem, 1.5cqi);
-        padding: min(0.7rem, 1.5cqi);
-        border-radius: 8px;
-        gap: 4px; 
-
-        text-decoration: none;
-        transition: all 0.3s ease;
-        background-color: #333;
-        @include raised;
-        height: auto;
-        width: auto;
-
-
-        &:hover {
-        background: none;
-        background-color: $accent-color;
-        box-shadow: 0px 4px 24px 0px rgba($text-primary, 0.15);
-        span {
-          fill: $background-primary;
-        }
-        }
-        span {
-          fill: $accent-color;
-        }
-        
-        }
-        .footer-heading{
-            margin-bottom: 2cqi;
-            @media (max-width: #{$screen-md-max}) {
-            font-size: 3.4vw;
-        }
-        }
-        .footer-list{
-            p{
-                margin: 0.5rem 0;
-            }     
-        }
-        a {
-          display:block;
-        }
-      .buttons:first-child{
-        margin-left: 1cqi;
+        width: 22%;
       }
-      .important-link, .important-link:visited{
-        text-decoration: none;
-        color: $text-primary;
-        @media (max-width: #{$screen-md-max}) {
-            font-size: 3vw;
-            margin: 2vh 0;
-        }
-        margin-bottom: 1vh;
-        transition: all 0.3s ease;
-        &:hover{
-          color: $accent-color;;
-        }
+    }
+    h2 {
+      margin: 0 0.5em;
+      @media (max-width: #{$screen-md-max}) {
+        font-size: 3.4vw;
       }
+    }
+  }
+  .social-buttons {
+    display: flex;
+    @media (max-width: #{$screen-md-max}) {
+      width: 22%;
+    }
+    margin: 1cqi 0 0 0;
+  }
+  .right {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 0.9%;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: min(0.6rem, 1.5cqi) min(0.8rem, 1.5cqi);
+    padding: min(0.7rem, 1.5cqi);
+    border-radius: 8px;
+    gap: 4px;
 
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background-color: #333;
+    @include raised;
+    height: auto;
+    width: auto;
+    box-shadow: 0px 1px 9px 2px rgba($accent-color, 0.05);
+
+    &:hover {
+      background: none;
+      background-color: $accent-color;
+      box-shadow: 0px 4px 24px 0px rgba($text-primary, 0.15);
+      span {
+        fill: $background-primary;
+      }
+    }
+    span {
+      fill: $accent-color;
+    }
+  }
+  .footer-heading {
+    margin-bottom: 2cqi;
+    @media (max-width: #{$screen-md-max}) {
+      font-size: 3.4vw;
+    }
+  }
+  .footer-list {
+    p {
+      margin: 0.5rem 0;
+    }
+  }
+  a {
+    display: block;
+  }
+  .buttons:first-child {
+    margin-left: 1cqi;
+  }
+  .important-link,
+  .important-link:visited {
+    text-decoration: none;
+    color: $text-primary;
+    @media (max-width: #{$screen-md-max}) {
+      font-size: 3vw;
+      margin: 2vh 0;
+    }
+    margin-bottom: 1vh;
+    transition: all 0.3s ease;
+    &:hover {
+      color: $accent-color;
+    }
+  }
+  .credits{
+    flex-basis: 100%;
+    height: 0;
+    text-align: center;
+    padding: inherit;
+  }
+  .credits-para,{
+    display: inline;
+    color: $text-tertiary;
+  }
+  .end-link{
+    display: inline;
+  }
 </style>
