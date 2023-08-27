@@ -1,8 +1,4 @@
-<script src="https://harshkhandeparkar.github.io/typoist/dist/typoist.min.js"></script>
-<div class="center">
-  <pre
-    class="ascii">
-                                                                                                                                                                                                          
+                                                                                                                                                                                                        
                                     @@@@@@@@@@@@@@@@@@@@                         @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@                                      
                                     @@@@@@@@@@@@@@@@@@@@                         @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@                                      
                              @@@@@@@@@@@@@@@@@@@@@@@@@@@                    @@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@                                      
@@ -20,77 +16,4 @@
                                            @@@@@@@@@@@@@                    @@@@@@@@@@@@@             @@@@@@@                                        @@@@@@@@@@@@@                                      
                                            @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@                                              @@@@@@@@@@@@@                                      
                                            @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@                                              @@@@@@@@@@@@@                                      
-  </pre>
-  <h1 class="type-box" id="error-desc"></h1>
-</div>
-
-<script>
-  const typeMsg = () => {
-    typeIt("#error-desc", "\nThis incident will be reported", { speed: 8, mistakeProbability: 0 });
-  };
-
-  const typeIt = (selector, text, options) => {
-    const textArea = document.querySelector(selector);
-
-    const typoist = new Typoist.Typoist({
-      ...options,
-      appendFunction: (character) =>
-        new Promise((resolve) => {
-          textArea.innerText += character;
-          resolve();
-        }),
-      deleteFunction: () =>
-        new Promise((resolve) => {
-          textArea.innerText = textArea.innerText.slice(0, -1);
-          resolve();
-        }),
-    });
-
-    typoist.type(text);
-  };
-
-  window.onload = () => {
-    typeIt("#error-desc", "Error 404: Webpage not found", { speed: 5, mistakeProbability: 0, onComplete: typeMsg });
-  };
-</script>
-
-<style>
-  .ascii {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 20%;
-  }
-  .center {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 20px;
-  }
-  .type-box {
-    font-size: 28px;
-  }
-  .type-box::after {
-    font-family: "Press Start 2P", cursive;
-    content: "g";
-    border-left: 5px solid;
-    border-color: white;
-    animation: blink 0.7s infinite;
-    color: transparent;
-    margin-left: 2px;
-  }
-  @keyframes blink {
-    0%,
-    100% {
-      border-left-color: transparent;
-    }
-
-    50% {
-      border-left-color: white;
-    }
-  }
-</style>
+                                           @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@                                              @@@@@@@@@@@@@                    
