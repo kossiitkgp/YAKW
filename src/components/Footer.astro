@@ -213,10 +213,14 @@ const socialItems: SocialItems[] = [
     padding: inherit;
   }
   .credits-para,{
+    @media (max-width: #{$screen-md-max}) {
+      font-size: 3vw;
+    }
     display: inline;
     color: $text-tertiary;
   }
   .end-link{
+
     display: inline;
   }
 </style>
