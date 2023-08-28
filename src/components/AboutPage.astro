@@ -125,6 +125,23 @@ import Section from "./Section.astro";
     margin-bottom: 4vw;
   }
 
+  @property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  :root {
+    --clr-1: #111319;
+    --clr-2: #13161d;
+    --clr-3: #58c7fa;
+    --clr-4: #3c67e3;
+    --clr-5: #0047c2;
+    --clr-6: #220888;
+    --clr-7: #6e00c2;
+    --clr-8: #4e00c2;
+  }
+
   .repo-cards {
     display: flex;
     flex-direction: column;
@@ -137,17 +154,52 @@ import Section from "./Section.astro";
 
   .repo-card {
     padding: 10px;
-    border: 1px solid $border-color;
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
     color: $text-primary;
-    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-    width: 100%;
-    overflow: hidden;
+    transition: background-color 0.3s ease-in-out, transform 0.1s ease-in-out;
     background-color: $background-primary;
     position: relative;
     cursor: pointer;
+  }
+
+  .repo-card::before,
+  .repo-card::after {
+    content: "";
+
+    position: absolute;
+    inset: -0.1rem;
+    z-index: -1;
+    background: conic-gradient(
+      from var(--gradient-angle),
+      var(--clr-3),
+      var(--clr-4),
+      var(--clr-5),
+      var(--clr-6),
+      var(--clr-7),
+      var(--clr-8),
+      var(--clr-7),
+      var(--clr-6),
+      var(--clr-5),
+      var(--clr-4),
+      var(--clr-3)
+    );
+    border-radius: inherit;
+    animation: rotation 6s linear infinite;
+  }
+
+  .repo-card::after {
+    filter: blur(0.5rem);
+  }
+
+  @keyframes rotation {
+    0% {
+      --gradient-angle: 0deg;
+    }
+    100% {
+      --gradient-angle: 360deg;
+    }
   }
 
   .repo-card:hover {
@@ -168,7 +220,7 @@ import Section from "./Section.astro";
 
   .repo-card-description {
     font-size: max(1.1rem, 1.8vw);
-    color: $text-secondary;
+    color: var(--clr-3);
     max-height: 0;
     opacity: 0;
     position: absolute;
