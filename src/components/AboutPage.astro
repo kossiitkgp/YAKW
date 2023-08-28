@@ -1,5 +1,5 @@
 ---
-import KOSSLogoBlue from "../assets/logoblue.svg";
+import { Icon } from "astro-icon";
 import Section from "./Section.astro";
 ---
 
@@ -70,24 +70,39 @@ import Section from "./Section.astro";
     Here are links to some of our GitHub repositories, which offer a range of content, including documentation, designs
     and other valuable resources.
     <div class="repo-cards">
-      <a href="https://github.com/kossiitkgp/" class="repo-card github-card">
-        <div class="repo-card-title">GitHub</div>
+      <a href="https://github.com/kossiitkgp/" class="repo-card">
+        <div class="repo-card-title">
+          <Icon name="grommet-icons:github" size="45" class="title-icon" />
+          GitHub
+        </div>
         <div class="repo-card-description">The KOSS GitHub Page</div>
       </a>
       <a href="https://github.com/kossiitkgp/docs" class="repo-card">
-        <div class="repo-card-title">Docs</div>
+        <div class="repo-card-title">
+          <Icon name="grommet-icons:document" size="45" class="title-icon" />
+          Documents
+        </div>
         <div class="repo-card-description">Repository for documentation related to KOSS</div>
       </a>
       <a href="https://github.com/kossiitkgp/design" class="repo-card">
-        <div class="repo-card-title">Design</div>
+        <div class="repo-card-title">
+          <Icon name="grommet-icons:brush" size="45" class="title-icon" />
+          Design
+        </div>
         <div class="repo-card-description">Repository for design assets and resources</div>
       </a>
       <a href="https://github.com/kossiitkgp/workshops" class="repo-card">
-        <div class="repo-card-title">Workshops</div>
+        <div class="repo-card-title">
+          <Icon name="grommet-icons:globe" size="45" class="title-icon" />
+          Workshops
+        </div>
         <div class="repo-card-description">Repository for workshop materials and resources.</div>
       </a>
       <a href="https://github.com/kossiitkgp/slides" class="repo-card">
-        <div class="repo-card-title">Slides</div>
+        <div class="repo-card-title">
+          <Icon name="ri:slideshow-2-line" size="45" class="title-icon" />
+          Slides
+        </div>
         <div class="repo-card-description">Repository for presentation slides and materials.</div>
       </a>
     </div>
@@ -221,7 +236,7 @@ import Section from "./Section.astro";
   .repo-card-description {
     font-size: max(1.1rem, 1.8vw);
     color: var(--clr-3);
-    max-height: 0;
+    max-height: 100%;
     opacity: 0;
     position: absolute;
     top: 0;
@@ -240,7 +255,16 @@ import Section from "./Section.astro";
     font-size: max(1.3rem, 2vw);
     font-weight: bold;
     margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: max-height 0.1s ease-in-out, opacity 0.1s ease-in-out;
+  }
+
+  .title-icon {
+    font-size: calc(1.3rem + 2vw);
+    margin-right: 0.5rem;
+    margin-left: -0.5rem;
   }
 
   @container Section (min-width: #{$screen-sm-min}) and (max-width: #{$screen-md-min}) {
