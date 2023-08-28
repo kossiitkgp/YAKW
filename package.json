@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/vercel": "^3.5.0",
     "astro": "^2.6.0",
+    "astro-icon": "^0.8.1",
     "sass": "^1.63.6"
   },
   "devDependencies": {
