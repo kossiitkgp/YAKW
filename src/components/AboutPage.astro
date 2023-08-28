@@ -66,7 +66,32 @@ import Section from "./Section.astro";
       <span class="question-title-highlight">I</span>mportant <span class="question-title-highlight">L</span>inks
     </h1>
   </div>
-  <p class="about-description">The following are links to some of our repositories in GitHub.</p>
+  <p class="about-description left-aligned">
+    Here are links to some of our GitHub repositories, which offer a range of content, including documentation, designs
+    and other valuable resources.
+    <div class="repo-cards">
+      <a href="https://github.com/kossiitkgp/" class="repo-card github-card">
+        <div class="repo-card-title">GitHub</div>
+        <div class="repo-card-description">The main KOSS GitHub organization.</div>
+      </a>
+      <a href="https://github.com/kossiitkgp/docs" class="repo-card">
+        <div class="repo-card-title">Documents</div>
+        <div class="repo-card-description">Repository for documentation related to KOSS projects.</div>
+      </a>
+      <a href="https://github.com/kossiitkgp/design" class="repo-card">
+        <div class="repo-card-title">Design</div>
+        <div class="repo-card-description">Repository for design assets and resources.</div>
+      </a>
+      <a href="https://github.com/kossiitkgp/workshops" class="repo-card">
+        <div class="repo-card-title">Workshops</div>
+        <div class="repo-card-description">Repository for workshop materials and resources.</div>
+      </a>
+      <a href="https://github.com/kossiitkgp/slides" class="repo-card">
+        <div class="repo-card-title">Slides</div>
+        <div class="repo-card-description">Repository for presentation slides and materials.</div>
+      </a>
+    </div>
+  </p>
 </Section>
 
 <style is:global lang="scss">
@@ -100,6 +125,72 @@ import Section from "./Section.astro";
     color: $text-primary;
     text-align: left;
     margin-bottom: 4vw;
+  }
+
+  .repo-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    max-width: 900px; /* Add a max-width for responsiveness */
+    width: 100%; /* Take up the full available width */
+  }
+
+  .repo-card {
+    padding: 10px;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: $text-primary;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    width: 100%; /* Take up the full available width */
+    overflow: hidden;
+    background-color: $background-primary;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .repo-card:hover {
+    transform: translateY(-5px) scale(1.0001);
+  }
+
+  .repo-card:hover .repo-card-description {
+    max-height: 100%; /* Show description on hover */
+    opacity: 1;
+    transition: max-height 0.1s ease-in-out, opacity 0.1s ease-in-out;
+  }
+
+  .repo-card:hover .repo-card-title {
+    max-height: 0%;
+    opacity: 0;
+    transition: max-height 0.1s ease-in-out, opacity 0.1s ease-in-out;
+  }
+
+  .repo-card-description {
+    font-size: max(1.1rem, 1.8vw); /* Enlarge description size */
+    color: $text-secondary;
+    max-height: 0; /* Initially hide description */
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: max-height 0.1s ease-in-out, opacity 0.1s ease-in-out;
+  }
+
+  .repo-card-title {
+    font-size: max(1.3rem, 2vw); /* Enlarge title size */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    transition: max-height 0.1s ease-in-out, opacity 0.1s ease-in-out;
   }
 
   @container Section (min-width: #{$screen-sm-min}) and (max-width: #{$screen-md-min}) {
