@@ -42,20 +42,33 @@ const currentPath = Astro.url.pathname;
   @import "../styles/index.scss";
 
   .tab {
-    margin-left: -10rem;
     display: flex;
     flex-direction: column;
-    float: left;
-    align-items: center;
-    justify-content: center;
+    top: calc(50% - 97.5px);
+    left: 2rem;
+    margin: 0;
+    position: absolute;
 
     max-width: 100%;
-    width: 2rem;
-    height: 45rem;
+    width: auto;
+    height: auto;
     z-index: 100;
 
     text-align: left;
     text-orientation: mixed;
+
+    border: 2px solid transparent;
+    background-color: $background-secondary;
+    background: linear-gradient($background-secondary, $background-secondary) padding-box,
+      linear-gradient(
+          180deg,
+          rgba($border-color, 0.1) 0%,
+          rgba($border-color, 0) 83.85%,
+          rgba(white, 0.05) 100%,
+          rgba($border-color, 0.05) 100%
+        )
+        border-box;
+    border-radius: 8px;
 
     @media (max-width: #{$screen-xl-max}) {
       width: 45rem;
