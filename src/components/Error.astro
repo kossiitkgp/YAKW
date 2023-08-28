@@ -2,8 +2,8 @@
 <div class="center">
   <pre
     class="ascii">
-                    @@@@@@@@@@@@@@@@@@@@                         @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@      
-                    @@@@@@@@@@@@@@@@@@@@                         @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@      
+                    @@@@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@      
+                    @@@@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@      
               @@@@@@@@@@@@@@@@@@@@@@@@@@@                   @@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@      
               @@@@@@@@@@@@@@@@@@@@@@@@@@@                   @@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@      
               @@@@@@@@@@@@@@@@@@@@@@@@@@@             @@@@@@@@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@      
@@ -70,8 +70,9 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-51.5%, -50%);
     margin: 20px;
+    padding-bottom: 20vh;
   }
   .type-box {
     padding-top: 3.5vh;
@@ -97,6 +98,32 @@
 
     50% {
       border-left-color: white;
+    }
+  }
+
+  @media only screen and (max-width: 1100px) {
+    .type-box {
+      font-size: large;
+      transform: translateY(100%);
+      width: 63vw;
+    }
+    .center {
+      margin-top: -7vh;
+      width: moz-available;
+      left: 46.5vw;
+      padding-bottom: 0vh;
+    }
+  }
+  @media only screen and (max-width: 300px) {
+    .type-box {
+      font-size: large;
+      transform: translateY(100%);
+      width: 63vw;
+    }
+    .center {
+      width: moz-available;
+      left: 45vw;
+      padding-bottom: 0vh;
     }
   }
 </style>
