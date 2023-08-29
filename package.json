@@ -14,7 +14,7 @@
     "@astrojs/vercel": "^3.5.0",
     "astro": "^2.6.0",
     "sass": "^1.63.6",
-    "typoist": "^1.2.0"
+    "typoist": "^1.2.2"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^5.60.0",
