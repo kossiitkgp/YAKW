@@ -72,35 +72,35 @@ import Section from "./Section.astro";
     <div class="repo-cards">
       <a href="https://github.com/kossiitkgp/" class="repo-card">
         <div class="repo-card-title">
-          <Icon name="grommet-icons:github" size="45" class="title-icon" />
+          <Icon name="grommet-icons:github" size="40" class="title-icon" />
           GitHub
         </div>
         <div class="repo-card-description">The KOSS GitHub Page</div>
       </a>
       <a href="https://github.com/kossiitkgp/docs" class="repo-card">
         <div class="repo-card-title">
-          <Icon name="grommet-icons:document" size="45" class="title-icon" />
+          <Icon name="grommet-icons:document" size="40" class="title-icon" />
           Documents
         </div>
         <div class="repo-card-description">Repository for documentation related to KOSS</div>
       </a>
       <a href="https://github.com/kossiitkgp/design" class="repo-card">
         <div class="repo-card-title">
-          <Icon name="grommet-icons:brush" size="45" class="title-icon" />
+          <Icon name="grommet-icons:brush" size="40" class="title-icon" />
           Design
         </div>
         <div class="repo-card-description">Repository for design assets and resources</div>
       </a>
       <a href="https://github.com/kossiitkgp/workshops" class="repo-card">
         <div class="repo-card-title">
-          <Icon name="grommet-icons:globe" size="45" class="title-icon" />
+          <Icon name="grommet-icons:globe" size="40" class="title-icon" />
           Workshops
         </div>
         <div class="repo-card-description">Repository for workshop materials and resources.</div>
       </a>
       <a href="https://github.com/kossiitkgp/slides" class="repo-card">
         <div class="repo-card-title">
-          <Icon name="ri:slideshow-2-line" size="45" class="title-icon" />
+          <Icon name="ri:slideshow-2-line" size="40" class="title-icon" />
           Slides
         </div>
         <div class="repo-card-description">Repository for presentation slides and materials.</div>
@@ -159,12 +159,12 @@ import Section from "./Section.astro";
 
   .repo-cards {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 20px;
     margin-top: 5px;
     margin-bottom: 40px;
     max-width: 900px;
-    width: 100%;
+    justify-content: center;
   }
 
   .repo-card {
@@ -177,6 +177,15 @@ import Section from "./Section.astro";
     background-color: $background-primary;
     position: relative;
     cursor: pointer;
+    flex: 1 1 calc(50% - 20px);
+
+    @media (min-width: #{$screen-sm-min}) and (max-width: #{$screen-md-min}) {
+      flex: 1 1 calc(100% - 20px);
+    }
+
+    @media (max-width: #{$screen-sm-max}) {
+      flex: 1 1 calc(100% - 20px);
+    }
   }
 
   .repo-card::before,
@@ -230,11 +239,11 @@ import Section from "./Section.astro";
   .repo-card:hover .repo-card-title {
     max-height: 0%;
     opacity: 0;
-    transition: max-height 0.1s ease-in-out, opacity 0.1s ease-in-out;
+    transition: max-height 0s ease-in-out, opacity 0s ease-in-out;
   }
 
   .repo-card-description {
-    font-size: max(1.1rem, 1.8vw);
+    font-size: max(1rem, 1.5vw);
     color: var(--clr-3);
     max-height: 100%;
     opacity: 0;
@@ -244,7 +253,7 @@ import Section from "./Section.astro";
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
