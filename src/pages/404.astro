@@ -1,8 +1,108 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Error from "../components/Error.astro";
 ---
 
 <Layout title="404">
-  <Error />
+  <div>
+    <pre
+      class="ascii">
+                      @@@@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@@     
+                      @@@@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@@     
+                @@@@@@@@@@@@@@@@@@@@@@@@@@@                   @@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@     
+                @@@@@@@@@@@@@@@@@@@@@@@@@@@                   @@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@     
+                @@@@@@@@@@@@@@@@@@@@@@@@@@@             @@@@@@@@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@     
+          @@@@@@@@@@@@@       @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@               @@@@@@@@@@@@@       @@@@@@@@@@@@@@     
+          @@@@@@@@@@@@@       @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@               @@@@@@@@@@@@@       @@@@@@@@@@@@@@     
+  @@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@       @@@@@@@@@@@@@@     
+  @@@@@@@@@@@@@               @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@              @@@@@@@@@@@@@@     
+  @@@@@@@@@@@@@               @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@              @@@@@@@@@@@@@@     
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@              @@@@@@@@@@@@@             @@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                              @@@@@@@@@@@@@                    @@@@@@@@@@@@@             @@@@@@@                                        @@@@@@@@@@@@@     
+                              @@@@@@@@@@@@@                    @@@@@@@@@@@@@             @@@@@@@                                        @@@@@@@@@@@@@     
+                              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@                                              @@@@@@@@@@@@@     
+                              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@                                              @@@@@@@@@@@@@     
+    </pre>
+    <div class="type-box-container">
+      <p class="type-box" id="error-desc"></p>
+    </div>
+  </div>
 </Layout>
+
+<script>
+  import { Typoist } from "typoist";
+  const typeIt = (selector, text, options) => {
+    const textArea = document.querySelector(selector);
+    if (textArea) {
+      const typoist = new Typoist({
+        ...options,
+        appendFunction: (character) =>
+          new Promise((resolve) => {
+            textArea.innerHTML += character;
+            resolve("appended char");
+          }),
+        deleteFunction: () =>
+          new Promise((resolve) => {
+            textArea.innerHTML = textArea.innerHTML.slice(0, -1);
+            resolve("deleted char");
+          }),
+      });
+
+      typoist.type(text);
+    }
+  };
+
+  window.onload = () => {
+    typeIt("#error-desc", "You tried to access a forbidden page. This incident will be reported.", {
+      speed: 10,
+      mistakeProbability: 0.1,
+    });
+  };
+</script>
+
+<style>
+  pre {
+    user-select: none;
+    font-size: 1vw;
+  }
+  .ascii {
+    position: relative;
+    top: 9vh;
+    padding-left: 3.5vw;
+    opacity: 50%;
+    display: inline-block;
+  }
+  .type-box-container {
+    position: relative;
+    width: 100%;
+    padding-left: 9vw;
+    margin: 19vh 0%;
+    display: inline-block;
+  }
+  .type-box {
+    padding-top: 3.5vh;
+    font-size: 2vw;
+    font-family: source code pro, monospace;
+    min-width: 100%;
+  }
+  .type-box::after {
+    font-family: "Press Start 2P", cursive;
+    content: "g";
+    border-left: 5px solid;
+    border-color: white;
+    animation: blink 0.7s infinite;
+    color: transparent;
+    margin-left: 2px;
+  }
+  @keyframes blink {
+    0%,
+    100% {
+      border-left-color: transparent;
+    }
+
+    50% {
+      border-left-color: white;
+    }
+  }
+</style>
