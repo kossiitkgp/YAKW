@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro" />
+
 <Layout title="404">
   <div>
     <pre
@@ -37,28 +39,20 @@ import Layout from "../layouts/Layout.astro";
     if (textArea) {
       const typoist = new Typoist({
         ...options,
-        appendFunction: (character) =>
-          new Promise((resolve) => {
-            textArea.innerHTML += character;
-            resolve("appended char");
-          }),
-        deleteFunction: () =>
-          new Promise((resolve) => {
-            textArea.innerHTML = textArea.innerHTML.slice(0, -1);
-            resolve("deleted char");
-          }),
+        appendFunction: async (character) => (textArea.innerHTML += character),
+        deleteFunction: async () => (textArea.innerHTML = textArea.innerHTML.slice(0, -1)),
       });
 
       typoist.type(text);
     }
   };
 
-  window.onload = () => {
+  window.addEventListener("load", () => {
     typeIt("#type-box-404", "You tried to access a forbidden page. This incident will be reported.", {
       speed: 10,
-      mistakeProbability: 0.1,
+      mistakeProbability: 0,
     });
-  };
+  });
 </script>
 
 <style>
@@ -72,6 +66,7 @@ import Layout from "../layouts/Layout.astro";
     padding-left: 3.5vw;
     opacity: 50%;
     display: inline-block;
+    padding-top: 10vh;
   }
   .type-box-container {
     position: relative;
@@ -83,7 +78,7 @@ import Layout from "../layouts/Layout.astro";
   .type-box {
     padding-top: 3.5vh;
     font-size: 2vw;
-    font-family: "Press Start 2P", monospace;
+    font-family: Source Code Pro;
     min-width: 100%;
   }
   .type-box::after {
