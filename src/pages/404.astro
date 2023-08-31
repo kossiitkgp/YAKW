@@ -25,7 +25,7 @@ import Layout from "../layouts/Layout.astro";
                               @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@                                              @@@@@@@@@@@@@     
     </pre>
     <div class="type-box-container">
-      <p class="type-box" id="error-desc"></p>
+      <p class="type-box" id="type-box-404"></p>
     </div>
   </div>
 </Layout>
@@ -54,7 +54,7 @@ import Layout from "../layouts/Layout.astro";
   };
 
   window.onload = () => {
-    typeIt("#error-desc", "You tried to access a forbidden page. This incident will be reported.", {
+    typeIt("#type-box-404", "You tried to access a forbidden page. This incident will be reported.", {
       speed: 10,
       mistakeProbability: 0.1,
     });
@@ -83,7 +83,7 @@ import Layout from "../layouts/Layout.astro";
   .type-box {
     padding-top: 3.5vh;
     font-size: 2vw;
-    font-family: source code pro, monospace;
+    font-family: "Press Start 2P", monospace;
     min-width: 100%;
   }
   .type-box::after {
