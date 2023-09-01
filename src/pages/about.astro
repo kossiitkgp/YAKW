@@ -1,4 +1,5 @@
 ---
+import Icon from "../components/Icon.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -25,7 +26,7 @@ import Layout from "../layouts/Layout.astro";
   </section>
   <section>
     <div class="section-text">
-      <h1 class="section-heading">About KOSS</h1>
+      <h1 class="section-heading">What is Open Source?</h1>
       <p class="section-body">
         The Kharagpur Open Source Society (KOSS) is a community of open source enthusiasts at IIT Kharagpur. We
         collaborate on innovative open source projects, applying cutting-edge solutions to real-world problems. The
@@ -41,7 +42,7 @@ import Layout from "../layouts/Layout.astro";
   </section>
   <section>
     <div class="section-text">
-      <h1 class="section-heading">About KOSS</h1>
+      <h1 class="section-heading">What we are known for?</h1>
       <p class="section-body">
         The Kharagpur Open Source Society (KOSS) is a community of open source enthusiasts at IIT Kharagpur. We
         collaborate on innovative open source projects, applying cutting-edge solutions to real-world problems. The
@@ -55,6 +56,38 @@ import Layout from "../layouts/Layout.astro";
       />
     </div>
   </section>
+  <div class="socials">
+    <h1 class="socials-heading">Junta & Networking</h1>
+    <div class="socials-image-grid">
+      <img src="/photos/0.jpg" alt="social-gallery" style="grid-column: 1 / 3;" />
+      <a href="https://github.com/kossiitkgp" class="social-link-wrapper" style="grid-column: 3 / 4;"
+        ><img src="/public/github-mark.png" alt="github-logo" /></a
+      >
+      <img src="/photos/1.jpg" alt="social-gallery" style="grid-column: 4 / 6;" />
+      <!--  -->
+      <a href="https://github.com/kossiitkgp" class="social-link-wrapper blue" style="grid-column: 1 / 2;"
+        ><img src="/public/github-mark.png" alt="github-logo" /></a
+      >
+      <img src="/photos/2.jpg" alt="social-gallery" style="grid-column: 2 / 5;" />
+      <a href="https://github.com/kossiitkgp" class="social-link-wrapper blue" style="grid-column: 5 / 6;"
+        ><img src="/public/github-mark.png" alt="github-logo" /></a
+      >
+      <!--  -->
+      <img src="/photos/3.jpg" alt="social-gallery" style="grid-column: 1 / 3;" />
+      <a href="https://github.com/kossiitkgp" class="social-link-wrapper" style="grid-column: 3 / 4;"
+        ><img src="/public/github-mark.png" alt="github-logo" /></a
+      >
+      <img src="/photos/4.jpg" alt="social-gallery" style="grid-column: 4 / 6;" />
+      <!--  -->
+      <a href="https://github.com/kossiitkgp" class="social-link-wrapper blue" style="grid-column: 1 / 2;"
+        ><img src="/public/github-mark.png" alt="github-logo" /></a
+      >
+      <img src="/photos/5.jpg" alt="social-gallery" style="grid-column: 2 / 5;" />
+      <a href="https://github.com/kossiitkgp" class="social-link-wrapper blue" style="grid-column: 5 / 6;"
+        ><img src="/public/github-mark.png" alt="github-logo" /></a
+      >
+    </div>
+  </div>
 </Layout>
 
 <style lang="scss">
@@ -133,6 +166,53 @@ import Layout from "../layouts/Layout.astro";
         height: 100%;
         object-fit: cover;
         border-radius: 0.5rem;
+      }
+    }
+  }
+
+  .socials {
+    margin-bottom: 10rem;
+
+    .socials-heading {
+      font-size: 3rem;
+      font-weight: 500;
+      margin-bottom: 5rem;
+      letter-spacing: 1.2px;
+      text-align: center;
+    }
+
+    .socials-image-grid {
+      display: grid;
+      width: 80%;
+      margin: 0 auto;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 10px;
+
+      img {
+        width: 100%;
+        border-radius: 5px;
+      }
+
+      .social-link-wrapper {
+        width: 100%;
+        background-color: #fd841f;
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+
+        &.blue {
+          background-color: $accent-color;
+        }
+
+        img {
+          width: 12rem;
+          position: absolute;
+          left: 50%;
+          bottom: 50%;
+          transform: translate(-50%, 50%);
+          opacity: 1;
+          transition: all 0.2s ease-in;
+        }
       }
     }
   }
