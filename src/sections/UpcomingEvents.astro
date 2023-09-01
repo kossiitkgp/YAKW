@@ -1,10 +1,10 @@
 ---
-import EventCard from "./EventCard.astro";
-import Section from "./Section.astro";
+import EventCard from "../components/EventCard.astro";
+import Section from "../components/Section.astro";
 
 import EVENTS from "../data/events.json";
 
-import { getUpcomingEvents } from '../utils/events';
+import { getUpcomingEvents } from "../utils/events";
 
 const UPCOMING_EVENTS = getUpcomingEvents(EVENTS);
 ---
