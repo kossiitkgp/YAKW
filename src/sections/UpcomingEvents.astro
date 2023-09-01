@@ -9,11 +9,7 @@ import { getUpcomingEvents } from "../utils/events";
 const UPCOMING_EVENTS = getUpcomingEvents(EVENTS);
 ---
 
-<Section id="upcoming-events">
-  <div class="title">
-    <h1>Upcoming Events</h1>
-  </div>
-
+<Section id="upcoming-events" title="Upcoming Events" titleAlignment="center">
   <div class="events">
     {
       UPCOMING_EVENTS.length > 0
