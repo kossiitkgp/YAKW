@@ -72,7 +72,7 @@ import Layout from "../layouts/Layout.astro";
     position: relative;
     width: 100%;
     padding-left: 9vw;
-    margin: 19vh 0%;
+    margin: 10vh 0%;
     display: inline-block;
   }
   .type-box {
@@ -98,6 +98,12 @@ import Layout from "../layouts/Layout.astro";
 
     50% {
       border-left-color: white;
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .type-box {
+      font-size: 6vw;
     }
   }
 </style>
