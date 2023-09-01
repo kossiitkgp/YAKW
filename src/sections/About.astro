@@ -1,4 +1,5 @@
 ---
+import Title from "../components/Title.astro";
 import KOSSLogoBlue from "../assets/logoblue.svg";
 import Section from "../components/Section.astro";
 ---
@@ -9,9 +10,7 @@ import Section from "../components/Section.astro";
     <div class="about-title">
       <img class="about-title-img" src={KOSSLogoBlue} alt="KOSS Logo" />
       <h1>
-        <span class="about-title-highlight">K</span>haragpur <span class="about-title-highlight">O</span>pen <span
-          class="about-title-highlight">S</span
-        >ource <span class="about-title-highlight">S</span>ociety
+        <Title title="Kharagpur Open Source Society" />
       </h1>
     </div>
     <p class="about-description">
@@ -62,10 +61,6 @@ import Section from "../components/Section.astro";
       display: flex;
       flex-direction: column;
       gap: 1rem;
-    }
-
-    .about-title-highlight {
-      color: $accent-color;
     }
 
     .about-description {
