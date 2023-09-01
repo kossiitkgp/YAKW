@@ -9,8 +9,7 @@ const { title } = Astro.props as Props;
 {
   title.split(" ").map((word) => (
     <>
-      <span class="title-highlight">{word[0]}</span>
-      {word.slice(1)}
+      <span class="title-highlight">{word[0]}</span>{word.slice(1)}
     </>
   ))
 }
