@@ -4,16 +4,17 @@ import Title from "./Title.astro";
 export interface Props {
   id: string;
   title?: string;
-  titleAlignment?: string;
   img?: {
     src: string;
     alt: string;
   };
+  imgPosition?: "left" | "right";
 }
 
-const { id, img, title, titleAlignment } = Astro.props as Props;
+const { id, img, title, imgPosition } = Astro.props as Props;
 
-const titleAlign = titleAlignment ?? "left";
+const wrapperFlexDirection = (imgPosition ?? "left") == "left" ? "row" : "row-reverse";
+const titleAlignment = img === undefined ? "center" : imgPosition ?? "left";
 ---
 
 <section id={id}>
@@ -35,7 +36,7 @@ const titleAlign = titleAlignment ?? "left";
   </div>
 </section>
 
-<style lang="scss" define:vars={{ titleAlign }}>
+<style lang="scss" define:vars={{ wrapperFlexDirection, titleAlignment }}>
   @import "../styles/index.scss";
 
   section {
@@ -53,7 +54,7 @@ const titleAlign = titleAlignment ?? "left";
     margin-top: 20vh;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: var(--wrapperFlexDirection);
 
     gap: 3rem;
     align-items: center;
@@ -77,7 +78,7 @@ const titleAlign = titleAlignment ?? "left";
   .section-title {
     font-size: max(2cqi, 1.1rem);
     color: $text-primary;
-    text-align: var(--titleAlign);
+    text-align: var(--titleAlignment);
 
     margin-bottom: 2rem;
 
