@@ -194,7 +194,6 @@ const currentPath = Astro.url.pathname;
   let footer = document.querySelector(".footer");
 
   window.onscroll = function () {
-    console.log(window.innerHeight + window.scrollY, document.body.offsetHeight);
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
       navbar?.setAttribute("data-hide", "true");
       footer?.setAttribute("data-hide", "false");
