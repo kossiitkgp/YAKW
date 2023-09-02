@@ -85,15 +85,15 @@ const socialItems: SocialItems[] = [
 
     @include raised;
 
-    @media (max-width: #{$screen-md-max}) {
-      margin-bottom: 14vh;
-    }
-
     .main-content {
       width: 80%;
       display: flex;
       justify-content: space-around;
       gap: 5rem;
+
+      @media (max-width: #{$screen-md-max}) {
+        flex-direction: column;
+      }
     }
   }
 
@@ -103,11 +103,20 @@ const socialItems: SocialItems[] = [
   }
 
   .logo-buttons {
+    @media (max-width: #{$screen-md-max}) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   .footer-logo {
     display: flex;
     align-items: center;
+
+    @media (max-width: #{$screen-md-max}) {
+      justify-content: center;
+    }
 
     .footer-img {
       max-width: fit-content;
@@ -116,6 +125,7 @@ const socialItems: SocialItems[] = [
         width: 22%;
       }
     }
+
     h2 {
       margin: 0 0.5em;
       @media (max-width: #{$screen-md-max}) {
@@ -125,9 +135,6 @@ const socialItems: SocialItems[] = [
   }
   .social-buttons {
     display: flex;
-    @media (max-width: #{$screen-md-max}) {
-      width: 22%;
-    }
     margin: 1cqi 0 0 0;
   }
   .right {
