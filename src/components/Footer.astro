@@ -28,36 +28,38 @@ const socialItems: SocialItems[] = [
 ---
 
 <div class="footer">
-  <div class="footer-column half">
-    <div class="logo-buttons">
-      <div class="footer-logo">
-        <img class="footer-img" src={KOSSLogoBlue} alt="KOSS Logo" />
-        <h2>Kharagpur Open<br />Source Society</h2>
-      </div>
-      <div class="social-buttons">
-        {
-          socialItems.map((item, index) => (
-            <a class="buttons" href={item.link} target="_blank">
-              <span>
-                <Icon icon={item.icon} />
-              </span>
-            </a>
-          ))
-        }
+  <div class="main-content">
+    <div class="footer-column">
+      <div class="logo-buttons">
+        <div class="footer-logo">
+          <img class="footer-img" src={KOSSLogoBlue} alt="KOSS Logo" />
+          <h2>Kharagpur Open<br />Source Society</h2>
+        </div>
+        <div class="social-buttons">
+          {
+            socialItems.map((item, index) => (
+              <a class="buttons" href={item.link} target="_blank">
+                <span>
+                  <Icon icon={item.icon} />
+                </span>
+              </a>
+            ))
+          }
+        </div>
       </div>
     </div>
-    <div class="footer-list contact">
+    <div class="footer-column">
       <h2 class="footer-heading">Contact Us</h2>
       <address>contact@kossiitkgp.org</address>
     </div>
-  </div>
-  <div class="footer-column quarter">
-    <div class="footer-list">
-      <h2 class="footer-heading">Important Links</h2>
-      <a class="important-link" href="example.com">About</a>
-      <a class="important-link">The Team</a>
-      <a class="important-link">Docs</a>
-      <a class="important-link">Events</a>
+    <div class="footer-column">
+      <div class="footer-list">
+        <h2 class="footer-heading">Navigation</h2>
+        <a class="important-link" href="example.com">About</a>
+        <a class="important-link">The Team</a>
+        <a class="important-link">Docs</a>
+        <a class="important-link">Events</a>
+      </div>
     </div>
   </div>
   <div class="credits">
@@ -70,52 +72,37 @@ const socialItems: SocialItems[] = [
   @import "../styles/index.scss";
 
   .footer {
-    flex-wrap: wrap;
-    display: flex;
-    width: 95vw;
-    margin: 0 auto;
     margin-top: 8rem;
-    box-shadow: none;
     padding: 1em 2em;
+    padding-top: 2.5em;
     border-radius: 10px 10px 0 0;
-    z-index: 1000;
     position: relative;
+    z-index: 25;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     @include raised;
 
     @media (max-width: #{$screen-md-max}) {
       margin-bottom: 14vh;
     }
+
+    .main-content {
+      width: 80%;
+      display: flex;
+      justify-content: space-around;
+      gap: 5rem;
+    }
   }
+
   .footer-column {
     flex: 1;
+    text-align: center;
   }
-  .half {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    flex: 3;
-    @media (max-width: #{$screen-md-max}) {
-      justify-content: left;
-    }
-  }
-  .contact {
-    margin: 1cqi 0 0 0;
-    @media (max-width: #{$screen-md-max}) {
-      margin: 3cqi 0 0 0;
-    }
-    address {
-      @media (max-width: #{$screen-md-max}) {
-        font-size: 3vw;
-      }
-    }
-  }
-  .quarter {
-    flex: 1;
-    margin: 1cqi 0 0 3cqi;
-    @media (max-width: #{$screen-md-max}) {
-      margin: 1.8cqi 0 0 0;
-    }
+
+  .logo-buttons {
   }
 
   .footer-logo {
@@ -179,7 +166,9 @@ const socialItems: SocialItems[] = [
     }
   }
   .footer-heading {
-    margin-bottom: 2cqi;
+    margin-top: 0.6cqi;
+    margin-bottom: 1cqi;
+    color: $accent-color;
     @media (max-width: #{$screen-md-max}) {
       font-size: 3.4vw;
     }
@@ -193,7 +182,7 @@ const socialItems: SocialItems[] = [
     display: block;
   }
   .buttons:first-child {
-    margin-left: 1cqi;
+    margin-left: 0.5cqi;
   }
   .important-link,
   .important-link:visited {
