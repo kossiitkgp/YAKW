@@ -1,5 +1,5 @@
 ---
-import Icon from "../components/Icon.astro";
+import Section from "../components/Section.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -8,54 +8,49 @@ import Layout from "../layouts/Layout.astro";
     <div class="quote__content">"Collaboration is better than Competition"</div>
     <div class="quote__author">- xypnox</div>
   </div>
-  <section>
-    <div class="section-text">
-      <h1 class="section-heading">About KOSS</h1>
-      <p class="section-body">
-        The Kharagpur Open Source Society (KOSS) is a community of open source enthusiasts at IIT Kharagpur. We
-        collaborate on innovative open source projects, applying cutting-edge solutions to real-world problems. The
-        community promotes knowledge-sharing and personal growth in a supportive and engaging environment.
-      </p>
-    </div>
-    <div class="section-image">
-      <img
-        src="https://images.pexels.com/photos/1756665/pexels-photo-1756665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        alt="About KOSS"
-      />
-    </div>
-  </section>
-  <section>
-    <div class="section-text">
-      <h1 class="section-heading">What is Open Source?</h1>
-      <p class="section-body">
-        The Kharagpur Open Source Society (KOSS) is a community of open source enthusiasts at IIT Kharagpur. We
-        collaborate on innovative open source projects, applying cutting-edge solutions to real-world problems. The
-        community promotes knowledge-sharing and personal growth in a supportive and engaging environment.
-      </p>
-    </div>
-    <div class="section-image">
-      <img
-        src="https://images.pexels.com/photos/1756665/pexels-photo-1756665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        alt="About KOSS"
-      />
-    </div>
-  </section>
-  <section>
-    <div class="section-text">
-      <h1 class="section-heading">What we are known for?</h1>
-      <p class="section-body">
-        The Kharagpur Open Source Society (KOSS) is a community of open source enthusiasts at IIT Kharagpur. We
-        collaborate on innovative open source projects, applying cutting-edge solutions to real-world problems. The
-        community promotes knowledge-sharing and personal growth in a supportive and engaging environment.
-      </p>
-    </div>
-    <div class="section-image">
-      <img
-        src="https://images.pexels.com/photos/1756665/pexels-photo-1756665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        alt="About KOSS"
-      />
-    </div>
-  </section>
+  <Section
+    id="about-koss"
+    title="About KOSS"
+    img={{
+      src: "https://images.pexels.com/photos/1756665/pexels-photo-1756665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      alt: "About KOSS",
+    }}
+  >
+    <p class="section-body">
+      The Kharagpur Open Source Society (KOSS) is a community of open source enthusiasts at IIT Kharagpur. We
+      collaborate on innovative open source projects, applying cutting-edge solutions to real-world problems. The
+      community promotes knowledge-sharing and personal growth in a supportive and engaging environment.
+    </p>
+  </Section>
+  <Section
+    id="open-source"
+    title="What is Open Source?"
+    img={{
+      src: "https://images.pexels.com/photos/1756665/pexels-photo-1756665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      alt: "What is Open Source",
+    }}
+    imgPosition="right"
+  >
+    <p class="section-body">
+      The Kharagpur Open Source Society (KOSS) is a community of open source enthusiasts at IIT Kharagpur. We
+      collaborate on innovative open source projects, applying cutting-edge solutions to real-world problems. The
+      community promotes knowledge-sharing and personal growth in a supportive and engaging environment.
+    </p>
+  </Section>
+  <Section
+    id="kwown-for"
+    title="What Are We Known For?"
+    img={{
+      src: "https://images.pexels.com/photos/1756665/pexels-photo-1756665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      alt: "What Are We Known For",
+    }}
+  >
+    <p class="section-body">
+      The Kharagpur Open Source Society (KOSS) is a community of open source enthusiasts at IIT Kharagpur. We
+      collaborate on innovative open source projects, applying cutting-edge solutions to real-world problems. The
+      community promotes knowledge-sharing and personal growth in a supportive and engaging environment.
+    </p>
+  </Section>
   <div class="socials">
     <h1 class="socials-heading">Junta & Networking</h1>
     <div class="socials-image-grid">
@@ -90,6 +85,15 @@ import Layout from "../layouts/Layout.astro";
   </div>
 </Layout>
 
+<style is:global>
+  section {
+    .section-img,
+    .section-title-img {
+      width: 100%;
+    }
+  }
+</style>
+
 <style lang="scss">
   @import "../styles/index.scss";
 
@@ -118,56 +122,12 @@ import Layout from "../layouts/Layout.astro";
     }
   }
 
-  section {
-    margin: 20rem auto;
-    width: 100%;
-    max-width: 80vw;
-    padding: 0 1rem;
-
-    &:first-of-type {
-      margin: 10rem auto;
-    }
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10rem;
-
-    &:nth-of-type(even) {
-      flex-direction: row-reverse;
-    }
-
-    .section-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-
-      .section-heading {
-        font-size: 3rem;
-        font-weight: 500;
-        margin-bottom: 0.8rem;
-        letter-spacing: 1.2px;
-      }
-
-      .section-body {
-        font-size: 1.5rem;
-        font-weight: 400;
-        line-height: 1.5;
-        letter-spacing: 1.2px;
-        color: rgba(#c6bebc, 0.8);
-      }
-    }
-
-    .section-image {
-      width: 150rem;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 0.5rem;
-      }
-    }
+  .section-body {
+    font-size: 1.3rem;
+    font-weight: 350;
+    line-height: 1.2;
+    letter-spacing: 1.2px;
+    color: rgba(#ece5e3, 0.8);
   }
 
   .socials {
