@@ -1,0 +1,45 @@
+---
+import KOSSLogoBlue from "../assets/logoblue.svg";
+import Section from "../components/Section.astro";
+---
+
+<Section id="about" title="Kharagpur Open Source Society" img={{ src: KOSSLogoBlue, alt: "KOSS Logo" }}>
+  <p class="about-description">
+    A community of open-source enthusiasts at IIT Kharagpur, KOSS members enthusiastically work on cutting-edge coding
+    projects, from solving practical issues to having fun while encouraging one another's development and skill.
+  </p>
+  <p class="about-description">
+    We hold annual events introducing students to Linux, UNIX technologies, and the Git Development Workflow, fostering
+    a culture of technological exploration and knowledge-sharing.
+  </p>
+</Section>
+
+<style lang="scss">
+  @import "../styles/index.scss";
+
+  .about-description {
+    font-size: max(1.3cqi, 1rem);
+    color: $text-primary;
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+
+  @container Section (max-width: #{$screen-md-min}) {
+    .about-description {
+      text-align: center;
+      padding-right: 0;
+    }
+  }
+
+  @container Section (min-width: #{$screen-sm-min}) and (max-width: #{$screen-md-min}) {
+    .about-description {
+      font-size: 2.8cqi;
+    }
+  }
+
+  @container Section (max-width: #{$screen-sm-max}) {
+    .about-description {
+      font-size: 4cqi;
+    }
+  }
+</style>

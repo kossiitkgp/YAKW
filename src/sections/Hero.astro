@@ -1,0 +1,25 @@
+---
+import Icon from "../components/Icon.astro";
+import Section from "../components/Section.astro";
+---
+
+<Section id="hero">
+  <Icon icon="koss-wall" />
+</Section>
+
+<style is:global lang="scss">
+  @import "../styles/index.scss";
+
+  #hero {
+    .section-wrapper {
+      margin-top: 5dvh;
+      max-width: 600px;
+    }
+
+    .section-content {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+</style>

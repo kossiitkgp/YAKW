@@ -1,21 +1,49 @@
 ---
+import Title from "./Title.astro";
+
 export interface Props {
   id: string;
+  title?: string;
+  img?: {
+    src: string;
+    alt: string;
+  };
+  imgPosition?: "left" | "right";
 }
 
-const { id } = Astro.props as Props;
+const { id, img, title, imgPosition } = Astro.props as Props;
+
+const wrapperFlexDirection = (imgPosition ?? "left") == "left" ? "row" : "row-reverse";
+const titleAlignment = img === undefined ? "center" : imgPosition ?? "left";
 ---
 
 <section id={id}>
   <div class="section-wrapper">
-    <slot />
+    {img && <img class="section-img" src={img.src} alt={img.alt} />}
+    <div class="section-content">
+      {
+        title && (
+          <div class="section-title">
+            {img != undefined && <img class="section-title-img" src={img.src} alt={img.alt} />}
+            <h1>
+              <Title title={title} />
+            </h1>
+          </div>
+        )
+      }
+      <slot />
+    </div>
   </div>
 </section>
 
-<style lang="scss">
-  section {
-    min-height: 100dvh;
+<style lang="scss" define:vars={{ wrapperFlexDirection, titleAlignment }}>
+  @import "../styles/index.scss";
 
+  .section-content {
+    width: 100%;
+  }
+
+  section {
     display: flex;
     flex-direction: column;
 
@@ -24,10 +52,89 @@ const { id } = Astro.props as Props;
 
   .section-wrapper {
     width: 70vw;
+    max-width: 1200px;
+
     margin: 10vh auto;
+    margin-top: 20vh;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: var(--wrapperFlexDirection);
+
+    gap: 3rem;
     align-items: center;
+  }
+
+  @container Section (max-width: #{$screen-md-max}) {
+    .section-wrapper {
+      margin-top: 15vh;
+    }
+  }
+
+  .section-img {
+    width: max(50cqw, 50rem);
+  }
+
+  .section-title-img {
+    display: none;
+    width: max(30cqw, 4rem);
+  }
+
+  .section-title {
+    font-size: max(2cqi, 1.1rem);
+    color: $text-primary;
+    text-align: var(--titleAlignment);
+
+    margin-bottom: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .section-description {
+    font-size: max(1.3cqi, 1rem);
+    color: $text-primary;
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+
+  @container Section (max-width: #{$screen-md-min}) {
+    .section-img {
+      display: none;
+    }
+
+    .section-title {
+      align-items: center;
+      text-align: center;
+    }
+
+    .section-title-img {
+      display: block;
+    }
+
+    .section-description {
+      text-align: center;
+      padding-right: 0;
+    }
+  }
+
+  @container Section (min-width: #{$screen-sm-min}) and (max-width: #{$screen-md-min}) {
+    .section-title {
+      font-size: 3.2cqi;
+    }
+
+    .section-description {
+      font-size: 2.8cqi;
+    }
+  }
+
+  @container Section (max-width: #{$screen-sm-max}) {
+    .section-title {
+      font-size: 4cqi;
+    }
+
+    .section-description {
+      font-size: 4cqi;
+    }
   }
 </style>

@@ -1,19 +1,15 @@
 ---
-import EventCard from "./EventCard.astro";
-import Section from "./Section.astro";
+import EventCard from "../components/EventCard.astro";
+import Section from "../components/Section.astro";
 
 import EVENTS from "../data/events.json";
 
-import { getUpcomingEvents } from '../utils/events';
+import { getUpcomingEvents } from "../utils/events";
 
 const UPCOMING_EVENTS = getUpcomingEvents(EVENTS);
 ---
 
-<Section id="upcoming-events">
-  <div class="title">
-    <h1>Upcoming Events</h1>
-  </div>
-
+<Section id="upcoming-events" title="Upcoming Events">
   <div class="events">
     {
       UPCOMING_EVENTS.length > 0
@@ -32,14 +28,6 @@ const UPCOMING_EVENTS = getUpcomingEvents(EVENTS);
     }
   </div>
 </Section>
-
-<style is:global lang="scss">
-  @import "../styles/index.scss";
-
-  #upcoming-events .section-wrapper {
-    flex-direction: column;
-  }
-</style>
 
 <style lang="scss">
   @import "../styles/index.scss";
