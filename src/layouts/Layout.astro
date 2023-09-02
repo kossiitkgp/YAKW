@@ -50,9 +50,9 @@ const socialImageURL = new URL("/open_graph.png", Astro.url);
     <meta property="twitter:image:alt" content="" />
   </head>
   <body>
-    <Navbar />
     <slot />
-    <Footer />
+    <Navbar />
+    <div class="empty"></div>
   </body>
 </html>
 
@@ -75,5 +75,9 @@ const socialImageURL = new URL("/open_graph.png", Astro.url);
   code {
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
       monospace;
+  }
+
+  .empty {
+    height: 40vh;
   }
 </style>
