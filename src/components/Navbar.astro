@@ -57,15 +57,15 @@ const currentPath = Astro.url.pathname;
     left: 50%;
     bottom: 2rem;
     transform: translateX(-50%);
+    z-index: 20;
+    max-width: 90%;
+    width: 45rem;
+    border-radius: 12px;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    max-width: 90%;
-    width: 45rem;
-    z-index: 100;
-    border-radius: 12px;
+    transition: all 0.3s ease;
 
     @include raised;
 
@@ -78,6 +78,10 @@ const currentPath = Astro.url.pathname;
     }
 
     container: Navbar / inline-size;
+
+    &[data-hide="true"] {
+      opacity: 0;
+    }
   }
 
   a {
@@ -122,11 +126,11 @@ const currentPath = Astro.url.pathname;
   .active:hover {
     background-color: $accent-color;
     .navbar-title {
-        color: $background-primary;
-      }
-      span {
-        fill: $background-primary;
-      }
+      color: $background-primary;
+    }
+    span {
+      fill: $background-primary;
+    }
   }
 
   .navbar-title {
@@ -171,4 +175,24 @@ const currentPath = Astro.url.pathname;
     e.preventDefault();
     window.scroll({ top: 0, left: 0, behavior: "smooth" });
   });
+
+  function isVisibleInViewport(elem) {
+    var y = elem.offsetTop;
+    var height = elem.offsetHeight;
+
+    while ((elem = elem.offsetParent)) y += elem.offsetTop;
+
+    var maxHeight = y + height;
+    var isVisible = y < window.scrollY + window.innerHeight && maxHeight >= window.scrollY;
+    return isVisible;
+  }
+
+  function check() {
+    let navbar = document.querySelector(".navbar");
+    let footer = document.querySelector(".footer");
+    if (isVisibleInViewport(footer)) navbar?.setAttribute("data-hide", "true");
+    else navbar?.setAttribute("data-hide", "false");
+  }
+
+  window.addEventListener("scroll", check);
 </script>

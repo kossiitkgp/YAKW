@@ -1,0 +1,231 @@
+---
+import KOSSLogoBlue from "../assets/logoblue.svg";
+import Icon from "./Icon.astro";
+
+interface SocialItems {
+  link: string;
+  icon: string;
+}
+
+const socialItems: SocialItems[] = [
+  {
+    link: "https://github.com/kossiitkgp",
+    icon: "github-logo",
+  },
+  {
+    link: "https://twitter.com/kossiitkgp",
+    icon: "twitter-logo",
+  },
+  {
+    link: "https://www.facebook.com/kossiitkgp",
+    icon: "facebook-logo",
+  },
+  {
+    link: "https://www.linkedin.com/company/kharagpur-open-source-society/",
+    icon: "linkedin-logo",
+  },
+];
+---
+
+<div class="footer">
+  <div class="main-content">
+    <div class="footer-column">
+      <div class="logo-buttons">
+        <div class="footer-logo">
+          <img class="footer-img" src={KOSSLogoBlue} alt="KOSS Logo" />
+          <h2>Kharagpur Open<br />Source Society</h2>
+        </div>
+        <div class="social-buttons">
+          {
+            socialItems.map((item, index) => (
+              <a class="buttons" href={item.link} target="_blank">
+                <span>
+                  <Icon icon={item.icon} />
+                </span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+    <div class="footer-column">
+      <h2 class="footer-heading">Contact Us</h2>
+      <a class="important-link" href="maailto:contact@kossiitkgp.org">contact@kossiitkgp.org</a>
+    </div>
+    <div class="footer-column">
+      <div class="footer-list">
+        <h2 class="footer-heading">Navigation</h2>
+        <a class="important-link" href="about">About</a>
+        <a class="important-link" href="team">The Team</a>
+        <a class="important-link" href="https://github.com/kossiitkgp/docs">Docs</a>
+        <a class="important-link" href="events">Events</a>
+      </div>
+    </div>
+  </div>
+  <div class="credits">
+    <p class="credits-para">Made with love and collaboration using</p>
+    <a class="important-link end-link" href="https://astro.build/">Astro.</a>
+  </div>
+</div>
+
+<style lang="scss">
+  @import "../styles/index.scss";
+
+  .footer {
+    margin-top: 8rem;
+    padding: 1em 2em;
+    padding-top: 2.5em;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    z-index: 25;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include raised;
+
+    @media (max-width: #{$screen-md-max}) {
+      margin-top: 5rem;
+      padding-top: 2.5em;
+    }
+
+    .main-content {
+      width: 80%;
+      display: flex;
+      justify-content: space-around;
+      gap: 5rem;
+
+      @media (max-width: #{$screen-md-max}) {
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+  }
+
+  .footer-column {
+    flex: 1;
+    text-align: center;
+  }
+
+  .logo-buttons {
+    @media (max-width: #{$screen-md-max}) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: #{$screen-md-max}) {
+      justify-content: center;
+    }
+
+    .footer-img {
+      max-width: fit-content;
+
+      @media (max-width: #{$screen-md-max}) {
+        width: 22%;
+      }
+    }
+
+    h2 {
+      margin: 0 0.5em;
+      @media (max-width: #{$screen-md-max}) {
+        font-size: 3.4vw;
+      }
+    }
+  }
+  .social-buttons {
+    display: flex;
+    margin: 1cqi 0 0 0;
+  }
+  .right {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 0.9%;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: min(0.6rem, 1.5cqi) min(0.8rem, 1.5cqi);
+    padding: min(0.7rem, 1.5cqi);
+    border-radius: 8px;
+    gap: 4px;
+
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background-color: #333;
+    @include raised;
+    height: auto;
+    width: auto;
+    box-shadow: 0px 1px 9px 2px rgba($accent-color, 0.05);
+
+    &:hover {
+      background: none;
+      background-color: $accent-color;
+      box-shadow: 0px 4px 24px 0px rgba($text-primary, 0.15);
+      span {
+        fill: $background-primary;
+      }
+    }
+    span {
+      fill: $accent-color;
+    }
+  }
+  .footer-heading {
+    margin-top: 0.6cqi;
+    margin-bottom: 1cqi;
+    color: $accent-color;
+    @media (max-width: #{$screen-md-max}) {
+      font-size: 3.4vw;
+    }
+  }
+  .footer-list {
+    p {
+      margin: 0.5rem 0;
+    }
+  }
+  a {
+    display: block;
+  }
+  .buttons:first-child {
+    margin-left: 0.5cqi;
+  }
+  .important-link,
+  .important-link:visited {
+    text-decoration: none;
+    color: $text-primary;
+    @media (max-width: #{$screen-md-max}) {
+      font-size: 3vw;
+      margin: 0.5rem 0;
+    }
+    margin-bottom: 1vh;
+    transition: all 0.3s ease;
+    &:hover {
+      color: $accent-color;
+    }
+  }
+  .credits {
+    flex-basis: 100%;
+    text-align: center;
+    margin-top: 1rem;
+
+    .credits-para {
+      @media (max-width: #{$screen-md-max}) {
+        font-size: 3vw;
+      }
+      display: inline;
+      color: $text-tertiary;
+    }
+
+    .important-link {
+      display: inline;
+    }
+  }
+</style>
