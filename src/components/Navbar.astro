@@ -1,5 +1,4 @@
 ---
-import Footer from "./Footer.astro";
 import Icon from "./Icon.astro";
 
 interface NavbarItem {
@@ -34,51 +33,39 @@ const navbarItems: NavbarItem[] = [
 const currentPath = Astro.url.pathname;
 ---
 
-<div class="navbar-wrapper">
-  <div class="navbar">
-    {
-      navbarItems.map((item, index) => (
-        <a
-          class:list={index === 0 ? "navbar-logo" : { active: currentPath === item.link }}
-          href={currentPath === item.link ? "#" : item.link}
-        >
-          <span>
-            <Icon icon={item.icon} />
-          </span>
-          <div class="navbar-title">{item.displayName}</div>
-        </a>
-      ))
-    }
-  </div>
-  <Footer />
+<div class="navbar">
+  {
+    navbarItems.map((item, index) => (
+      <a
+        class:list={index === 0 ? "navbar-logo" : { active: currentPath === item.link }}
+        href={currentPath === item.link ? "#" : item.link}
+      >
+        <span>
+          <Icon icon={item.icon} />
+        </span>
+        <div class="navbar-title">{item.displayName}</div>
+      </a>
+    ))
+  }
 </div>
 
 <style lang="scss">
   @import "../styles/index.scss";
 
-  .navbar-wrapper {
-    position: fixed;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    z-index: 100;
-  }
-
   .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     position: fixed;
     left: 50%;
     bottom: 2rem;
     transform: translateX(-50%);
-
+    z-index: 20;
     max-width: 90%;
     width: 45rem;
     border-radius: 12px;
 
-    transition: all 0.3s ease-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 
     @include raised;
 
@@ -93,7 +80,6 @@ const currentPath = Astro.url.pathname;
     container: Navbar / inline-size;
 
     &[data-hide="true"] {
-      visibility: hidden;
       opacity: 0;
     }
   }
@@ -190,16 +176,23 @@ const currentPath = Astro.url.pathname;
     window.scroll({ top: 0, left: 0, behavior: "smooth" });
   });
 
-  let navbar = document.querySelector(".navbar");
-  let footer = document.querySelector(".footer");
+  function isVisibleInViewport(elem) {
+    var y = elem.offsetTop;
+    var height = elem.offsetHeight;
 
-  window.onscroll = function () {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-      navbar?.setAttribute("data-hide", "true");
-      footer?.setAttribute("data-hide", "false");
-    } else {
-      navbar?.setAttribute("data-hide", "false");
-      footer?.setAttribute("data-hide", "true");
-    }
-  };
+    while ((elem = elem.offsetParent)) y += elem.offsetTop;
+
+    var maxHeight = y + height;
+    var isVisible = y < window.scrollY + window.innerHeight && maxHeight >= window.scrollY;
+    return isVisible;
+  }
+
+  function check() {
+    let navbar = document.querySelector(".navbar");
+    let footer = document.querySelector(".footer");
+    if (isVisibleInViewport(footer)) navbar?.setAttribute("data-hide", "true");
+    else navbar?.setAttribute("data-hide", "false");
+  }
+
+  window.addEventListener("scroll", check);
 </script>

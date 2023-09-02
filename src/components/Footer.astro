@@ -27,7 +27,7 @@ const socialItems: SocialItems[] = [
 ];
 ---
 
-<div class="footer" data-hide="true">
+<div class="footer">
   <div class="footer-column half">
     <div class="logo-buttons">
       <div class="footer-logo">
@@ -61,10 +61,8 @@ const socialItems: SocialItems[] = [
     </div>
   </div>
   <div class="credits">
-    <p class="credits-para">made with love and collaboration using</p><a
-      class="important-link end-link"
-      href="https://astro.build/">Astro</a
-    >
+    <p class="credits-para">made with love and collaboration using</p>
+    <a class="important-link end-link" href="https://astro.build/">Astro</a>
   </div>
 </div>
 
@@ -72,26 +70,21 @@ const socialItems: SocialItems[] = [
   @import "../styles/index.scss";
 
   .footer {
-    background-color: #333;
-    margin: 1vw;
-    border-radius: 12px;
-    width: 90vw;
     flex-wrap: wrap;
     display: flex;
-
-    transition: all 0.3s ease-out;
-
-    @include raised;
+    width: 95vw;
+    margin: 0 auto;
+    margin-top: 8rem;
     box-shadow: none;
     padding: 1em 2em;
+    border-radius: 10px 10px 0 0;
+    z-index: 1000;
+    position: relative;
+
+    @include raised;
 
     @media (max-width: #{$screen-md-max}) {
       margin-bottom: 14vh;
-    }
-
-    &[data-hide="true"] {
-      visibility: hidden;
-      opacity: 0;
     }
   }
   .footer-column {
