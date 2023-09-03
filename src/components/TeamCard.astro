@@ -25,17 +25,17 @@ const { name, linkedin_username, github_username, website_url } = Astro.props as
   <br />
 
   <div class="footer-content">
-    <a class="icon" href={`https://github.com/${github_username}`}><Icon icon="github" /></a>
+    <a class="icon" target="_blank" href={`https://github.com/${github_username}`}><Icon icon="github" /></a>
     {
       linkedin_username && (
-        <a class="icon" href={`https://linkedin.com/in/${linkedin_username}`}>
+        <a class="icon" target="_blank" href={`https://linkedin.com/in/${linkedin_username}`}>
           <Icon icon="linkedin" />
         </a>
       )
     }
     {
       website_url && (
-        <a class="icon" href={website_url}>
+        <a class="icon" target="_blank" href={website_url}>
           <Icon icon="www" />
         </a>
       )
