@@ -47,6 +47,7 @@ switch (team) {
     padding: 2rem;
     max-width: 1200px;
     width: 100%;
+    min-height: 100vh;
     margin: 0 auto;
     margin-bottom: 10%;
 
@@ -59,6 +60,8 @@ switch (team) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(17ch, 1fr));
     grid-gap: 1rem 2rem;
+
+    justify-items: center;
 
     @media (max-width: #{$screen-xl-max}) {
       grid-template-columns: repeat(auto-fit, minmax(12ch, 1fr));
