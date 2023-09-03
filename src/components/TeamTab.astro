@@ -9,7 +9,7 @@ interface TabItem {
 
 const tabItems: TabItem[] = [
   {
-    displayName: "CTMS",
+    displayName: "Core Team",
     link: "/team/ctms",
     icon: "about",
   },
@@ -42,44 +42,14 @@ const currentPath = Astro.url.pathname;
   @import "../styles/index.scss";
 
   .tab {
-    position: absolute;
-    top: 50%;
-    left: 2rem;
-    transform: translateY(-50%);
-
-    max-width: 100%;
-    width: auto;
-    height: auto;
+    max-width: 90%;
     z-index: 100;
+    padding: 0 0.4rem;
 
     display: flex;
-    flex-direction: column;
 
     text-align: left;
     text-orientation: mixed;
-
-    border: 2px solid transparent;
-    background-color: $background-secondary;
-    background: linear-gradient($background-secondary, $background-secondary) padding-box,
-      linear-gradient(
-          180deg,
-          rgba($border-color, 0.1) 0%,
-          rgba($border-color, 0) 83.85%,
-          rgba(white, 0.05) 100%,
-          rgba($border-color, 0.05) 100%
-        )
-        border-box;
-    border-radius: 8px;
-
-    @media (max-width: #{$screen-xl-max}) {
-      top: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-
-      flex-direction: row;
-      width: 90%;
-      padding: 0 0.4rem;
-    }
 
     @media screen and (orientation: landscape) and (max-device-width: $screen-md-max) {
       width: 27rem;
@@ -92,7 +62,7 @@ const currentPath = Astro.url.pathname;
     align-items: center;
     justify-content: center;
 
-    width: 12rem;
+    width: 10rem;
     margin: min(0.6rem, 1.5cqi) min(0.8rem, 2cqi);
     padding: min(0.8rem, 2cqi) min(0.6rem, 3cqi);
     border-radius: 8px;
@@ -101,42 +71,28 @@ const currentPath = Astro.url.pathname;
     text-decoration: none;
     transition: all 0.3s ease;
 
-    &:hover {
-      background-color: $accent-color;
-      box-shadow: 0px 4px 24px 0px rgba($text-primary, 0.15);
-      .tab-title {
-        color: $background-primary;
-      }
-      span {
-        fill: $background-primary;
-      }
-    }
-    span {
-      fill: $accent-color;
-    }
     @media screen and (max-device-width: $screen-md-max) {
       height: 10cqi;
       margin: min(0.4rem, 1.5cqi) min(0.1rem, 2cqi);
     }
   }
 
+  a:hover,
   .active,
   .active:hover {
-    background-color: $accent-color;
     .tab-title {
-      color: $background-primary;
-    }
-    span {
-      fill: $background-primary;
+      color: #ff9b50;
+      font-weight: 500;
     }
   }
 
   .tab-title {
-    color: $text-primary;
-    font-size: 1rem;
+    color: $text-tertiary;
+    font-size: 1.2rem;
     text-transform: uppercase;
+    text-align: center;
     @media (max-width: #{$screen-md-max}) {
-      font-size: min(1rem, 2.8cqi);
+      font-size: min(1.2rem, 3cqi);
     }
   }
 

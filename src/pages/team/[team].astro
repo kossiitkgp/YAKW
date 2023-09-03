@@ -6,6 +6,7 @@ import TeamTab from "../../components/TeamTab.astro";
 import ADVISORS from "../../data/advisors.json";
 import CTMS from "../../data/ctms.json";
 import EXECUTIVES from "../../data/execs.json";
+import Title from "../../components/Title.astro";
 
 export function getStaticPaths() {
   return [{ params: { team: "ctms" } }, { params: { team: "executives" } }, { params: { team: "advisors" } }];
@@ -30,6 +31,7 @@ switch (team) {
 
 <Layout title="Meet our Team">
   <main>
+    <h1><Title title="Meet The Team" /></h1>
     <TeamTab />
     <ul role="list" class="link-card-grid">
       {
@@ -50,21 +52,28 @@ switch (team) {
   @import "../../styles/index.scss";
   main {
     padding: 2rem;
-    max-width: 1200px;
     width: 100%;
     min-height: 100vh;
     margin: 0 auto;
     margin-bottom: 10%;
 
-    @media (max-width: #{$screen-xl-max}) {
-      margin-top: 10rem;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
   }
 
   .link-card-grid {
+    max-width: 1400px;
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(17ch, 1fr));
-    grid-gap: 1rem 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+    grid-gap: 1.5rem;
+    margin: 2rem 0;
 
     justify-items: center;
 
