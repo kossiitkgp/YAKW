@@ -30,38 +30,39 @@ switch (team) {
 
 <Layout title="Meet our Team">
   <main>
-    <div class="container">
-      <TeamTab />
-      <ul role="list" class="link-card-grid">
-        {
-          team_members.length > 0 &&
-            team_members.map((member) => (
-              <TeamCard
-                name={member.name}
-                github_username={member.github_username}
-                linkedin_url={member.linkedin_url}
-              />
-            ))
-        }
-      </ul>
-    </div>
+    <TeamTab />
+    <ul role="list" class="link-card-grid">
+      {
+        team_members.length > 0 &&
+          team_members.map((member) => (
+            <TeamCard name={member.name} github_username={member.github_username} linkedin_url={member.linkedin_url} />
+          ))
+      }
+    </ul>
   </main>
 </Layout>
-<style>
+<style lang="scss">
+  @import "../../styles/index.scss";
   main {
     padding: 2rem;
-    max-width: 1000px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
     margin-bottom: 10%;
+
+    @media (max-width: #{$screen-xl-max}) {
+      margin-top: 10rem;
+    }
   }
 
   .link-card-grid {
     display: grid;
-    align-items: center;
-    justify-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(15ch, 1fr));
-    grid-gap: 1rem 3rem;
-    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(17ch, 1fr));
+    grid-gap: 1rem 2rem;
+
+    @media (max-width: #{$screen-xl-max}) {
+      grid-template-columns: repeat(auto-fit, minmax(12ch, 1fr));
+      grid-gap: 1rem;
+    }
   }
 </style>

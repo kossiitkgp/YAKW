@@ -42,17 +42,18 @@ const currentPath = Astro.url.pathname;
   @import "../styles/index.scss";
 
   .tab {
-    display: flex;
-    flex-direction: column;
-    top: calc(50% - 97.5px);
-    left: 2rem;
-    margin: 0;
     position: absolute;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
 
     max-width: 100%;
     width: auto;
     height: auto;
     z-index: 100;
+
+    display: flex;
+    flex-direction: column;
 
     text-align: left;
     text-orientation: mixed;
@@ -71,7 +72,13 @@ const currentPath = Astro.url.pathname;
     border-radius: 8px;
 
     @media (max-width: #{$screen-xl-max}) {
-      width: 45rem;
+      top: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+
+      flex-direction: row;
+      width: 90%;
+      padding: 0 0.4rem;
     }
 
     @media screen and (orientation: landscape) and (max-device-width: $screen-md-max) {
@@ -88,7 +95,6 @@ const currentPath = Astro.url.pathname;
     width: 12rem;
     margin: min(0.6rem, 1.5cqi) min(0.8rem, 2cqi);
     padding: min(0.8rem, 2cqi) min(0.6rem, 3cqi);
-    padding-left: 0rem;
     border-radius: 8px;
     gap: 4px;
 
@@ -104,9 +110,6 @@ const currentPath = Astro.url.pathname;
       span {
         fill: $background-primary;
       }
-    }
-    @media (max-width: #{$screen-md-max}) {
-      padding: 0px;
     }
     span {
       fill: $accent-color;
