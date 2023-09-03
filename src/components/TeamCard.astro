@@ -2,11 +2,12 @@
 import Icon from "./Icon.astro";
 export interface Props {
   name: string;
-  linkedin_url: string;
+  linkedin_username: string;
   github_username: string;
+  website_url: string;
 }
 
-const { name, linkedin_url, github_username } = Astro.props as Props;
+const { name, linkedin_username, github_username, website_url } = Astro.props as Props;
 ---
 
 <li class="link-card">
@@ -25,7 +26,20 @@ const { name, linkedin_url, github_username } = Astro.props as Props;
 
   <div class="footer-content">
     <a class="icon" href={`https://github.com/${github_username}`}><Icon icon="github" /></a>
-    <a class="icon" href={linkedin_url}><Icon icon="linkedin" /></a>
+    {
+      linkedin_username && (
+        <a class="icon" href={`https://linkedin.com/in/${linkedin_username}`}>
+          <Icon icon="linkedin" />
+        </a>
+      )
+    }
+    {
+      website_url && (
+        <a class="icon" href={website_url}>
+          <Icon icon="www" />
+        </a>
+      )
+    }
   </div>
 </li>
 <style lang="scss">
@@ -60,6 +74,7 @@ const { name, linkedin_url, github_username } = Astro.props as Props;
     &:hover {
       filter: drop-shadow(0px 1px 5px rgba($text-primary, 0.15));
     }
+    text-decoration: none;
   }
 
   .footer-content {

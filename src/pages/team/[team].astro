@@ -35,7 +35,12 @@ switch (team) {
       {
         team_members.length > 0 &&
           team_members.map((member) => (
-            <TeamCard name={member.name} github_username={member.github_username} linkedin_url={member.linkedin_url} />
+            <TeamCard
+              name={member.name}
+              github_username={member.github_username}
+              linkedin_username={member.linkedin_username}
+              website_url={member.website_url}
+            />
           ))
       }
     </ul>
