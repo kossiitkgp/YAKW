@@ -30,9 +30,6 @@
   "lint-staged": {
     "*.{astro,js,ts}": [
       "eslint --ext .js,.astro --fix"
-    ],
-    "*.{astro,md,ts,tsx,jsx,js,scss}": [
-      "prettier --write"
     ]
   }
 }
