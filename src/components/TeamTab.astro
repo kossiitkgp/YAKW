@@ -31,7 +31,10 @@ const currentPath = Astro.url.pathname;
 <div class="tab">
   {
     tabItems.map((item, index) => (
-      <a class:list={{ active: currentPath === item.link }} href={currentPath === item.link ? "#" : item.link}>
+      <a
+        class:list={{ active: currentPath === item.link }}
+        href={currentPath === item.link ? "#team" : `${item.link}#team`}
+      >
         <div class="tab-title">{item.displayName}</div>
       </a>
     ))
