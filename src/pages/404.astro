@@ -1,95 +1,93 @@
 ---
+import Section from "../components/Section.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro" />
 
 <Layout title="404">
-  <div>
-    <pre
-      class="ascii">
-                      @@@@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@@     
-                      @@@@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@@     
-                @@@@@@@@@@@@@@@@@@@@@@@@@@@                   @@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@     
-                @@@@@@@@@@@@@@@@@@@@@@@@@@@                   @@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@     
-                @@@@@@@@@@@@@@@@@@@@@@@@@@@             @@@@@@@@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@     
-          @@@@@@@@@@@@@       @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@               @@@@@@@@@@@@@       @@@@@@@@@@@@@@     
-          @@@@@@@@@@@@@       @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@               @@@@@@@@@@@@@       @@@@@@@@@@@@@@     
-  @@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@       @@@@@@@@@@@@@@     
-  @@@@@@@@@@@@@               @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@              @@@@@@@@@@@@@@     
-  @@@@@@@@@@@@@               @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@              @@@@@@@@@@@@@@     
+  <Section id="404">
+    <pre class="ascii">
+                      @@@@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@@
+                      @@@@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@@
+                @@@@@@@@@@@@@@@@@@@@@@@@@@@                   @@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                @@@@@@@@@@@@@@@@@@@@@@@@@@@                   @@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                @@@@@@@@@@@@@@@@@@@@@@@@@@@             @@@@@@@@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@
+          @@@@@@@@@@@@@       @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@               @@@@@@@@@@@@@       @@@@@@@@@@@@@@
+          @@@@@@@@@@@@@       @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@               @@@@@@@@@@@@@       @@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@       @@@@@@@@@@@@@@
+  @@@@@@@@@@@@@               @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@              @@@@@@@@@@@@@@
+  @@@@@@@@@@@@@               @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@              @@@@@@@@@@@@@@
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@              @@@@@@@@@@@@@             @@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                              @@@@@@@@@@@@@                    @@@@@@@@@@@@@             @@@@@@@                                        @@@@@@@@@@@@@     
-                              @@@@@@@@@@@@@                    @@@@@@@@@@@@@             @@@@@@@                                        @@@@@@@@@@@@@     
-                              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@                                              @@@@@@@@@@@@@     
-                              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@                                              @@@@@@@@@@@@@     
+                              @@@@@@@@@@@@@                    @@@@@@@@@@@@@             @@@@@@@                                        @@@@@@@@@@@@@
+                              @@@@@@@@@@@@@                    @@@@@@@@@@@@@             @@@@@@@                                        @@@@@@@@@@@@@
+                              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@                                              @@@@@@@@@@@@@
+                              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@                                              @@@@@@@@@@@@@
     </pre>
-    <div class="type-box-container">
-      <p class="type-box" id="type-box-404"></p>
-    </div>
-  </div>
+    <p class="type-box" id="type-box-404"></p>
+  </Section>
 </Layout>
 
 <script>
-  import { Typoist } from "typoist";
-  const typeIt = (selector, text, options) => {
-    const textArea = document.querySelector(selector);
-    if (textArea) {
-      const typoist = new Typoist({
-        ...options,
-        appendFunction: async (character) => (textArea.innerHTML += character),
-        deleteFunction: async () => (textArea.innerHTML = textArea.innerHTML.slice(0, -1)),
-      });
-
-      typoist.type(text);
-    }
-  };
+  import { typeIt } from '../utils/typeIt';
 
   window.addEventListener("load", () => {
-    typeIt("#type-box-404", "You tried to access a forbidden page. This incident will be reported.", {
-      speed: 10,
-      mistakeProbability: 0,
-    });
-  });
+    typeIt(
+      "#type-box-404",
+      "You tried to access a forbidden page. This incident will be reported.",
+      {
+        speed: 10,
+        mistakeProbability: 0,
+      }
+    )
+  })
 </script>
 
-<style>
+<style lang="scss">
+  @import '../styles/index.scss';
+
   pre {
     user-select: none;
     font-size: 1vw;
   }
+
   .ascii {
-    position: relative;
-    top: 9vh;
-    padding-left: 3.5vw;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
     opacity: 50%;
-    display: inline-block;
-    padding-top: 10vh;
+    font-size: 0.6cqi;
   }
-  .type-box-container {
-    position: relative;
-    width: 100%;
-    padding-left: 9vw;
-    margin: 10vh 0%;
-    display: inline-block;
-  }
+
   .type-box {
-    padding-top: 3.5vh;
-    font-size: 2vw;
+    width: 100%;
+    margin: 10vh 0;
+
+    text-align: center;
     font-family: Source Code Pro;
-    min-width: 100%;
+
+    font-size: 1.5cqi;
   }
+
+  @media (max-width: #{$screen-xl-max}) {
+    .type-box {
+      font-size: 3cqi;
+    }
+  }
+
   .type-box::after {
-    font-family: "Press Start 2P", cursive;
-    content: "g";
-    border-left: 5px solid;
+    content: "";
+
+    border-left: 1px solid;
     border-color: white;
-    animation: blink 0.7s infinite;
-    color: transparent;
-    margin-left: 2px;
+    margin-left: 3px;
+
+    animation: blink 1s infinite;
   }
+
   @keyframes blink {
     0%,
     100% {
@@ -98,12 +96,6 @@ import Layout from "../layouts/Layout.astro";
 
     50% {
       border-left-color: white;
-    }
-  }
-
-  @media only screen and (max-width: 1200px) {
-    .type-box {
-      font-size: 6vw;
     }
   }
 </style>
