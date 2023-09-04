@@ -1,0 +1,101 @@
+---
+import Section from "../components/Section.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro" />
+
+<Layout title="404">
+  <Section id="404">
+    <pre class="ascii">
+                      @@@@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@@
+                      @@@@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@@
+                @@@@@@@@@@@@@@@@@@@@@@@@@@@                   @@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                @@@@@@@@@@@@@@@@@@@@@@@@@@@                   @@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                @@@@@@@@@@@@@@@@@@@@@@@@@@@             @@@@@@@@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@
+          @@@@@@@@@@@@@       @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@               @@@@@@@@@@@@@       @@@@@@@@@@@@@@
+          @@@@@@@@@@@@@       @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@               @@@@@@@@@@@@@       @@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@       @@@@@@@@@@@@@@
+  @@@@@@@@@@@@@               @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@              @@@@@@@@@@@@@@
+  @@@@@@@@@@@@@               @@@@@@@@@@@@@             @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@              @@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@@@                    @@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@              @@@@@@@@@@@@@             @@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                              @@@@@@@@@@@@@                    @@@@@@@@@@@@@             @@@@@@@                                        @@@@@@@@@@@@@
+                              @@@@@@@@@@@@@                    @@@@@@@@@@@@@             @@@@@@@                                        @@@@@@@@@@@@@
+                              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@                                              @@@@@@@@@@@@@
+                              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@                                              @@@@@@@@@@@@@
+    </pre>
+    <p class="type-box" id="type-box-404"></p>
+  </Section>
+</Layout>
+
+<script>
+  import { typeIt } from '../utils/typeIt';
+
+  window.addEventListener("load", () => {
+    typeIt(
+      "#type-box-404",
+      "You tried to access a forbidden page. This incident will be reported.",
+      {
+        speed: 10,
+        mistakeProbability: 0,
+      }
+    )
+  })
+</script>
+
+<style lang="scss">
+  @import '../styles/index.scss';
+
+  pre {
+    user-select: none;
+    font-size: 1vw;
+  }
+
+  .ascii {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    opacity: 50%;
+    font-size: 0.6cqi;
+  }
+
+  .type-box {
+    width: 100%;
+    margin: 10vh 0;
+
+    text-align: center;
+    font-family: Source Code Pro;
+
+    font-size: 1.5cqi;
+  }
+
+  @media (max-width: #{$screen-xl-max}) {
+    .type-box {
+      font-size: 3cqi;
+    }
+  }
+
+  .type-box::after {
+    content: "";
+
+    border-left: 1px solid;
+    border-color: white;
+    margin-left: 3px;
+
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      border-left-color: transparent;
+    }
+
+    50% {
+      border-left-color: white;
+    }
+  }
+</style>

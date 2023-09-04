@@ -3857,6 +3857,11 @@ typescript@5.0.3:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.3.tgz#fe976f0c826a88d0a382007681cbb2da44afdedf"
   integrity sha512-xv8mOEDnigb/tN9PSMTwSEqAnUvkoXMQlicOb0IUVDBSQCgBSaAAROUZYy2IcUy5qU6XajK5jjjO7TMWqBTKZA==
 
+typoist@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/typoist/-/typoist-1.2.2.tgz#17200a4ffba1ce4806aecbd46cf98079b8f9d54e"
+  integrity sha512-AbaAiACffxW/2hViflXY5Bi4BZPXRcO670vuHWIbwA+HuziHHXHkIZvHDzVgs+p/l4ItplHbGnTiqjXRA/rL/Q==
+
 undici@^5.22.0:
   version "5.22.1"
   resolved "https://registry.yarnpkg.com/undici/-/undici-5.22.1.tgz#877d512effef2ac8be65e695f3586922e1a57d7b"
