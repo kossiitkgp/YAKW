@@ -32,28 +32,8 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-  import { typeIt } from "../utils/typeIt";
+  import { typeIt, hackerTextEffect } from "../utils/animations";
 
-  const hackerTextEffect = (target, duration) => {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`~!@#$%^&*(){}:\"|<>?,./;'[]\\=-0987654321";
-    let reqId, start;
-    const step = (timestamp) => {
-      if (start === undefined) start = timestamp;
-      const progress = timestamp - start;
-      target.innerText = target.innerText
-        .split("")
-        .map((letter) => (/^\s*$/.test(letter) ? letter : chars[Math.floor(Math.random() * chars.length)]))
-        .join("");
-
-      if (progress > duration) {
-        window.cancelAnimationFrame(reqId);
-      } else {
-        reqId = window.requestAnimationFrame(step);
-      }
-    };
-
-    reqId = window.requestAnimationFrame(step);
-  };
   const handleOnMove = (event) => {
     // the gradient part
     const rect = ascii.getBoundingClientRect(),
@@ -76,7 +56,7 @@ import Layout from "../layouts/Layout.astro";
     hackerTextEffect(ascii, 1000);
   });
 
-  ascii.onmousemove = (e) => handleOnMove(e);
+  ascii.addEventListener("mousemove", handleOnMove);
 </script>
 
 <style lang="scss">
