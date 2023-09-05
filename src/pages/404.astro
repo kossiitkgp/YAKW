@@ -34,19 +34,26 @@ import Layout from "../layouts/Layout.astro";
 <script>
   import { typeIt } from "../utils/typeIt";
 
-  const hackerTextEffect = (target, max_iters) => {
+  const hackerTextEffect = (target, duration) => {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`~!@#$%^&*(){}:\"|<>?,./;'[]\\=-0987654321";
-    let iterations = 0;
-    const interval = setInterval(() => {
+    let reqId, start;
+    const step = (timestamp) => {
+      if (start === undefined) start = timestamp;
+      const progress = timestamp - start;
       target.innerText = target.innerText
         .split("")
         .map((letter) => (/^\s*$/.test(letter) ? letter : chars[Math.floor(Math.random() * chars.length)]))
         .join("");
-      iterations += 1;
-      if (iterations > max_iters) {
-        clearInterval(interval);
+
+      if (progress > duration) {
+        window.cancelAnimationFrame(reqId);
+      } else {
+        console.log(progress);
+        reqId = window.requestAnimationFrame(step);
       }
-    }, 30);
+    };
+
+    reqId = window.requestAnimationFrame(step);
   };
   const handleOnMove = (event) => {
     // the gradient part
@@ -67,7 +74,7 @@ import Layout from "../layouts/Layout.astro";
       speed: 10,
       mistakeProbability: 0,
     });
-    hackerTextEffect(ascii, 20);
+    hackerTextEffect(ascii, 1000);
   });
 
   ascii.onmousemove = (e) => handleOnMove(e);
