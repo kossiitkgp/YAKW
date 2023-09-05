@@ -1,0 +1,84 @@
+---
+import Icon from "./Icon.astro";
+export interface Props {
+  name: string;
+  linkedin_username: string;
+  github_username: string;
+  website_url: string;
+}
+
+const { name, linkedin_username, github_username, website_url } = Astro.props as Props;
+---
+
+<li class="link-card">
+  <div>
+    <img
+      src={`https://avatars.githubusercontent.com/${github_username}`}
+      alt=`${github_username}'s Profile Picture'`
+      class="pfp"
+    />
+  </div>
+  <br />
+  <h4 class="name">
+    {name}
+  </h4>
+  <br />
+
+  <div class="footer-content">
+    <a class="icon" target="_blank" href={`https://github.com/${github_username}`}><Icon icon="github" /></a>
+    {
+      linkedin_username && (
+        <a class="icon" target="_blank" href={`https://linkedin.com/in/${linkedin_username}`}>
+          <Icon icon="linkedin" />
+        </a>
+      )
+    }
+    {
+      website_url && (
+        <a class="icon" target="_blank" href={website_url}>
+          <Icon icon="www" />
+        </a>
+      )
+    }
+  </div>
+</li>
+<style lang="scss">
+  @import "../styles/index.scss";
+  .link-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    text-align: center;
+    align-content: space-around;
+    max-width: 15rem;
+    width: 100%;
+    max-height: 100%;
+    height: 16rem;
+    background-color: $background-secondary;
+    border-radius: 10px;
+    list-style: none;
+    padding: calc(1.5rem - 1px);
+    @include raised;
+  }
+
+  .pfp {
+    padding-top: 10px;
+    border-radius: 50%;
+    height: 100px;
+  }
+
+  .icon {
+    padding: 10px;
+    fill: $accent-color;
+    &:hover {
+      filter: drop-shadow(0px 1px 5px rgba($text-primary, 0.15));
+    }
+    text-decoration: none;
+  }
+
+  .footer-content {
+    position: absolute;
+    margin-top: 180px;
+  }
+</style>
