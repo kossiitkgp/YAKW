@@ -49,11 +49,14 @@ import Layout from "../layouts/Layout.astro";
 
   let ascii = document.querySelector(".ascii");
   window.addEventListener("load", () => {
-    typeIt("#type-box-404", "You tried to access a forbidden page. This incident will be reported.", {
-      speed: 10,
+    const text = "You tried to access a forbidden page. This incident will be reported.";
+    const speed = 10;
+    typeIt("#type-box-404", text, {
+      speed,
       mistakeProbability: 0,
     });
-    hackerTextEffect(ascii, 1000);
+
+    hackerTextEffect(ascii, Math.round((text.length * 500) / speed));
   });
 
   ascii.addEventListener("mousemove", handleOnMove);
