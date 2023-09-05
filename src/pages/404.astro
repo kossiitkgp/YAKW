@@ -7,7 +7,8 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="404">
   <Section id="404">
-    <pre class="ascii">
+    <pre
+      class="ascii">
                       @@@@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@@
                       @@@@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@@
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@                   @@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -31,22 +32,49 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-  import { typeIt } from '../utils/typeIt';
+  import { typeIt } from "../utils/typeIt";
 
-  window.addEventListener("load", () => {
-    typeIt(
-      "#type-box-404",
-      "You tried to access a forbidden page. This incident will be reported.",
-      {
-        speed: 10,
-        mistakeProbability: 0,
+  const hackerTextEffect = (target, max_iters) => {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`~!@#$%^&*(){}:\"|<>?,./;'[]\\=-0987654321";
+    let iterations = 0;
+    const interval = setInterval(() => {
+      target.innerText = target.innerText
+        .split("")
+        .map((letter) => (/^\s*$/.test(letter) ? letter : chars[Math.floor(Math.random() * chars.length)]))
+        .join("");
+      iterations += 1;
+      if (iterations > max_iters) {
+        clearInterval(interval);
       }
-    )
-  })
+    }, 30);
+  };
+  const handleOnMove = (event) => {
+    // the gradient part
+    const rect = ascii.getBoundingClientRect(),
+      x = event.clientX - rect.left,
+      y = event.clientY - rect.top;
+
+    ascii.style.setProperty("--x", `${x}px`);
+    ascii.style.setProperty("--y", `${y}px`);
+
+    // the text shuffle on hover part
+    hackerTextEffect(event.target, 1);
+  };
+
+  let ascii = document.querySelector(".ascii");
+  window.addEventListener("load", () => {
+    typeIt("#type-box-404", "You tried to access a forbidden page. This incident will be reported.", {
+      speed: 10,
+      mistakeProbability: 0,
+    });
+    hackerTextEffect(ascii, 20);
+  });
+
+  ascii.onmousemove = (e) => handleOnMove(e);
 </script>
 
 <style lang="scss">
-  @import '../styles/index.scss';
+  @import "../styles/index.scss";
 
   pre {
     user-select: none;
@@ -54,11 +82,17 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .ascii {
+    --x: 50%;
+    --y: 50%;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
 
-    opacity: 50%;
+    background: radial-gradient(circle at var(--x) var(--y), $text-primary 40%, $background-primary);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    opacity: 100%;
     font-size: 0.6cqi;
   }
 
