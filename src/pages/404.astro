@@ -48,7 +48,6 @@ import Layout from "../layouts/Layout.astro";
       if (progress > duration) {
         window.cancelAnimationFrame(reqId);
       } else {
-        console.log(progress);
         reqId = window.requestAnimationFrame(step);
       }
     };
