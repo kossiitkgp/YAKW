@@ -34,6 +34,7 @@ import Layout from "../layouts/Layout.astro";
 <script>
   import { typeIt, hackerTextEffect } from "../utils/animations";
 
+  let ascii = document.querySelector(".ascii");
   const handleOnMove = (event) => {
     // the gradient part
     const rect = ascii.getBoundingClientRect(),
@@ -47,16 +48,18 @@ import Layout from "../layouts/Layout.astro";
     hackerTextEffect(event.target, 1);
   };
 
-  let ascii = document.querySelector(".ascii");
   window.addEventListener("load", () => {
+    const stop = hackerTextEffect(ascii, Infinity);
+
     const text = "You tried to access a forbidden page. This incident will be reported.";
     const speed = 10;
     typeIt("#type-box-404", text, {
       speed,
       mistakeProbability: 0,
+      onComplete() {
+        stop();
+      },
     });
-
-    hackerTextEffect(ascii, Math.round((text.length * 500) / speed));
   });
 
   ascii.addEventListener("mousemove", handleOnMove);
