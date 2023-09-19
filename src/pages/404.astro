@@ -7,7 +7,8 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="404">
   <Section id="404">
-    <pre class="ascii">
+    <pre
+      class="ascii">
                       @@@@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@@
                       @@@@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@@@@                                        @@@@@@@@@@@@@@@@@@@@@
                 @@@@@@@@@@@@@@@@@@@@@@@@@@@                   @@@@@@              @@@@@@@@@@@@@                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -31,22 +32,41 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-  import { typeIt } from '../utils/typeIt';
+  import { typeIt, hackerTextEffect } from "../utils/animations";
+
+  let ascii = document.querySelector(".ascii");
+  const handleOnMove = (event) => {
+    // the gradient part
+    const rect = ascii.getBoundingClientRect(),
+      x = event.clientX - rect.left,
+      y = event.clientY - rect.top;
+
+    ascii.style.setProperty("--x", `${x}px`);
+    ascii.style.setProperty("--y", `${y}px`);
+
+    // the text shuffle on hover part
+    hackerTextEffect(event.target, 1);
+  };
 
   window.addEventListener("load", () => {
-    typeIt(
-      "#type-box-404",
-      "You tried to access a forbidden page. This incident will be reported.",
-      {
-        speed: 10,
-        mistakeProbability: 0,
-      }
-    )
-  })
+    const stop = hackerTextEffect(ascii, Infinity);
+
+    const text = "You tried to access a forbidden page. This incident will be reported.";
+    const speed = 10;
+    typeIt("#type-box-404", text, {
+      speed,
+      mistakeProbability: 0,
+      onComplete() {
+        stop();
+      },
+    });
+  });
+
+  ascii.addEventListener("mousemove", handleOnMove);
 </script>
 
 <style lang="scss">
-  @import '../styles/index.scss';
+  @import "../styles/index.scss";
 
   pre {
     user-select: none;
@@ -54,11 +74,18 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .ascii {
+    --x: 50%;
+    --y: 50%;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
 
-    opacity: 50%;
+    background: radial-gradient(circle at var(--x) var(--y), $text-primary 40%, $background-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    opacity: 100%;
     font-size: 0.6cqi;
   }
 
