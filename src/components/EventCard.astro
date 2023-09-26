@@ -5,10 +5,10 @@ import Icon from "./Icon.astro";
 
 interface Props extends IEvent {}
 
-const { title, description, date, time, poster_img, location, link } = Astro.props as Props;
+const { title, description, date, time, poster_img, location, id } = Astro.props as Props;
 ---
 
-<a class="card" href={link}>
+<a class="card" href={`/events/${id}`}>
   <div class="card-img-wrapper">
     <img class="card-img" src={poster_img} alt="Workshop Poster" />
   </div>
@@ -122,7 +122,7 @@ const { title, description, date, time, poster_img, location, link } = Astro.pro
 
     text-align: center;
 
-    top: 75%;
+    top: 70%;
     bottom: 0;
     padding: 0.5rem 1rem;
 
