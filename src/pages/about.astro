@@ -122,7 +122,11 @@ import Layout from "../layouts/Layout.astro";
       font-weight: 400;
       text-align: right;
       margin-left: auto;
+      margin-right: 10px;
       color: rgba(#c6bebc, 0.8);
+      @media (max-width: #{$screen-md-min}) {
+        margin-right: 2rem;
+    }
     }
   }
 
