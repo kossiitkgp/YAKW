@@ -85,10 +85,14 @@ import Layout from "../layouts/Layout.astro";
   </div>
 </Layout>
 
-<style is:global>
+<style is:global lang="scss">
+   @import "../styles/index.scss";
   section {
     .section-img,
     .section-title-img {
+      @media (min-width: #{$screen-md-max}) {
+        width: 52%;
+    }
       width: 100%;
     }
   }
