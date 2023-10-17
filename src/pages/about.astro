@@ -38,7 +38,7 @@ import Layout from "../layouts/Layout.astro";
     </p>
   </Section>
   <Section
-    id="kwown-for"
+    id="known-for"
     title="What Are We Known For?"
     img={{
       src: "/photos/7.jpg",
@@ -94,6 +94,20 @@ import Layout from "../layouts/Layout.astro";
         width: 52%;
     }
       width: 100%;
+    }
+  }
+  #about-koss, #open-source, #known-for {
+      .section-wrapper{
+        width : 90vw;
+        @media (max-width: #{$screen-md-min}){
+          width : 75vw;
+    }
+      }
+    }
+  #about-koss, #open-source{
+    @media (max-width: #{$screen-md-min}){
+      margin-bottom: -14cqi;
+      margin-top: -14cqi;
     }
   }
 </style>
