@@ -1,6 +1,6 @@
 # YAKW - Yet Another KOSS Website
 
-This is the repository for development of (yet another) new and improved KOSS website. Currently deployed at https://beta.kossiitkgp.org and under heavy development.
+This is the repository for development of (yet another) new and improved KOSS website. Currently deployed at https://kossiitkgp.org and always under development.
 
 This website is created using [Astro](https://astro.build).
 
@@ -74,7 +74,6 @@ Any static assets, like images, can be placed in the `public/` directory.
 ---
 
 > Please update this documentation if you make changes to the KOSS website. Future humans will praise you.
-
 
 ### Credits
 
