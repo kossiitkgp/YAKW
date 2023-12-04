@@ -14,7 +14,7 @@ export interface Props {
 const { id, img, title, imgPosition } = Astro.props as Props;
 
 const wrapperFlexDirection = (imgPosition ?? "left") == "left" ? "row" : "row-reverse";
-const titleAlignment = img === undefined ? "center" : imgPosition ?? "left";
+const titleAlignment = img === undefined ? "center" : "left";
 ---
 
 <section id={id}>
@@ -60,7 +60,7 @@ const titleAlignment = img === undefined ? "center" : imgPosition ?? "left";
     display: flex;
     flex-direction: var(--wrapperFlexDirection);
 
-    gap: 3rem;
+    gap: 5rem;
     align-items: center;
   }
 
@@ -82,7 +82,7 @@ const titleAlignment = img === undefined ? "center" : imgPosition ?? "left";
   }
 
   .section-title {
-    font-size: max(2cqi, 1.1rem);
+    font-size: max(1.6cqi, 1.1rem);
     color: $text-primary;
     text-align: var(--titleAlignment);
 

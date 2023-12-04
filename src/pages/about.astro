@@ -1,0 +1,200 @@
+---
+import Section from "../components/Section.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="About KOSS">
+  <div class="quote">
+    <div class="quote__content">"Collaboration is better than Competition"</div>
+    <div class="quote__author">- xypnox</div>
+  </div>
+  <Section
+    id="about-koss"
+    title="About KOSS"
+    img={{
+      src: "/photos/1.jpg",
+      alt: "About KOSS",
+    }}
+  >
+    <p class="section-body">
+      The Kharagpur Open Source Society (KOSS) is a community of open source enthusiasts at IIT Kharagpur. We
+      collaborate on innovative open source projects, applying cutting-edge solutions to real-world problems. The
+      community promotes knowledge-sharing and personal growth in a supportive and engaging environment.
+    </p>
+  </Section>
+  <Section
+    id="open-source"
+    title="What is Open Source?"
+    img={{
+      src: "/photos/6.jpg",
+      alt: "What is Open Source",
+    }}
+    imgPosition="right"
+  >
+    <p class="section-body">
+      Open Source is a collaborative software development model that promotes transparency, accessibility, 
+      and community involvement. It provides open access to a project's source code, enabling a diverse 
+      group of contributors to collectively enhance and share software, fostering innovation and customization.
+    </p>
+  </Section>
+  <Section
+    id="known-for"
+    title="What Are We Known For?"
+    img={{
+      src: "/photos/7.jpg",
+      alt: "What Are We Known For",
+    }}
+  >
+    <p class="section-body">
+      We love to work on new ideas and projects. You can find involvement of KOSS members in MetaKGP, 
+      developing on a project which is helpful for the KGP Community. We are known for conducting technical 
+      workshops for sharing knowledge about useful software practices, such as git, python, shell script, linux installation fest. 
+    </p>
+  </Section>
+  <div class="socials">
+    <h1 class="socials-heading">Junta & Networking</h1>
+    <div class="socials-image-grid">
+      <img src="/photos/0.jpg" alt="social-gallery" style="grid-column: 1 / 3;" />
+      <a href="https://github.com/kossiitkgp" class="social-link-wrapper" style="grid-column: 3 / 4;"
+        ><img src="/github-mark.png" alt="github-logo" style="padding: 2.5cqi"/></a
+      >
+      <img src="/photos/8.jpg" alt="social-gallery" style="grid-column: 4 / 6;" />
+      <!--  -->
+      <a href="https://www.facebook.com/kossiitkgp" class="social-link-wrapper blue" style="grid-column: 1 / 2;"
+        ><img src="/facebook.svg" alt="github-logo" style="padding: 2.7cqi"/></a
+      >
+      <img src="/photos/2.jpg" alt="social-gallery" style="grid-column: 2 / 5;" />
+      <a href="https://twitter.com/kossiitkgp" class="social-link-wrapper blue" style="grid-column: 5 / 6;"
+        ><img src="/x-twitter.svg" alt="github-logo" style="padding: 2.7cqi"/></a
+      >
+      <!--  -->
+      <img src="/photos/3.jpg" alt="social-gallery" style="grid-column: 1 / 3;" />
+      <a href="https://github.com/kossiitkgp/events" class="social-link-wrapper" style="grid-column: 3 / 4;"
+        ><img src="/calendar-days-solid.svg" alt="github-logo" style="padding: 3.5cqi"/></a
+      >
+      <img src="/photos/4.jpg" alt="social-gallery" style="grid-column: 4 / 6;" />
+      <!--  -->
+      <a href="https://github.com/kossiitkgp/docs" class="social-link-wrapper blue" style="grid-column: 1 / 2;"
+        ><img src="/book-solid.svg" alt="github-logo" style="padding: 3.5cqi"/></a
+      >
+      <img src="/photos/5.jpg" alt="social-gallery" style="grid-column: 2 / 5;" />
+      <a href="https://www.linkedin.com/company/kharagpur-open-source-society/" class="social-link-wrapper blue" style="grid-column: 5 / 6;"
+        ><img src="/linkedin.svg" alt="github-logo" style="padding: 3.2cqi"/></a
+      >
+    </div>
+  </div>
+</Layout>
+
+<style is:global lang="scss">
+   @import "../styles/index.scss";
+  section {
+    .section-img,
+    .section-title-img {
+      @media (min-width: #{$screen-md-max}) {
+        width: 52%;
+    }
+      width: 100%;
+    }
+  }
+  #about-koss, #open-source, #known-for {
+      .section-wrapper{
+        width : 90vw;
+        @media (max-width: #{$screen-md-min}){
+          width : 75vw;
+    }
+      }
+    }
+  #about-koss, #open-source{
+    @media (max-width: #{$screen-md-min}){
+      margin-bottom: -14cqi;
+      margin-top: -14cqi;
+    }
+  }
+</style>
+
+<style lang="scss">
+  @import "../styles/index.scss";
+
+  .quote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem auto;
+    width: fit-content;
+
+    &__content {
+      font-size: 2.5rem;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 0.8rem;
+      color: rgba(#fd841f, 0.8);
+    }
+
+    &__author {
+      font-size: 1.5rem;
+      font-weight: 400;
+      text-align: right;
+      margin-left: auto;
+      margin-right: 10px;
+      color: rgba(#c6bebc, 0.8);
+      @media (max-width: #{$screen-md-min}) {
+        margin-right: 2rem;
+    }
+    }
+  }
+
+  .section-body {
+    font-size: 1.3rem;
+    font-weight: 350;
+    line-height: 1.2;
+    letter-spacing: 1.2px;
+  }
+
+  .socials {
+    margin-bottom: 10rem;
+
+    .socials-heading {
+      font-size: 3rem;
+      font-weight: 500;
+      margin-bottom: 5rem;
+      letter-spacing: 1.2px;
+      text-align: center;
+    }
+
+    .socials-image-grid {
+      display: grid;
+      width: 80%;
+      margin: 0 auto;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 10px;
+
+      img {
+        width: 100%;
+        border-radius: 5px;
+      }
+
+      .social-link-wrapper {
+        width: 100%;
+        background-color: #38b6ff;
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+
+        &.blue {
+          background-color: $accent-color;
+        }
+
+        img {
+          height: auto;
+          position: absolute;
+          left: 50%;
+          bottom: 50%;
+          transform: translate(-50%, 50%);
+          opacity: 1;
+          transition: all 0.2s ease-in;
+        }
+      }
+    }
+  }
+</style>
