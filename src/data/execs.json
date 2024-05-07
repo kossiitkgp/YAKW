@@ -1,68 +1,80 @@
 [
   {
-    "name": "Jeffrey Samuel",
-    "github_username": "Signor-Koala",
+    "name": "Nafisa Parvin",
+    "github_username": "Nafisay",
+    "linkedin_username": "nafisa-parvin-np",
+    "website_url": ""
+  },
+  {
+    "name": "Syed Sadat Ali",
+    "github_username": "Sadat3332",
+    "linkedin_username": "syed-sadat-ali-336101264",
+    "website_url": ""
+  },
+  {
+    "name": "Swaraj Kumar Biswal",
+    "github_username": "SWARAJ-42",
+    "linkedin_username": "swaraj-biswal-2a8771252",
+    "website_url": ""
+  },
+  {
+    "name": "Akashneel Raychaudhuri",
+    "github_username": "Alph3ga",
+    "linkedin_username": "akashneelrc",
+    "website_url": ""
+  },
+  {
+    "name": "Ankit Meda",
+    "github_username": "cringeyburger",
+    "linkedin_username": "ankit-meda",
+    "website_url": ""
+  },
+  {
+    "name": "Tejas Pandey",
+    "github_username": "tejasexpress",
+    "linkedin_username": "tejas-pandey-139519256",
+    "website_url": ""
+  },
+  {
+    "name": "Yogansh Sharma",
+    "github_username": "YoganshSharma",
     "linkedin_username": "",
+    "website_url": "https://yogansh.live"
+  },
+  {
+    "name": "L Manoj Sai",
+    "github_username": "manojxplores",
+    "linkedin_username": "manoj-sai-7b1015249",
     "website_url": ""
   },
   {
-    "name": "Ashwin Prasanth",
-    "github_username": "ashwinpra",
-    "linkedin_username": "ashwin-prasanth-04967a19a",
+    "name": "Jai Sachdev",
+    "github_username": "SachdevJai",
+    "linkedin_username": "jai-sachdev-27a185231",
     "website_url": ""
   },
   {
-    "name": "Harsh Khandeparkar",
-    "github_username": "harshkhandeparkar",
-    "linkedin_username": "harshkhandeparkar",
-    "website_url": ""
-  },
-  {
-    "name": "Soumili Mukherjee",
-    "github_username": "soumili202",
-    "linkedin_username": "soumili-mukherjee-a06730227",
-    "website_url": ""
-  },
-  {
-    "name": "Arpit Bhardwaj",
-    "github_username": "proffapt",
+    "name": "Harshit Jain",
+    "github_username": "harshit-jain52",
     "linkedin_username": "",
-    "website_url": "https://proffapt.hashnode.dev"
+    "website_url": "https://harshit-jain52.github.io/"
   },
   {
-    "name": "Sarika Bishnoi",
-    "github_username": "theredmac",
-    "linkedin_username": "sarika-bishnoi-8630b1237",
+    "name": "Keshav Prajapati",
+    "github_username": "keshavpj1711",
+    "linkedin_username": "keshav-prajapati-717668255",
     "website_url": ""
   },
   {
-    "name": "Yelisetty Karthikeya S M",
-    "github_username": "lurkingryuu",
-    "linkedin_username": "lurkingryuu",
+    "name": "Akash Mitra",
+    "github_username": "aksahmitr",
+    "linkedin_username": "akash-mitra-36a30325a",
     "website_url": ""
   },
   {
-    "name": "Somya Kumar",
-    "github_username": "somya-kr",
-    "linkedin_username": "somya-kumar-584a55222",
-    "website_url": ""
-  },
-  {
-    "name": "Shreyansh Kumar Sharma",
-    "github_username": "IceCurrent",
-    "linkedin_username": "shreyansh-kumar-sharma-63a6aa223",
-    "website_url": ""
-  },
-  {
-    "name": "Ishaan Bajaj",
-    "github_username": "ishaan-bajaj",
-    "linkedin_username": "bajajishaan",
-    "website_url": ""
-  },
-  {
-    "name": "Rohan Barsagade",
-    "github_username": "rohan-b-84",
-    "linkedin_username": "r-barsagade",
+    "name": "Sri Chaitanya",
+    "github_username": "Chaitanya729",
+    "linkedin_username": "sri-chaitanya-13a0a5280",
     "website_url": ""
   }
 ]
