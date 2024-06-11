@@ -81,3 +81,4 @@ Any static assets, like images, can be placed in the `public/` directory.
 - “About” icon from [Google Material Icons](https://pictogrammers.com/contributor/google/) - Apache v2.0
 - “Team” icon from [Microsoft](https://www.iconfinder.com/icons/8675239/ic_fluent_people_team_regular_icon) - CC BY 4.0
 - “Events” icon from [Clarity Design System](https://core.clarity.design/foundation/icons/shapes/) - MIT License
+- "Blog" icon from [Amogh Design](https://www.iconfinder.com/amoghdesign).
