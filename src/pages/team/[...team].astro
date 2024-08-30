@@ -10,10 +10,19 @@ import ALUMS from "../../data/alums.json";
 import Title from "../../components/Title.astro";
 
 export function getStaticPaths() {
-  return [{ params: { team: "ctms" } }, { params: { team: "executives" } }, { params: { team: "advisors" } }];
+  return [
+    { params: { team: undefined } },
+    { params: { team: "ctms" } },
+    { params: { team: "executives" } },
+    { params: { team: "advisors" } },
+  ];
 }
 
-const team = Astro.params.team as string;
+const team = Astro.params.team;
+
+if (team == undefined) {
+  return Astro.redirect("ctms");
+}
 
 let team_members = ADVISORS;
 
