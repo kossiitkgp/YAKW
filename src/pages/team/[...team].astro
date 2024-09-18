@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import TeamCard from "../../components/TeamCard.astro";
 import TeamTab from "../../components/TeamTab.astro";
+import TeamList from "../../components/TeamList.astro";
 
 import ADVISORS from "../../data/advisors.json";
 import CTMS from "../../data/ctms.json";
@@ -47,33 +48,9 @@ switch (team) {
     </div>
     <h1 id="team"><Title title="Meet The Team" /></h1>
     <TeamTab />
-    <ul role="list" class="link-card-grid">
-      {
-        team_members.length > 0 &&
-          team_members.map((member) => (
-            <TeamCard
-              name={member.name}
-              github_username={member.github_username}
-              linkedin_username={member.linkedin_username}
-              website_url={member.website_url}
-            />
-          ))
-      }
-    </ul>
+    <TeamList team_members={team_members} />
     <h1><Title title="Our Alums" /></h1>
-    <ul role="list" class="link-card-grid">
-      {
-        ALUMS.length > 0 &&
-          ALUMS.map((member) => (
-            <TeamCard
-              name={member.name}
-              github_username={member.github_username}
-              linkedin_username={member.linkedin_username}
-              website_url={member.website_url}
-            />
-          ))
-      }
-    </ul>
+    <TeamList team_members={ALUMS} />
   </main>
 </Layout>
 
@@ -151,22 +128,6 @@ switch (team) {
 
     &:not(:first-of-type) {
       margin-bottom: 1rem;
-    }
-  }
-
-  .link-card-grid {
-    max-width: 1400px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
-    grid-gap: 1.5rem;
-    margin: 2rem 0;
-
-    justify-items: center;
-
-    @media (max-width: #{$screen-xl-max}) {
-      grid-template-columns: repeat(auto-fit, minmax(12ch, 1fr));
-      grid-gap: 1rem;
     }
   }
 </style>
