@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import TeamCard from "../../components/TeamCard.astro";
 import TeamTab from "../../components/TeamTab.astro";
 import TeamList from "../../components/TeamList.astro";
+import TeamTable from "../../components/TeamTable.jsx";
 
 import ADVISORS from "../../data/advisors.json";
 import CTMS from "../../data/ctms.json";
@@ -48,7 +49,11 @@ switch (team) {
     </div>
     <h1 id="team"><Title title="Meet The Team" /></h1>
     <TeamTab />
-    <TeamList team_members={team_members} />
+    <TeamTable client:load>
+      <TeamList team_members={CTMS} slot='ctms' />
+      <TeamList team_members={EXECUTIVES} slot='executives' />
+      <TeamList team_members={ADVISORS} slot='advisors' />
+    </TeamTable>
     <h1><Title title="Our Alums" /></h1>
     <TeamList team_members={ALUMS} />
   </main>

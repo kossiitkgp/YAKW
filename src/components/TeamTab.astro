@@ -12,16 +12,19 @@ const tabItems: TabItem[] = [
     displayName: "Core Team",
     link: "/team/ctms",
     icon: "about",
+    team: "ctms",
   },
   {
     displayName: "Executives",
     link: "/team/executives",
     icon: "team",
+    team: "executives",
   },
   {
     displayName: "Advisors",
     link: "/team/advisors",
     icon: "events",
+    team: "advisors",
   },
 ];
 
@@ -31,15 +34,27 @@ const currentPath = Astro.url.pathname;
 <div class="tab">
   {
     tabItems.map((item, index) => (
-      <a
-        class:list={{ active: currentPath === item.link }}
-        href={currentPath === item.link ? "#team" : `${item.link}#team`}
-      >
+      <a href="#team" id={item.team}>
         <div class="tab-title">{item.displayName}</div>
       </a>
     ))
   }
 </div>
+
+<script>
+  import { teamTableState } from "../utils/state.ts";
+
+  // remove repetition here
+  document.getElementById("ctms").addEventListener('click', () => {
+      teamTableState.teamState = "ctms";
+  });
+  document.getElementById("executives").addEventListener('click', () => {
+      teamTableState.teamState = "executives";
+  });
+  document.getElementById("advisors").addEventListener('click', () => {
+      teamTableState.teamState = "advisors";
+  });
+</script>
 
 <style lang="scss">
   @import "../styles/index.scss";
