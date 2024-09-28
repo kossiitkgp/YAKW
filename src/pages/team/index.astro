@@ -10,35 +10,6 @@ import CTMS from "../../data/ctms.json";
 import EXECUTIVES from "../../data/execs.json";
 import ALUMS from "../../data/alums.json";
 import Title from "../../components/Title.astro";
-
-export function getStaticPaths() {
-  return [
-    { params: { team: undefined } },
-    { params: { team: "ctms" } },
-    { params: { team: "executives" } },
-    { params: { team: "advisors" } },
-  ];
-}
-
-const team = Astro.params.team;
-
-if (team == undefined) {
-  return Astro.redirect("/team/ctms");
-}
-
-let team_members = ADVISORS;
-
-switch (team) {
-  case "ctms":
-    team_members = CTMS;
-    break;
-  case "executives":
-    team_members = EXECUTIVES;
-    break;
-  case "advisors":
-    team_members = ADVISORS;
-    break;
-}
 ---
 
 <Layout title="Meet our Team">
