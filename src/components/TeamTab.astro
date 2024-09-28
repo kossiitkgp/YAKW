@@ -42,17 +42,16 @@ const currentPath = Astro.url.pathname;
 </div>
 
 <script>
-  import { teamTableState } from "../utils/state.ts";
+  import { teamTableState } from "./TeamTable.jsx";
 
-  // remove repetition here
   document.getElementById("ctms").addEventListener('click', () => {
-      teamTableState.teamState = "ctms";
+      teamTableState.set("ctms");
   });
   document.getElementById("executives").addEventListener('click', () => {
-      teamTableState.teamState = "executives";
+      teamTableState.set("executives");
   });
   document.getElementById("advisors").addEventListener('click', () => {
-      teamTableState.teamState = "advisors";
+      teamTableState.set("advisors");
   });
 </script>
 

@@ -1,25 +1,20 @@
-import { useState } from 'react'
-import { teamTableState } from "../utils/state.ts"
+import { useStore } from "@nanostores/react";
+import { atom } from "nanostores";
 
-// fix redundant variables and refactor code
+export const teamTableState = atom("ctms");
+
 export default function TeamTable(props) {
-    const [team, setTeam] = useState("ctms");
-    
-    teamTableState.listen(() => {
-        setTeam(teamTableState.teamState);
-    })
+    const teamState = useStore(teamTableState);
 
-    let out = null;
-
-    switch (team) {
+    switch (teamState) {
       case "ctms":
-        return(<div>props.ctms</div>);
+        return(<div>{props.ctms}</div>);
         break;
       case "executives":
-        return(<div>props.executives</div>);
+        return(<div>{props.executives}</div>);
         break;
       case "advisors":
-        return(<div>props.advisors</div>);
+        return(<div>{props.advisors}</div>);
         break;
     }
 }
