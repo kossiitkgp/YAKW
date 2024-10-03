@@ -24,14 +24,15 @@ const tabItems: TabItem[] = [
     team: "advisors",
   },
 ];
-
-const currentPath = Astro.url.pathname;
 ---
 
 <div class="tab">
   {
     tabItems.map((item, index) => (
-      <a href="#team" id={item.team}>
+      <a 
+        href="#team"
+        id={item.team}
+      >
         <div class="tab-title">{item.displayName}</div>
       </a>
     ))

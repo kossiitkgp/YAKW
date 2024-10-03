@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import TeamCard from "../../components/TeamCard.astro";
-import TeamTab from "../../components/TeamTab.astro";
+import TeamTab from "../../components/TeamTab.tsx";
 import TeamList from "../../components/TeamList.astro";
 import TeamTable from "../../components/TeamTable.jsx";
 
@@ -19,7 +19,7 @@ import Title from "../../components/Title.astro";
       <a class="mouse" href="#team"></a>
     </div>
     <h1 id="team"><Title title="Meet The Team" /></h1>
-    <TeamTab />
+    <TeamTab client:load />
     <TeamTable client:load>
       <TeamList team_members={CTMS} slot='ctms' />
       <TeamList team_members={EXECUTIVES} slot='executives' />
