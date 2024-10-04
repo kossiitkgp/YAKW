@@ -2,7 +2,6 @@
 
 .tab {
     max-width: 90%;
-    z-index: 100;
     padding: 0 0.4rem;
 
     display: flex;
@@ -15,7 +14,7 @@
     }
 }
 
-a {
+.heading {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -57,7 +56,6 @@ a:hover,
 
 span {
     width: 6cqi;
-    display: flex;
     align-items: center;
     justify-content: center;
 }

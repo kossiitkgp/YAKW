@@ -4,24 +4,13 @@ import "../styles/teamtab.scss";
 
 interface TabItem {
     displayName: string;
-    link: string;
-    icon: string;
 }
 
 export default function TeamTab() {
     const tabItems: TabItem[] = [
-    {
-        displayName: "Core Team",
-        team: "ctms",
-    },
-    {
-        displayName: "Executives",
-        team: "executives",
-    },
-    {
-        displayName: "Advisors",
-        team: "advisors",
-    },
+        { displayName: "Core Team", },
+        { displayName: "Executives", },
+        { displayName: "Advisors", },
     ];
 
     return(
@@ -29,9 +18,9 @@ export default function TeamTab() {
         {
             tabItems.map((item, index) => (
             <a
-              class:list={{ active: item.team === "ctms" }}
+              class={ "heading" + (useStore(teamTableState) === item.displayName ? " active" : "") }
               href="#team"
-              onClick={() => teamTableState.set(item.team)}
+              onClick={() => teamTableState.set(item.displayName)}
             >
                 <div class="tab-title">{item.displayName}</div>
             </a>
