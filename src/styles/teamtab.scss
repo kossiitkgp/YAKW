@@ -1,0 +1,61 @@
+@import "./index.scss";
+
+.tab {
+    max-width: 90%;
+    padding: 0 0.4rem;
+
+    display: flex;
+
+    text-align: left;
+    text-orientation: mixed;
+
+    @media screen and (orientation: landscape) and (max-device-width: $screen-md-max) {
+        width: 27rem;
+    }
+}
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 10rem;
+    margin: min(0.6rem, 1.5cqi) min(0.8rem, 2cqi);
+    padding: min(0.8rem, 2cqi) min(0.6rem, 3cqi);
+    border-radius: 8px;
+    gap: 4px;
+
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    @media screen and (max-device-width: $screen-md-max) {
+        height: 10cqi;
+        margin: min(0.4rem, 1.5cqi) min(0.1rem, 2cqi);
+    }
+}
+
+a:hover,
+    .active,
+    .active:hover {
+    .tab-title {
+        color: #ff9b50;
+        font-weight: 500;
+    }
+}
+
+.tab-title {
+    color: $text-tertiary;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    @media (max-width: #{$screen-md-max}) {
+        font-size: min(1.2rem, 3cqi);
+    }
+}
+
+span {
+    width: 6cqi;
+    align-items: center;
+    justify-content: center;
+}
