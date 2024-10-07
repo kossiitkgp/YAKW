@@ -18,6 +18,7 @@ export default function TeamTab() {
         {
             tabItems.map((item, index) => (
             <a
+              key={index}
               className={ "heading" + (useStore(teamTableState) === item.displayName ? " active" : "") }
               href="#team"
               onClick={() => teamTableState.set(item.displayName)}

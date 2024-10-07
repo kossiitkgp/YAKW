@@ -8,10 +8,10 @@ export default function TeamTable(props) {
 
     switch (teamState) {
       case "Core Team":
-        return(<div>{props.ctms}</div>);
+        return(props.ctms);
       case "Executives":
-        return(<div>{props.executives}</div>);
+        return(props.executives);
       case "Advisors":
-        return(<div>{props.advisors}</div>);
+        return(props.advisors);
     }
 }
