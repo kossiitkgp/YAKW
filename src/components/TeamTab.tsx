@@ -14,15 +14,15 @@ export default function TeamTab() {
     ];
 
     return(
-        <div class="tab">
+        <div className="tab">
         {
             tabItems.map((item, index) => (
             <a
-              class={ "heading" + (useStore(teamTableState) === item.displayName ? " active" : "") }
+              className={ "heading" + (useStore(teamTableState) === item.displayName ? " active" : "") }
               href="#team"
               onClick={() => teamTableState.set(item.displayName)}
             >
-                <div class="tab-title">{item.displayName}</div>
+                <div className="tab-title">{item.displayName}</div>
             </a>
             ))
         }
