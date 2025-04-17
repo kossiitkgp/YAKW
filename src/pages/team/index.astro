@@ -1,42 +1,15 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import TeamCard from "../../components/TeamCard.astro";
-import TeamTab from "../../components/TeamTab.astro";
+import TeamTab from "../../components/TeamTab.tsx";
+import TeamList from "../../components/TeamList.astro";
+import TeamTable from "../../components/TeamTable.jsx";
 
 import ADVISORS from "../../data/advisors.json";
 import CTMS from "../../data/ctms.json";
 import EXECUTIVES from "../../data/execs.json";
 import ALUMS from "../../data/alums.json";
 import Title from "../../components/Title.astro";
-
-export function getStaticPaths() {
-  return [
-    { params: { team: undefined } },
-    { params: { team: "ctms" } },
-    { params: { team: "executives" } },
-    { params: { team: "advisors" } },
-  ];
-}
-
-const team = Astro.params.team;
-
-if (team == undefined) {
-  return Astro.redirect("/team/ctms");
-}
-
-let team_members = ADVISORS;
-
-switch (team) {
-  case "ctms":
-    team_members = CTMS;
-    break;
-  case "executives":
-    team_members = EXECUTIVES;
-    break;
-  case "advisors":
-    team_members = ADVISORS;
-    break;
-}
 ---
 
 <Layout title="Meet our Team">
@@ -46,34 +19,14 @@ switch (team) {
       <a class="mouse" href="#team"></a>
     </div>
     <h1 id="team"><Title title="Meet The Team" /></h1>
-    <TeamTab />
-    <ul role="list" class="link-card-grid">
-      {
-        team_members.length > 0 &&
-          team_members.map((member) => (
-            <TeamCard
-              name={member.name}
-              github_username={member.github_username}
-              linkedin_username={member.linkedin_username}
-              website_url={member.website_url}
-            />
-          ))
-      }
-    </ul>
+    <TeamTab client:load />
+    <TeamTable client:load>
+      <TeamList team_members={CTMS} slot='ctms' />
+      <TeamList team_members={EXECUTIVES} slot='executives' />
+      <TeamList team_members={ADVISORS} slot='advisors' />
+    </TeamTable>
     <h1><Title title="Our Alums" /></h1>
-    <ul role="list" class="link-card-grid">
-      {
-        ALUMS.length > 0 &&
-          ALUMS.map((member) => (
-            <TeamCard
-              name={member.name}
-              github_username={member.github_username}
-              linkedin_username={member.linkedin_username}
-              website_url={member.website_url}
-            />
-          ))
-      }
-    </ul>
+    <TeamList team_members={ALUMS} />
   </main>
 </Layout>
 
@@ -151,22 +104,6 @@ switch (team) {
 
     &:not(:first-of-type) {
       margin-bottom: 1rem;
-    }
-  }
-
-  .link-card-grid {
-    max-width: 1400px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
-    grid-gap: 1.5rem;
-    margin: 2rem 0;
-
-    justify-items: center;
-
-    @media (max-width: #{$screen-xl-max}) {
-      grid-template-columns: repeat(auto-fit, minmax(12ch, 1fr));
-      grid-gap: 1rem;
     }
   }
 </style>
