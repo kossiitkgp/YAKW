@@ -1,92 +1,86 @@
 [
-    {
-        "name": "Himesh Kundal",
-        "github_username": "Himesh-Kundal",
-        "linkedin_username": "himesh-kundal-140059287",
-        "website_url": ""
-    },
-    {
-        "name": "Prashanthi Peram",
-        "github_username": "Prasanthi-Peram",
-        "linkedin_username": "prashanthi7",
-        "website_url": ""
-    },
-    {
-        "name": "Devansh Gupta",
-        "github_username": "Devansh-bit",
-        "linkedin_username": "devansh308",
-        "website_url": ""
-    },
-    {
-        "name": "Bikram Ghuku",
-        "github_username": "bikram-ghuku",
-        "linkedin_username": "bikram-ghuku",
-        "website_url": "https://bikram-ghuku.github.io/portfolio/"
-    },
-    {
-        "name": "Prem Agarwal",
-        "github_username": "premagarwals",
-        "linkedin_username": "prem-agarwal-6a7b01220",
-        "website_url": "https://premagarwals.github.io"
-    },
-    {
-        "name": "Damiya Gondha",
-        "github_username": "Dami-18",
-        "linkedin_username": "damiya-gondha79",
-        "website_url": ""
-    },
-    {
-        "name": "Tegan Jain",
-        "github_username": "Majestic9169",
-        "linkedin_username": "tegan-jain-804069290",
-        "website_url": ""
-    },
-    {
-        "name": "Dhanvith Nayak",
-        "github_username": "dhanvithnayak",
-        "linkedin_username": "dhanvith-nayak-72a9b9211",
-        "website_url": ""
-    },
-    {
-        "name": "Siddharth Nema",
-        "github_username": "Siddharth-Nema",
-        "linkedin_username": "siddharth-nema-878142290",
-        "website_url": ""
-    },
-    {
-        "name": "Ananya Mondal",
-        "github_username": "Ananya-m0140",
-        "linkedin_username": "ananya-mondal-b15920280",
-        "website_url": ""
-    },
-    {
-        "name": "Mohd Faizan Khan",
-        "github_username": "Faizan2005",
-        "linkedin_username": "faizan-khan-944181290",
-        "website_url": ""
-    },
-    {
-        "name": "Mehul Kumar",
-        "github_username": "developerMehul755",
-        "linkedin_username": "mehul-kumar-615219281",
-        "website_url": ""
-    },
-    {
-        "name": "Tanush Agarwal",
-        "github_username": "tanush-128",
-        "linkedin_username": "tanush-agarwal-83893727a",
-        "website_url": "https://tanush.netlify.app/"
-    },
-    {
-        "name": "Daksh Yadav",
-        "github_username": "dakshyadav1810",
-        "linkedin_username": "dakshyadavv",
-        "website_url": ""
-    },
-    {
-        "name": "Shikhar Soni",
-        "github_username": "shikharish",
-        "linkedin_username": "shikharish",
-        "website_url": "https://shikharish.github.io/"
-    }
+  {
+    "name": "Vyshnavi Pedavalli",
+    "github_username": "Vyshnavi-Design",
+    "linkedin_username": "pedavalli-vyshnavi-68938a321",
+    "website_url": ""
+  },
+  {
+    "name": "Dipam Sen",
+    "github_username": "dipamsen",
+    "linkedin_username": "",
+    "website_url": "https://dipamsen.github.io/"
+  },
+  {
+    "name": "Harsh Raj Dubey",
+    "github_username": "harshrajdubey",
+    "linkedin_username": "harshrajdubey",
+    "website_url": ""
+  },
+  {
+    "name": "Saksham Kumar",
+    "github_username": "saksham-kumar-14",
+    "linkedin_username": "",
+    "website_url": "https://saksham-kumar-14.github.io/"
+  },
+  {
+    "name": "Poojitha Bhanu Meesala",
+    "github_username": "poojithabhanu2705",
+    "linkedin_username": "poojitha-bhanu-meesala-48059832b",
+    "website_url": ""
+  },
+  {
+    "name": "Uday Kalyan S",
+    "github_username": "uday-kalyan-s",
+    "linkedin_username": "uday-kalyan-sreenivasa-196550203",
+    "website_url": ""
+  },
+  {
+    "name": "Md Waqib Sk",
+    "github_username": "Waqibsk",
+    "linkedin_username": "waqib-sk-0619232a2",
+    "website_url": ""
+  },
+  {
+    "name": "Anshumaan Mishra",
+    "github_username": "AnshumaanMishra",
+    "linkedin_username": "anshumaan-mishra-694016321",
+    "website_url": ""
+  },
+  {
+    "name": "Shrehan Raj Singh",
+    "github_username": "shrehanrajsingh",
+    "linkedin_username": "shrehan-raj-singh-28a1a0242",
+    "website_url": ""
+  },
+  {
+    "name": "Harshit Panthi",
+    "github_username": "harshit-panthi",
+    "linkedin_username": "harshit-panthi-53840734a",
+    "website_url": ""
+  },
+  {
+    "name": "Yug Bargaway",
+    "github_username": "YugBargaway2006",
+    "linkedin_username": "yugbargaway",
+    "website_url": ""
+  },
+  {
+    "name": "Shubham Krishan",
+    "github_username": "shub-krishan208",
+    "linkedin_username": "shubham-krishan",
+    "website_url": ""
+  },
+  {
+    "name": "Rohan Kumar Sah",
+    "github_username": "rosa479",
+    "linkedin_username": "rohan-sah-a2258b323",
+    "website_url": ""
+  },
+  {
+    "name": "Aarushi Aaryan",
+    "github_username": "thegirlhacker",
+    "linkedin_username": "aarushi-aaryan-42a812257",
+    "website_url": ""
+  }
 ]
