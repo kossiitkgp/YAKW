@@ -5,10 +5,10 @@ import Icon from "./Icon.astro";
 
 interface Props extends IEvent {}
 
-const { title, description, date, time, poster_img, location, link } = Astro.props as Props;
+const { title, description, date, time, poster_img, location, id } = Astro.props as Props;
 ---
 
-<a class="card" href={link}>
+<a class="card" href={`/events/${id}`}>
   <div class="card-img-wrapper">
     <img class="card-img" src={poster_img} alt="Workshop Poster" />
   </div>
@@ -55,7 +55,8 @@ const { title, description, date, time, poster_img, location, link } = Astro.pro
 
     @include raised;
 
-    width: 28%;
+    width: 35vw;
+    max-width: 300px;
     transition: all 300ms;
 
     min-height: fit-content;
@@ -64,6 +65,8 @@ const { title, description, date, time, poster_img, location, link } = Astro.pro
     @media screen and (max-device-width: $screen-md-max) {
       width: 100%;
     }
+
+    padding: 1px;
   }
 
   .reveal-on-hover {
@@ -117,45 +120,50 @@ const { title, description, date, time, poster_img, location, link } = Astro.pro
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 0.5rem;
 
     text-align: center;
 
-    top: 75%;
+    top: 69%;
     bottom: 0;
-    padding: 0.5rem 1rem;
+    padding: 2.5rem 1rem 0rem 1rem;
 
     width: 100%;
 
     @media screen and (max-device-width: $screen-md-max) {
       bottom: 0;
-      top: auto;
-
       font-size: min(1rem, 2.8cqi);
     }
 
     .card-desc {
       color: $text-secondary;
-      font-size: min(1rem, 1cqi);
+      font-size: min(1rem, 1.2cqi);
 
       @media screen and (max-device-width: $screen-md-max) {
-        font-size: min(1rem, 2.8cqi);
+        font-size: min(2rem, 2.8cqi);
       }
     }
 
     .card-title {
-      font-size: max(1.4cqi, 1rem);
+      font-size: max(1.2cqi, 1rem);
 
       @media (max-width: #{$screen-md-max}) {
         font-size: min(1.3rem, 3.8cqi);
       }
     }
 
-    .card-footer {
-      padding-top: 1rem;
-      padding-bottom: 0.5rem;
+    .card-header {
+      border-bottom: 1px solid $accent-color;
+      padding-bottom: 1.5rem;
+      font-size: max(1.4cqi, 1rem);
 
+      @media (max-width: #{$screen-md-max}) {
+        padding-bottom: 0.5rem;
+        font-size: min(1.3rem, 3.8cqi);
+      }
+    }
+    .card-footer {
       display: flex;
       flex-direction: row;
       gap: 1rem;
@@ -164,9 +172,14 @@ const { title, description, date, time, poster_img, location, link } = Astro.pro
       fill: $accent-color;
       color: $text-primary;
 
-      border-top: 1px solid $accent-color;
+      padding-top: 0.5rem;
+      padding-bottom: 1.5rem;
 
-      font-size: min(1rem, 1cqi);
+      @media (max-width: #{$screen-md-max}) {
+        padding-bottom: 0.5rem;
+      }
+
+      font-size: min(1rem, 1.5cqi);
 
       @media screen and (max-device-width: $screen-md-max) {
         width: 100%;
