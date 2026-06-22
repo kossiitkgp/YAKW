@@ -1,0 +1,73 @@
+---
+import Section from "../components/Section.astro";
+import Layout from "../layouts/Layout.astro";
+import Title from "../components/Title.astro";
+import Eventcard from "../components/EventCard.astro";
+
+import EVENTS from "../data/events.json";
+---
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro" />
+
+<Layout title="events">
+  <div id="title-container">
+    <h1 id="title"><Title title="Events" /></h1>
+  </div>
+  <ul role="list" class="event-card-grid">
+    {
+      EVENTS.length > 0 &&
+        EVENTS.map((event) => (
+          <Eventcard
+            title={event.title}
+            description={event.description}
+            date={event.date}
+            time={event.time}
+            location={event.location}
+            poster_img={event.poster_img}
+            id={event.id}
+          />
+        ))
+    }
+  </ul>
+</Layout>
+
+<style lang="scss">
+  @import "../styles/index.scss";
+
+  #title-container {
+    font-size: 3em;
+
+    text-align: center;
+
+    margin-top: 15vh;
+    margin-right: -3rem;
+
+    @media only screen and (max-device-width: $screen-md-min) {
+      margin-right: 0;
+      font-size: 1.7em;
+    }
+  }
+
+  .event-card-grid {
+    max-width: 70%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    grid-gap: 1.5rem;
+    margin: 2rem 3.5rem 2rem 3.5rem;
+  }
+
+  @media only screen and (min-device-width: $screen-md-min) {
+    .event-card-grid {
+      max-width: 90%;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      grid-gap: 1.5rem;
+      margin: 2rem 4.5rem 2rem 4rem;
+    }
+  }
+</style>
