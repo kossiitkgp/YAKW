@@ -1,47 +1,5 @@
 [
   {
-    "name": "Jeffrey Samuel",
-    "github_username": "Signor-Koala",
-    "linkedin_username": "",
-    "website_url": ""
-  },
-  {
-    "name": "Ashwin Prasanth",
-    "github_username": "ashwinpra",
-    "linkedin_username": "ashwin-prasanth-04967a19a",
-    "website_url": ""
-  },
-  {
-    "name": "Harsh Khandeparkar",
-    "github_username": "harshkhandeparkar",
-    "linkedin_username": "harshkhandeparkar",
-    "website_url": ""
-  },
-  {
-    "name": "Yelisetty Karthikeya S M",
-    "github_username": "lurkingryuu",
-    "linkedin_username": "lurkingryuu",
-    "website_url": ""
-  },
-  {
-    "name": "Somya Kumar",
-    "github_username": "somya-kr",
-    "linkedin_username": "somya-kumar-584a55222",
-    "website_url": ""
-  },
-  {
-    "name": "Rohan Barsagade",
-    "github_username": "rohan-b-84",
-    "linkedin_username": "r-barsagade",
-    "website_url": ""
-  },
-  {
-    "name": "Nafisa Parvin",
-    "github_username": "Nafisay",
-    "linkedin_username": "nafisa-parvin-np",
-    "website_url": ""
-  },
-  {
     "name": "Swaraj Kumar Biswal",
     "github_username": "SWARAJ-42",
     "linkedin_username": "swaraj-biswal-2a8771252",
@@ -54,22 +12,10 @@
     "website_url": ""
   },
   {
-    "name": "Yogansh Sharma",
-    "github_username": "YoganshSharma",
-    "linkedin_username": "",
-    "website_url": "https://yogansh.live"
-  },
-  {
     "name": "Jai Sachdev",
     "github_username": "SachdevJai",
     "linkedin_username": "jai-sachdev-27a185231",
     "website_url": ""
-  },
-  {
-    "name": "Harshit Jain",
-    "github_username": "harshit-jain52",
-    "linkedin_username": "",
-    "website_url": "https://harshit-jain52.github.io/"
   },
   {
     "name": "Keshav Prajapati",
@@ -78,9 +24,93 @@
     "website_url": ""
   },
   {
-    "name": "Akash Mitra",
-    "github_username": "aksahmitr",
-    "linkedin_username": "akash-mitra-36a30325a",
+    "name": "Himesh Kundal",
+    "github_username": "Himesh-Kundal",
+    "linkedin_username": "himesh-kundal-140059287",
     "website_url": ""
+  },
+  {
+    "name": "Prashanthi Peram",
+    "github_username": "Prasanthi-Peram",
+    "linkedin_username": "prashanthi7",
+    "website_url": ""
+  },
+  {
+    "name": "Devansh Gupta",
+    "github_username": "Devansh-bit",
+    "linkedin_username": "devansh308",
+    "website_url": ""
+  },
+  {
+    "name": "Bikram Ghuku",
+    "github_username": "bikram-ghuku",
+    "linkedin_username": "bikram-ghuku",
+    "website_url": "https://bikram-ghuku.github.io/portfolio/"
+  },
+  {
+    "name": "Prem Agarwal",
+    "github_username": "premagarwals",
+    "linkedin_username": "prem-agarwal-6a7b01220",
+    "website_url": "https://premagarwals.github.io"
+  },
+  {
+    "name": "Damiya Gondha",
+    "github_username": "Dami-18",
+    "linkedin_username": "damiya-gondha79",
+    "website_url": ""
+  },
+  {
+    "name": "Tegan Jain",
+    "github_username": "Majestic9169",
+    "linkedin_username": "subzcuber",
+    "website_url": "https://majestic9169.github.io/"
+  },
+  {
+    "name": "Dhanvith Nayak",
+    "github_username": "dhanvithnayak",
+    "linkedin_username": "dhanvith-nayak-72a9b9211",
+    "website_url": "https://dhanvithnayak.github.io/"
+  },
+  {
+    "name": "Siddharth Nema",
+    "github_username": "Siddharth-Nema",
+    "linkedin_username": "siddharth-nema-878142290",
+    "website_url": ""
+  },
+  {
+    "name": "Ananya Mondal",
+    "github_username": "Ananya-m0140",
+    "linkedin_username": "ananya-mondal-b15920280",
+    "website_url": ""
+  },
+  {
+    "name": "Mohd Faizan Khan",
+    "github_username": "Faizan2005",
+    "linkedin_username": "faizan-khan-944181290",
+    "website_url": ""
+  },
+  {
+    "name": "Mehul Kumar",
+    "github_username": "developerMehul755",
+    "linkedin_username": "mehul-kumar-615219281",
+    "website_url": ""
+  },
+  {
+    "name": "Tanush Agarwal",
+    "github_username": "tanush-128",
+    "linkedin_username": "tanush-agarwal-83893727a",
+    "website_url": "https://tanush.netlify.app/"
+  },
+  {
+    "name": "Daksh Yadav",
+    "github_username": "dakshyadav1810",
+    "linkedin_username": "dakshyadavv",
+    "website_url": ""
+  },
+  {
+    "name": "Shikhar Soni",
+    "github_username": "shikharish",
+    "linkedin_username": "shikharish",
+    "website_url": "https://shikharish.github.io/"
   }
 ]
