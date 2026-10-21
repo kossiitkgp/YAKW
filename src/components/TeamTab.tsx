@@ -7,6 +7,8 @@ interface TabItem {
 }
 
 export default function TeamTab() {
+    const currentTab = useStore(teamTableState);
+
     const tabItems: TabItem[] = [
         { displayName: "Core Team", },
         { displayName: "Executives", },
@@ -19,7 +21,7 @@ export default function TeamTab() {
             tabItems.map((item, index) => (
             <a
               key={index}
-              className={ "heading" + (useStore(teamTableState) === item.displayName ? " active" : "") }
+              className={ "heading" + (currentTab === item.displayName ? " active" : "") }
               href="#team"
               onClick={() => teamTableState.set(item.displayName)}
             >
